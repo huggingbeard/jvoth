@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="../../css/offline/qti/theme.css" />
+	<title>Übersicht</title>
+	<script src="../../js/jquery/jquery-3.5.1.min.js" ></script>
+	<script >
+	$.noConflict();
+	jQuery(document).ready(function(){
+		jQuery("#results tbody tr").click(function (){
+		jQuery(this).addClass("success");
+		jQuery(this).siblings().removeClass("success");
+    });});
+	</script>
+</head>
+<body class="o_page_margins">
+	<h2>Übersicht</h2>
+	<a class='btn btn-default' href='../../index.html'><i class="o_icon o_icon_back o_icon-fw"> </i> Zurück</a>
+	<div id="o_main">
+		<table id='oneUser' class='table table-striped table-hover'>
+			<thead>
+				<tr>
+					<th scope="col">Benutzername</th>
+					<th scope="col">Nachname</th>
+					<th scope="col">Vorname</th>
+					<th scope="col">Email</th>
+					<th scope="col">Kursbaustein Punkte</th>
+					<th scope="col">Kursbaustein Bestanden</th>
+					<th scope="col">Versuche</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>mingrui</td>
+					<td>Zhang</td>
+					<td>Mingrui</td>
+					<td>mingrui.zhang@uzh.ch</td>
+					<td>0</td>
+					<td></td>
+					<td>1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<table id='results' class='table table-striped table-hover'>
+			<thead>
+				<tr>
+					<th colspan="8" scope="col">Test Versuche</th>
+				</tr>
+				<tr>
+					<th scope="col">ID </th>
+					<th scope="col">Datum</th>
+					<th scope="col">Dauer</th>
+					<th scope="col">Punkte</th>
+					<th scope="col">Manuell Punkte</th>
+					<th scope="col">Endgültige Punkte</th>
+					<th scope="col">Bestanden</th>
+					<th scope="col">Anzeigen</th>					
+				</tr>
+			</thead>
+			<tbody>
+				<tr onclick="window.open('Versuch_1/22512.html','_blank');">
+					<td>22512</td>
+					<td>2022-01-12 08:15:26</td>
+					<td>00:59:22</td>
+					<td>0</td>
+					<td></td>
+					<td>0</td>
+					<td></td>	
+					<td><span class="btn btn-default btn-sm">Anzeigen</span></td>								
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
