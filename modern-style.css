@@ -229,6 +229,13 @@ nav a:hover {
 }
 
 /* Biography Page */
+.bio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
 .bio-content {
     max-width: 900px;
     margin: 0 auto;
@@ -258,8 +265,8 @@ nav a:hover {
     border-radius: 4px;
     text-decoration: none;
     font-weight: 500;
-    margin: 2rem 0;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .cv-link:hover {
@@ -295,6 +302,51 @@ nav a:hover {
 .news-list a:hover {
     color: var(--link-hover);
     text-decoration: underline;
+}
+
+/* Tab Interface */
+.tabs-container {
+    margin-bottom: 2rem;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    bottom: -2px;
+}
+
+.tab-button:hover {
+    color: var(--accent-color);
+    background-color: var(--light-gray);
+}
+
+.tab-button.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
 }
 
 /* Responsive Design */
