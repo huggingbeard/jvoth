@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest Papers - Hans-Joachim Voth">
+    <title>Latest Papers | Hans-Joachim Voth</title>
+    <link rel="stylesheet" href="modern-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Abstract toggle functionality
+            $(".abstract-toggle").click(function() {
+                var targetId = $(this).data("target");
+                $("#" + targetId).slideToggle("slow");
+
+                if ($(this).text().indexOf('▼') > -1) {
+                    $(this).html('Abstract &#x25B2;');
+                } else {
+                    $(this).html('Abstract &#x25BC;');
+                }
+            });
+
+            // Tab functionality
+            $(".tab-button").click(function() {
+                var targetTab = $(this).data("tab");
+
+                // Remove active class from all buttons and content
+                $(".tab-button").removeClass("active");
+                $(".tab-content").removeClass("active");
+
+                // Add active class to clicked button and corresponding content
+                $(this).addClass("active");
+                $("#" + targetTab).addClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">Hans-Joachim Voth</a></h1>
+            <h2>UBS Foundation Professor of Economics, University of Zurich</h2>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="latest-papers.html">Latest Papers</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="publications.html">Main Publications</a></li>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="bio.html">Bio & CV</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="https://scholar.google.com/citations?user=akHj7B0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Latest Papers</h1>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="forthcoming">Forthcoming</button>
+                <button class="tab-button" data-tab="revisions">Revisions</button>
+                <button class="tab-button" data-tab="working">Working Papers</button>
+            </div>
+
+            <!-- Forthcoming Tab -->
+            <div id="forthcoming" class="tab-content active">
+                <ul class="publications-list">
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://www.aeaweb.org/articles?id=10.1257/app.20180816&from=f">Highway to Hitler</a> [with Nico Voigtländer],
+                            <em>American Economic Journal: Applied</em>, forthcoming.
+                            [<a href="https://www.nber.org/system/files/working_papers/w20150/w20150.pdf">NBER wp</a>]
+                            [<a href="https://cepr.org/publications/dp9983">CEPR wp</a>]
+                            [<a href="https://www.bloomberg.com/news/articles/2014-06-06/how-highway-construction-helped-hitler-rise-to-power">Bloomberg</a>]
+                            [<a href="https://voxeu.org/article/nazi-pork-and-popularity-how-hitler-s-roads-won-german-hearts-and-minds">VoxEU</a>]
+                            <button class="abstract-toggle" data-target="abstract1">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract1">
+                            <p>Can infrastructure investment win "hearts and minds"? We analyze a famous case in the early stages of dictatorship—the building of the motorway network in Nazi Germany. The Autobahn was one of the most important projects of the Hitler government. It was intended to reduce unemployment, and was widely used for propaganda purposes. We examine its role in increasing support for the NS regime by analyzing new data on motorway construction and the 1934 plebiscite, which gave Hitler great powers as head of state. Our results suggest that road building was highly effective, reducing opposition to the nascent Nazi regime.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2025/twerp_1541-_becker.pdf">Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package</a> [with David Boll, Sascha Becker],
+                            forthcoming, <em>Stata Journal</em>
+                            [<a href="https://github.com/pdavidboll/SPUR">Github</a>]
+                            <button class="abstract-toggle" data-target="abstract2">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract2">
+                            <p>Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques. Our commands exactly replicate results in Mueller and Watson (2024) using the same Chetty (2014) data. We present a brief practitioner's guide for applied researchers.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="pub-title">
+                            <a href="http://www.jvoth.com/GoingViral_May2025.pdf">Going Viral: Protests and Political Polarization in 1932 Hamburg</a> [with Marcel Caesmann, Bruno Caprettini, David Yanagizawa-Drott],
+                            May 2025. conditionally accepted, <em>Journal of the European Economic Association</em>
+                            <button class="abstract-toggle" data-target="abstract3a">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract3a">
+                            <p>Political polarization is a growing concern in many countries; are mass protests merely a sign of increasing cleavages, or do they polarize societies? In this paper, we estimate the impact of Nazi marches in 1932 Hamburg, using granular data from 622 voting precincts during six elections. We show that propaganda can persuade, but it does so by raising the share of areas with very high Nazi support. Importantly, marches can also backfire and repel voters. Thus, protest marches lead to polarization. These effects diffused through social networks, measured as contagion patterns across neighborhoods defined by overlap in exposure to the 1918 Spanish flu outbreak. The electoral effects of these social spillovers are of similar magnitude as direct exposure, and grow over time.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Revisions Tab -->
+            <div id="revisions" class="tab-content">
+                <ul class="publications-list">
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://www.jvoth.com/images_july_24.pdf">Image(s)</a> [with David Yanagizawa-Drott], February 2023; updated July 2024.
+                            revision requested, <em>Quarterly Journal of Economics</em>
+                            [<a href="https://www.jvoth.com/Images Podcast.wav">AI-generated podcast</a>]
+                            <button class="abstract-toggle" data-target="abstract4">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract4">
+                            <p>From clothes and hairstyles to fashion accessories, humans use a range of stylistic elements to express themselves, impress others, demonstrate their individualism, or show that they belong to a group. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. Despite its central importance as a form of social interaction and self-expression, and a rich body of theoretical work, empirical work on style choices is rare. We measure similarity over time and space, tracking the timing and location of influential style innovations. To illustrate our methods, we systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style. We document a striking convergence of male and female style characteristics. This is driven by rising male individualism and declining male persistence across generations from the late 1960s onwards. Also, style polarization increases sharply across commuting zones from the 1970s onwards. In addition, we develop a novel measure of style innovation and show that it predicts patenting by cohorts later in life, suggestive of broader societal trends facilitating innovation across a range of domains. Overall, our results highlight the usefulness of images as a source for cultural economics.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://www.dropbox.com/s/lwh99jmylx62p8y/integrated_v1.pdf?dl=0">Fighting for Growth: Labor Scarcity and Technological Progress During the British Industrial Revolution</a> [with Bruno Caprettini and Alex Trew],
+                            Dec 2022, revision requested, <em>American Economic Review</em>
+                            [<a href="https://hub.cepr.org/published-discussion-paper/181527">CEPR wp</a>]
+                            [<a href="http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a>]
+                            [<a href="https://blogs.faz.net/fazit/2022/12/31/der-sieg-der-dreschmaschine-13003/">FAZ</a>]
+                            <button class="abstract-toggle" data-target="abstract5">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract5">
+                            <p>We collect new data and present new evidence on the effects of labor scarcity on the adoption of labor-saving technology in industrializing England. Where the British armed forces recruited heavily, more machines that economized on labor were adopted. For purposes of identification, we focus on naval recruitment. Using warships' ease of access to coastal locations as an instrument, we show that exogenous shocks to labor scarcity led to technology adoption. The same shocks are only weakly associated with the adoption of non-labor saving technologies. Importantly, there is also a synergy between skill abundance and labor scarcity boosting technology adoption. Where labor shortages led to the adoption of labor-saving machines, technology afterwards improved more rapidly.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="pub-title">
+                            <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">Slavery and the British Industrial Revolution</a> [with Stephan Heblich, Steve Redding],
+                            August 2022, revision requested, <em>Review of Economic Studies</em>
+                            [<a href="https://www.jvoth.com/Slavery.wav">AI-generated podcast</a>]
+                            [<a href="https://www.jvoth.com/w30451.pdf">NBER wp</a>]
+                            [<a href="https://cepr.org/publications/dp17783">CEPR wp</a>]
+                            [<a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">VoxEU podcast</a>]
+                            [<a href="http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a>]
+                            [<a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">TradeTalks</a>]
+                            <button class="abstract-toggle" data-target="abstract6">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract6">
+                            <p>Did overseas slave-holding by Britons accelerate the Industrial Revolution? We provide theory and evidence on the contribution of slave wealth to Britain's growth prior to 1835. We compare areas of Britain with high and low exposure to the colonial plantation economy, using granular data on wealth from compensation records. Before the major expansion of slave holding from the 1640s onwards, both types of area exhibited similar levels of economic activity. However, by the 1830s, slavery wealth is strongly correlated with economic development – slave-holding areas are less agricultural, closer to cotton mills, and have higher property wealth. We rationalize these findings using a dynamic spatial model, where slavery investment raises the return to capital accumulation, expanding production in capital-intensive sectors. To establish causality, we use arguably exogenous variation in slave mortality on the passage from Africa to the Indies, driven by weather shocks. We show that weather shocks influenced the continued involvement of ancestors in the slave trade; weather-induced slave mortality of slave-trading ancestors in each area is strongly predictive of slaveholding in 1833. Quantifying our model using the observed data, we find that Britain would have been substantially poorer and more agricultural in the absence of overseas slave wealth. Overall, our findings are consistent with the view that slavery wealth accelerated Britain's industrial revolution.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Working Papers Tab -->
+            <div id="working" class="tab-content">
+                <ul class="publications-list">
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://www.jvoth.com/Legacy.pdf">Legacy on Deck: Skill Transmission and Occupational Dynasties in the Royal Navy</a> [with Guo Xu]
+                            <button class="abstract-toggle" data-target="abstract7">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract7">
+                            <p>Do occupational dynasties reflect the intergenerational transmission of skills or nepotism? We use detailed data on the fighting record of the 18th century Royal Navy to show that sons of navy officers are markedly more successful than non-legacies, outperforming in terms of enemy captures by a third. This performance differential is not due to better equipment or more favorable assignments, and also holds for those whose patron has passed away. We provide evidence for positive selection as a channel through which the outperformance is sustained -- sons of successful officers are more likely to join and be promoted in the navy. Consistent with vertical transmission, we use computer vision to analyze facial landmarks from over 1,000 portraits. We find that sons of service inherited traits predictive of greater success in naval warfare.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://www.jvoth.com/alh.pdf">American Life Histories</a> [with David Lagakos, Stelios Michalopoulos], April 2025.
+                            [<a href="https://www.nber.org/papers/w33373">NBER version</a>]
+                            [<a href="https://www.jvoth.com/nzz.pdf">NZZ coverage - German</a>]
+                            [<a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">VoxTalk with Tim Phillips</a>]
+                            [<a href="https://t.co/ZLjMLfs8KL">Steven Davis - Interview with Stelios</a>]
+                            <button class="abstract-toggle" data-target="abstract8">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract8">
+                            <p>What does it take to live a meaningful life? We exploit a unique corpus of over 1,300 life narratives of older Americans collected by a team of writers during the 1930s. We combine detailed human readings with large language models (LLMs) to extract systematic information on critical junctures, sources of meaning, and overall life satisfaction. Under specific conditions, LLMs can provide responses to complex questions that are indistinguishable from those of human readers, effectively passing a version of the Turing Test. We find that sources of life meaning are more varied than previous research suggested, underlining the importance of work and community contributions in addition to family and close relationships. The narratives also highlight gendered disparities, with women disproportionately citing adverse family events, such as the loss of a parent, underscoring their role as keepers of the kin. Our research expands our understanding of human flourishing during a transformative period in American history and establishes a robust and scalable framework for quantifying subjective well-being and human experiences across diverse historical and cultural contexts.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://www.dropbox.com/s/jklmvcswixu3lhi/Shallow_Christianity%20%2820%29.pdf?dl=0">From the 'Death of God' to the Rise of Hitler</a> [with Sascha O. Becker], February 2023; updated October 2023.
+                            [<a href="https://cepr.org/publications/dp18543">CEPR dp</a>]
+                            <button class="abstract-toggle" data-target="abstract9">Abstract ▼</button>
+                        </p>
+                        <div class="abstract-content" id="abstract9">
+                            <p>Can weakened religiosity lead to the rise of totalitarianism? The Nazi Party set itself up as a political religion, emphasizing redemption, sacrifice, rituals, and communal spirit. This had a major impact on its success: Where the Christian Church only had shallow roots, the Nazis received higher electoral support and saw more party entry. "Shallow Christianity" reflects the geography of medieval Christianization and the strength of pagan practices, which we use as sources of exogenous variation. We also find predictive power at the individual level: Within each municipality, the likelihood of joining the Nazi Party was higher for those with less Christian first names.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Hans-Joachim Voth | All content</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Books - Hans-Joachim Voth">
+    <title>Books | Hans-Joachim Voth</title>
+    <link rel="stylesheet" href="modern-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".abstract-toggle").click(function() {
+                var targetId = $(this).data("target");
+                $("#" + targetId).slideToggle("slow");
+
+                if ($(this).text().indexOf('▼') > -1) {
+                    $(this).html('Abstract &#x25B2;');
+                } else {
+                    $(this).html('Abstract &#x25BC;');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">Hans-Joachim Voth</a></h1>
+            <h2>UBS Foundation Professor of Economics, University of Zurich</h2>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="latest-papers.html">Latest Papers</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="publications.html">Main Publications</a></li>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="bio.html">Bio & CV</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="https://scholar.google.com/citations?user=akHj7B0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Books</h1>
+
+        <ul class="publications-list">
+            <li>
+                <p class="pub-title">
+                    <a href="http://www.oxfordscholarship.com/view/10.1093/acprof:oso/9780199944279.001.0001/acprof-9780199944279"><em>Prometheus Shackled: Goldsmith Banks and England's Financial Revolution after 1700</em></a>
+                    [with Peter Temin], Oxford/New York: Oxford University Press. 2013.
+                    <button class="abstract-toggle" data-target="book1">Abstract ▼</button>
+                </p>
+                <div class="abstract-content" id="book1">
+                    <p>Between 1700 and 1830, the British economy was transformed. It became markedly more industrial, and new industries grew in the North. A famous body of work in economic history attributes the rise of the first industrial nation to the Glorious Revolution of 1688 and associated institutional improvements. In this book, we examine the joint effects of two other factors that characterized the British state fiscal repression and war finance. In combination, these made it impossible for the financial system to perform its most basic function to transfer resources from people with funds to those with ideas. Very far from boosting growth, tight rules on banking and the demands of financing numerous expensive wars did much to stifle growth in the UK. We document how government intervention in financial markets slowed down the Industrial Revolution using evidence from the Hoares Bank archive, demonstrating the effects of the usury laws, partnership limitations, and the demands of war finance.</p>
+                </div>
+            </li>
+
+            <li>
+                <p class="pub-title">
+                    <a href="http://press.princeton.edu/titles/10084.html"><em>Lending to the Borrower from Hell: Debt, Taxes, and Default in the Age of Philip II</em></a>
+                    [with Mauricio Drelichman], Princeton: Princeton University Press. 2014.
+                    <button class="abstract-toggle" data-target="book2">Abstract ▼</button>
+                </p>
+                <div class="abstract-content" id="book2">
+                    <p>Why do lenders extend credit to sovereigns despite many defaults in the past, often by the same borrowers? In this book, we examine one famous historical case the debts and defaults of Philip II of Spain. He ruled over one of the largest empires in history. Philip also defaulted four times during his long reign. We first examine his fiscal position. We present the earliest reconstruction of full fiscal accounts in history, and show that Philips debts were sustainable. We also show that lending to him despite the defaults was profitable. What made lending to a powerful monarch possible was a particular network structure amongst lenders effectively a coalition of Genoese bankers who imposed moratoria on the king whenever he defaulted.</p>
+                </div>
+            </li>
+
+            <li>
+                <p class="pub-title">
+                    <a href="https://www.amazon.com/England-1750-1830-Oxford-Historical-Monographs/dp/0199241945"><em>Time and Work in England, 1750-1830</em></a>,
+                    Oxford: Oxford University Press. 2001.
+                    <button class="abstract-toggle" data-target="book3">Abstract ▼</button>
+                </p>
+                <div class="abstract-content" id="book3">
+                    <p>Did working hours increase during the Industrial Revolution? Many critics of capitalism believed that long working hours were one of the main form of exploitation. In this book, I assemble new evidence on working patterns, derived from witnesses accounts in the Old Bailey Session papers. I find that hours worked increased substantially, both because old holidays fell into disuse and because Blue Monday largely disappeared. One important implication is that growth after 1770 was driven by rising labor input the role of productivity growth in explaining overall output performance is correspondingly lower.</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Hans-Joachim Voth | All content</p>
+        </div>
+    </footer>
+</body>
+</html>
