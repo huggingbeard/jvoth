@@ -73,6 +73,7 @@ nav ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    padding-left: calc(20px - 1.25rem);
 }
 
 nav li {
@@ -87,10 +88,6 @@ nav a {
     font-weight: 500;
     transition: all 0.3s ease;
     border-bottom: 3px solid transparent;
-}
-
-nav li:first-child a {
-    padding-left: 0;
 }
 
 nav a:hover {
