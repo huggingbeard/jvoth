@@ -34,14 +34,14 @@ body {
 header {
     background-color: var(--primary-color);
     color: white;
-    padding: 1.5rem 0 0.75rem 0;
-    margin-bottom: 0;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
 }
 
 header h1 {
     font-size: 2.5rem;
     font-weight: 600;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 header h1 a {
@@ -57,12 +57,12 @@ header h2 {
 
 /* Navigation */
 nav {
-    background-color: var(--primary-color);
-    border-bottom: none;
+    background-color: white;
+    border-bottom: 2px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 nav ul {
@@ -81,22 +81,18 @@ nav li {
 
 nav a {
     display: block;
-    padding: 0.75rem 1.25rem;
-    color: rgba(255, 255, 255, 0.8);
+    padding: 1rem 1.5rem;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
     border-bottom: 3px solid transparent;
 }
 
-nav li:first-child a {
-    padding-left: 0;
-}
-
 nav a:hover {
-    color: #fff;
+    color: var(--accent-color);
     border-bottom-color: var(--accent-color);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--light-gray);
 }
 
 /* Landing Page Specific */
@@ -147,19 +143,13 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
-/* Main content spacing */
-main {
-    padding-top: 2rem;
-}
-
 /* Content Pages */
 .page-title {
-    color: var(--accent-color);
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0;
-    border-bottom: none;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent-color);
 }
 
 .page-header-only {
@@ -396,7 +386,7 @@ main {
     }
 
     nav a {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid var(--border-color);
     }
 
     header h1 {
