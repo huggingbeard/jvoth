@@ -177,13 +177,7 @@ main {
 }
 
 .publications-list li {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.publications-list li:last-child {
-    border-bottom: none;
+    margin-bottom: 0.75rem;
 }
 
 .pub-title {
