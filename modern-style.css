@@ -374,6 +374,40 @@ main {
     display: block;
 }
 
+/* Hamburger menu button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .landing-content {
@@ -387,21 +421,36 @@ main {
         margin: 0 auto;
     }
 
+    nav {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
         gap: 0;
+        display: none;
+        padding-left: 20px;
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav a {
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 0.75rem 0;
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     header h2 {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .students-list {

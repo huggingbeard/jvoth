@@ -17,6 +17,7 @@
     </header>
 
     <nav>
+        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="latest-papers.html">Latest Papers</a></li>
@@ -72,6 +73,7 @@
         </div>
     </main>
 
+    <script>document.querySelector('.menu-toggle').addEventListener('click',function(){this.classList.toggle('active');document.querySelector('nav ul').classList.toggle('active')});</script>
     <footer>
         <div class="container">
             <p>&copy; Hans-Joachim Voth | All content</p>
