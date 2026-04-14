@@ -137,18 +137,18 @@
         }
 
         main {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
 
         .page-title {
             font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 400;
             color: var(--navy);
-            margin-top: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
             border-bottom: 1px solid var(--burgundy);
         }
 
@@ -156,9 +156,7 @@
             font-family: 'Source Sans 3', sans-serif;
             font-size: 1rem;
             color: var(--text-light);
-            margin-bottom: 3rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--burgundy);
+            margin-bottom: 1.5rem;
         }
 
         .publications-list {
@@ -166,20 +164,15 @@
         }
 
         .publications-list > li {
-            margin-bottom: 1.8rem;
-            padding-bottom: 1.8rem;
-            border-bottom: 1px solid var(--parchment-dark);
-        }
-
-        .publications-list > li:last-child {
-            border-bottom: none;
+            margin-bottom: 1rem;
+            padding-bottom: 0;
         }
 
         .pub-title {
             font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.15rem;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            display: inline;
         }
 
         .pub-title a {
@@ -196,7 +189,8 @@
             font-family: 'Source Sans 3', sans-serif;
             font-size: 0.95rem;
             color: var(--text-light);
-            margin-bottom: 0.75rem;
+            display: inline;
+            margin-left: 0.25rem;
         }
 
         .pub-meta .authors {
@@ -213,62 +207,68 @@
         }
 
         .pub-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
+            display: inline;
+            margin-left: 0.5rem;
         }
 
-        .pub-links a {
+        .pub-links a, .pub-links button {
             font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             text-decoration: none;
-            padding: 0.3rem 0.7rem;
-            border: 1px solid var(--parchment-dark);
-            border-radius: 3px;
-            transition: all 0.2s ease;
+            margin-right: 0.4rem;
         }
 
         .pub-links a:hover {
-            border-color: var(--burgundy);
             color: var(--burgundy);
-            background-color: rgba(139, 38, 53, 0.05);
+        }
+
+        .pub-links a::before {
+            content: '[';
+        }
+
+        .pub-links a::after {
+            content: ']';
         }
 
         .abstract-toggle {
             font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--burgundy);
             background: none;
-            border: 1px solid var(--burgundy);
-            padding: 0.3rem 0.7rem;
-            border-radius: 3px;
+            border: none;
+            padding: 0;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: color 0.2s ease;
         }
 
-        .abstract-toggle:hover {
-            background-color: var(--burgundy);
-            color: white;
+        .abstract-toggle::before {
+            content: '[';
+            color: var(--text-light);
         }
 
         .abstract-toggle::after {
-            content: ' +';
+            content: ' +]';
+            color: var(--text-light);
         }
 
         .abstract-toggle.open::after {
-            content: ' −';
+            content: ' −]';
+        }
+
+        .abstract-toggle:hover {
+            color: var(--burgundy-light);
         }
 
         .abstract-content {
             display: none;
-            margin-top: 1.25rem;
-            padding: 1.5rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding: 1rem 1.25rem;
             background-color: #fff;
-            border-left: 3px solid var(--burgundy);
-            font-size: 0.95rem;
-            line-height: 1.8;
+            border-left: 2px solid var(--burgundy);
+            font-size: 0.92rem;
+            line-height: 1.7;
             color: var(--text-light);
         }
 
@@ -328,191 +328,90 @@
 
         <ul class="publications-list">
             <li>
-                <p class="pub-title">
-                    <a href="https://www.aeaweb.org/articles?id=10.1257/app.20180816&from=f">Highway to Hitler</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Nico Voigtlander</span> ·
-                    <span class="journal">American Economic Journal: Applied</span> 18(1), pp. 120-159
-                    <span class="year">2026</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://www.nber.org/system/files/working_papers/w20150/w20150.pdf">NBER wp</a>
-                    <a href="https://cepr.org/publications/dp9983">CEPR wp</a>
-                    <a href="https://voxeu.org/article/nazi-pork-and-popularity-how-hitler-s-roads-won-german-hearts-and-minds">VoxEU</a>
-                    <button class="abstract-toggle" data-target="pub0">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://www.aeaweb.org/articles?id=10.1257/app.20180816&from=f">Highway to Hitler</a></span>
+                <span class="pub-meta">[with Nico Voigtlander], <span class="journal">AEJ: Applied</span> 18(1) <span class="year">2026</span></span>
+                <span class="pub-links"><a href="https://www.nber.org/system/files/working_papers/w20150/w20150.pdf">NBER</a><a href="https://voxeu.org/article/nazi-pork-and-popularity-how-hitler-s-roads-won-german-hearts-and-minds">VoxEU</a><button class="abstract-toggle" data-target="pub0">Abstract</button></span>
                 <div class="abstract-content" id="pub0">
                     <p>Can infrastructure investment win "hearts and minds"? We analyze a famous case in the early stages of dictatorship—the building of the motorway network in Nazi Germany. The Autobahn was one of the most important projects of the Hitler government. It was intended to reduce unemployment, and was widely used for propaganda purposes. We examine its role in increasing support for the NS regime by analyzing new data on motorway construction and the 1934 plebiscite, which gave Hitler great powers as head of state. Our results suggest that road building was highly effective, reducing opposition to the nascent Nazi regime.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">New Deal, New Patriots: How 1930s Government Spending Boosted Patriotism during WW II</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Bruno Caprettini</span> ·
-                    <span class="journal">Quarterly Journal of Economics</span> 138(1), pp. 465-513
-                    <span class="year">2023</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://cepr.org/voxeu/columns/new-deal-new-patriots-how-roosevelts-welfare-programmes-made-america-great-again">VoxEU</a>
-                    <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3A8CBI">Data</a>
-                    <button class="abstract-toggle" data-target="pub1">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">New Deal, New Patriots</a></span>
+                <span class="pub-meta">[with Bruno Caprettini], <span class="journal">QJE</span> 138(1) <span class="year">2023</span></span>
+                <span class="pub-links"><a href="https://cepr.org/voxeu/columns/new-deal-new-patriots-how-roosevelts-welfare-programmes-made-america-great-again">VoxEU</a><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3A8CBI">Data</a><button class="abstract-toggle" data-target="pub1">Abstract</button></span>
                 <div class="abstract-content" id="pub1">
-                    <p>We demonstrate an important complementarity between patriotism and public good provision. After 1933, the New Deal led to an unprecedented expansion of the US federal government's role. Those who benefited from social spending were markedly more patriotic during WW II: they bought more war bonds, volunteered more and, as soldiers, won more medals. This pattern was new -- WW I volunteering did not show the same geography of patriotism. We match military service records with the 1940 census to show that this pattern holds at the individual level.</p>
+                    <p>We demonstrate an important complementarity between patriotism and public good provision. After 1933, the New Deal led to an unprecedented expansion of the US federal government's role. Those who benefited from social spending were markedly more patriotic during WW II: they bought more war bonds, volunteered more and, as soldiers, won more medals.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="https://www.jvoth.com/fv-reprisals.pdf">Collective Remembrance and Private Choice: German-Greek Conflict and Consumer Behavior in Times of Crisis</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Vicky Fouka</span> ·
-                    <span class="journal">American Political Science Review</span> 117(3), pp. 851-870
-                    <span class="year">2023</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://voxeu.org/article/massacre-memories-german-car-sales-and-ez-crisis-greece">VoxEU</a>
-                    <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZS9QEC">Data</a>
-                    <button class="abstract-toggle" data-target="pub2">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://www.jvoth.com/fv-reprisals.pdf">Collective Remembrance and Private Choice</a></span>
+                <span class="pub-meta">[with Vicky Fouka], <span class="journal">APSR</span> 117(3) <span class="year">2023</span></span>
+                <span class="pub-links"><a href="https://voxeu.org/article/massacre-memories-german-car-sales-and-ez-crisis-greece">VoxEU</a><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZS9QEC">Data</a><button class="abstract-toggle" data-target="pub2">Abstract</button></span>
                 <div class="abstract-content" id="pub2">
                     <p>How is collective memory formed and when does it impact behavior? During World War II, German troops occupying Greece carried out numerous massacres, often as reprisals for partisan attacks. During the recent Greek sovereign debt crisis, political conflict erupted between the German and Greek governments; German car sales in Greece declined. Reductions were greatest in areas affected by German reprisals.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">Financial Crises and Political Radicalization: How Failing Banks Paved Hitler's Path to Power</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Sebastian Doerr, Stefan Gissler, Jose-Luis Peydro</span> ·
-                    <span class="journal">Journal of Finance</span> 77(6), pp. 3339-3372
-                    <span class="year">2022</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://voxeu.org/article/financial-crisis-and-right-wing-extremism-germany-1931-33">VoxEU</a>
-                    <a href="https://www.jvoth.com/JOF_final.pdf">Working Paper</a>
-                    <a href="datasets/financial-crises/jofi13166-sup-0002-replicationcode.zip">Data</a>
-                    <button class="abstract-toggle" data-target="pub3">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">Financial Crises and Political Radicalization</a></span>
+                <span class="pub-meta">[with Doerr, Gissler, Peydro], <span class="journal">J. Finance</span> 77(6) <span class="year">2022</span></span>
+                <span class="pub-links"><a href="https://voxeu.org/article/financial-crisis-and-right-wing-extremism-germany-1931-33">VoxEU</a><a href="datasets/financial-crises/jofi13166-sup-0002-replicationcode.zip">Data</a><button class="abstract-toggle" data-target="pub3">Abstract</button></span>
                 <div class="abstract-content" id="pub3">
                     <p>Do financial crises radicalize voters? We study Germany's 1931 banking crisis, collecting new data on bank branches and firm-bank connections. Exploiting cross-sectional variation in pre-crisis exposure to the bank at the center of the crisis, we show that Nazi votes surged in locations more affected by its failure.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">Killer Incentives: Status Competition and Pilot Performance during World War II</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Philipp Ager, Leo Bursztyn, Lukas Leucht</span> ·
-                    <span class="journal">Review of Economic Studies</span> 89(5), pp. 2257-2292
-                    <span class="year">2022</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://voxeu.org/article/how-status-competition-killed-german-wwii-fighter-pilots">VoxEU</a>
-                    <a href="https://www.nber.org/digest/mar17/w22992.shtml">NBER Digest</a>
-                    <a href="https://zenodo.org/records/5518208">Data</a>
-                    <button class="abstract-toggle" data-target="pub4">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">Killer Incentives</a></span>
+                <span class="pub-meta">[with Ager, Bursztyn, Leucht], <span class="journal">REStud</span> 89(5) <span class="year">2022</span></span>
+                <span class="pub-links"><a href="https://voxeu.org/article/how-status-competition-killed-german-wwii-fighter-pilots">VoxEU</a><a href="https://zenodo.org/records/5518208">Data</a><button class="abstract-toggle" data-target="pub4">Abstract</button></span>
                 <div class="abstract-content" id="pub4">
                     <p>Using newly-collected data on death rates and aerial victories of more than 5,000 German fighter pilots during World War II, we examine the effects of public recognition on performance and risk-taking. When a particular pilot is honored publicly, both the victory rate and the death rate of his former peers increase.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="https://www.dropbox.com/s/5tbz2k1elylenmi/manuscript%20-%20integrated%20-%20revision%202b.pdf?dl=0">Sweet Diversity: Colonial Goods and the Welfare Gains from Global Trade after 1492</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Jonathan Hersh</span> ·
-                    <span class="journal">Explorations in Economic History</span> 86
-                    <span class="year">2022</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://voxeu.org/article/new-goods-malthusian-world-welfare-gains-coffee-tea-and-sugar">VoxEU</a>
-                    <a href="https://www.openicpsr.org/openicpsr/project/172801/version/V1/view">Data</a>
-                    <button class="abstract-toggle" data-target="pub5">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://www.dropbox.com/s/5tbz2k1elylenmi/manuscript%20-%20integrated%20-%20revision%202b.pdf?dl=0">Sweet Diversity</a></span>
+                <span class="pub-meta">[with Jonathan Hersh], <span class="journal">Explor. Econ. Hist.</span> 86 <span class="year">2022</span></span>
+                <span class="pub-links"><a href="https://voxeu.org/article/new-goods-malthusian-world-welfare-gains-coffee-tea-and-sugar">VoxEU</a><a href="https://www.openicpsr.org/openicpsr/project/172801/version/V1/view">Data</a><button class="abstract-toggle" data-target="pub5">Abstract</button></span>
                 <div class="abstract-content" id="pub5">
                     <p>When did overseas trade start to matter for living standards? Traditional real-wage indices suggest that living standards in Europe stagnated before 1800. In this paper, we argue that welfare may have actually risen substantially, but surreptitiously, because of an influx of new goods.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="https://www.dropbox.com/s/x6w2qcltm26lisp/latest.pdf?dl=0">The Long Run Effects of Religious Persecution: Evidence from the Spanish Inquisition</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Mauricio Drelichman, Jordi Vidal-Robert</span> ·
-                    <span class="journal">Proceedings of the National Academy of Sciences</span> 118(33)
-                    <span class="year">2021</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://www.openicpsr.org/openicpsr/project/143781/version/V1/view">Data</a>
-                    <button class="abstract-toggle" data-target="pub6">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://www.dropbox.com/s/x6w2qcltm26lisp/latest.pdf?dl=0">Long Run Effects of Religious Persecution</a></span>
+                <span class="pub-meta">[with Drelichman, Vidal-Robert], <span class="journal">PNAS</span> 118(33) <span class="year">2021</span></span>
+                <span class="pub-links"><a href="https://www.openicpsr.org/openicpsr/project/143781/version/V1/view">Data</a><button class="abstract-toggle" data-target="pub6">Abstract</button></span>
                 <div class="abstract-content" id="pub6">
                     <p>Religious persecution is common in many countries around the globe. There is little evidence on its long-term effects. We collect new data from all across Spain, using information from over 67,000 trials held by the Spanish Inquisition between 1480 and 1820.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">Rage Against the Machines: Labor-Saving Technology and Unrest in Industrializing England</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Bruno Caprettini</span> ·
-                    <span class="journal">American Economic Review: Insights</span> 2, pp. 305-320
-                    <span class="year">2020</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://voxeu.org/article/rage-against-machines-new-technology-and-violent-unrest">VoxEU</a>
-                    <a href="https://www.aeaweb.org/research/thresher-machine-england-civil-revolt">AEA Research Highlight</a>
-                    <a href="https://www.openicpsr.org/openicpsr/project/117044/version/V1/view">Data</a>
-                    <button class="abstract-toggle" data-target="pub7">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">Rage Against the Machines</a></span>
+                <span class="pub-meta">[with Bruno Caprettini], <span class="journal">AER: Insights</span> 2 <span class="year">2020</span></span>
+                <span class="pub-links"><a href="https://voxeu.org/article/rage-against-machines-new-technology-and-violent-unrest">VoxEU</a><a href="https://www.openicpsr.org/openicpsr/project/117044/version/V1/view">Data</a><button class="abstract-toggle" data-target="pub7">Abstract</button></span>
                 <div class="abstract-content" id="pub7">
                     <p>Can new technology cause social instability and unrest? We examine the Captain Swing riots in 1830s England. Newly-collected data on threshing machine adoption shows that new technology was associated with both higher unemployment and more riots.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://ssrn.com/abstract=2284907">Bowling for Fascism: Social Capital and the Rise of the Nazi Party</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Shanker Satyanath, Nico Voigtlander</span> ·
-                    <span class="journal">Journal of Political Economy</span> 125, pp. 478-526
-                    <span class="year">2017</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://voxeu.org/article/bowling-adolf-how-social-capital-helped-destroy-germany-s-first-democracy">VoxEU</a>
-                    <a href="datasets/bowling-for-fascism/2014294data.zip">Data</a>
-                    <button class="abstract-toggle" data-target="pub8">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://ssrn.com/abstract=2284907">Bowling for Fascism</a></span>
+                <span class="pub-meta">[with Satyanath, Voigtlander], <span class="journal">JPE</span> 125 <span class="year">2017</span></span>
+                <span class="pub-links"><a href="https://voxeu.org/article/bowling-adolf-how-social-capital-helped-destroy-germany-s-first-democracy">VoxEU</a><a href="datasets/bowling-for-fascism/2014294data.zip">Data</a><button class="abstract-toggle" data-target="pub8">Abstract</button></span>
                 <div class="abstract-content" id="pub8">
                     <p>Social capital is often associated with desirable political and economic outcomes. This paper contributes to a growing literature on its "dark side". We examine the role of social capital in the downfall of democracy in interwar Germany.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://ssrn.com/abstract=2406493">Leverage and Beliefs: Personal Experience and Risk Taking in Margin Lending</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Peter Koudijs</span> ·
-                    <span class="journal">American Economic Review</span> 106, pp. 3367-3400
-                    <span class="year">2016</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://www.openicpsr.org/openicpsr/project/112978/version/V1/view">Data</a>
-                    <button class="abstract-toggle" data-target="pub9">Abstract</button>
+                <span class="pub-title"><a href="http://ssrn.com/abstract=2406493">Leverage and Beliefs</a></span>
+                <span class="pub-meta">[with Peter Koudijs], <span class="journal">AER</span> 106 <span class="year">2016</span></span>
+                <span class="pub-links"><a href="https://www.openicpsr.org/openicpsr/project/112978/version/V1/view">Data</a><button class="abstract-toggle" data-target="pub9">Abstract</button>
                 </div>
                 <div class="abstract-content" id="pub9">
                     <p>What determines risk-bearing capacity and the amount of leverage in financial markets? Using unique archival data on collateralized lending, we show that personal experience can affect individual risk-taking and aggregate leverage.</p>
@@ -520,277 +419,144 @@
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://tinyurl.com/q2ogyn2">Taught to Hate: Nazi Indoctrination and Anti-Semitic Beliefs in Germany</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Nico Voigtlander</span> ·
-                    <span class="journal">Proceedings of the National Academy of Sciences</span> 112, pp. 7931-7936
-                    <span class="year">2015</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub10">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://tinyurl.com/q2ogyn2">Taught to Hate</a></span>
+                <span class="pub-meta">[with Nico Voigtlander], <span class="journal">PNAS</span> 112 <span class="year">2015</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub10">Abstract</button></span>
                 <div class="abstract-content" id="pub10">
                     <p>Attempts at modifying public opinions, attitudes, and beliefs range from advertising and schooling to "brainwashing". Their effectiveness is highly controversial. In this paper, we use survey data to show that Nazi indoctrination was highly effective.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://ssrn.com/abstract=1961619">State Capacity and Military Conflict</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Nicola Gennaioli</span> ·
-                    <span class="journal">Review of Economic Studies</span> 82, pp. 1409-1448
-                    <span class="year">2015</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub11">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://ssrn.com/abstract=1961619">State Capacity and Military Conflict</a></span>
+                <span class="pub-meta">[with Nicola Gennaioli], <span class="journal">REStud</span> 82 <span class="year">2015</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub11">Abstract</button></span>
                 <div class="abstract-content" id="pub11">
                     <p>In 1500, Europe was composed of hundreds of statelets and principalities. By 1800, Europe had consolidated into a handful of powerful, centralized nation states. We build a model that simultaneously explains both the emergence of capable states and growing divergence between European powers.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1162/REST_a_00403">Numeracy and the Impact of High Food Prices in Industrializing Britain, 1780-1850</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Jorg Baten, Dorothee Crayen</span> ·
-                    <span class="journal">Review of Economics and Statistics</span> 96, pp. 418-430
-                    <span class="year">2014</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26906">Data</a>
-                    <button class="abstract-toggle" data-target="pub12">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1162/REST_a_00403">Numeracy and the Impact of High Food Prices</a></span>
+                <span class="pub-meta">[with Baten, Crayen], <span class="journal">REStat</span> 96 <span class="year">2014</span></span>
+                <span class="pub-links"><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26906">Data</a><button class="abstract-toggle" data-target="pub12">Abstract</button></span>
                 <div class="abstract-content" id="pub12">
                     <p>Using census-based data on the ability to recall one's age, we show that low levels of nutrition impaired numeracy in industrializing England, 1780 to 1850.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1257/aer.103.6.2227">How the West 'Invented' Fertility Restriction</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Nico Voigtlander</span> ·
-                    <span class="journal">American Economic Review</span> 103, pp. 2227-2264
-                    <span class="year">2013</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://www.openicpsr.org/openicpsr/project/112673/version/V1/view">Data</a>
-                    <button class="abstract-toggle" data-target="pub13">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1257/aer.103.6.2227">How the West 'Invented' Fertility Restriction</a></span>
+                <span class="pub-meta">[with Nico Voigtlander], <span class="journal">AER</span> 103 <span class="year">2013</span></span>
+                <span class="pub-links"><a href="https://www.openicpsr.org/openicpsr/project/112673/version/V1/view">Data</a><button class="abstract-toggle" data-target="pub13">Abstract</button></span>
                 <div class="abstract-content" id="pub13">
                     <p>We analyze the rise of the first socio-economic institution in history that limited fertility long before the Demographic Transition. The "European Marriage Pattern" raised the marriage age of women and ensured that many remained celibate.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1093/restud/rds034">The Three Horsemen of Riches: Plague, War and Urbanization in Early Modern Europe</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Nico Voigtlander</span> ·
-                    <span class="journal">Review of Economic Studies</span> 80, pp. 774-811
-                    <span class="year">2013</span>
-                </p>
-                <div class="pub-links">
-                    <a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Horsemen_Bairoch_Data.xlsx">Data</a>
-                    <button class="abstract-toggle" data-target="pub14">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1093/restud/rds034">Three Horsemen of Riches</a></span>
+                <span class="pub-meta">[with Nico Voigtlander], <span class="journal">REStud</span> 80 <span class="year">2013</span></span>
+                <span class="pub-links"><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Horsemen_Bairoch_Data.xlsx">Data</a><button class="abstract-toggle" data-target="pub14">Abstract</button></span>
                 <div class="abstract-content" id="pub14">
                     <p>How did Europe escape the Iron Law of Wages? We construct a simple Malthusian model with two sectors and multiple steady states, and use it to explain why European per capita incomes and urbanization rates increased during the period 1350-1700.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1093/qje/qjs019">Persecution Perpetuated: The Medieval Origins of Anti-Semitic Violence in Nazi Germany</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Nico Voigtlander</span> ·
-                    <span class="journal">Quarterly Journal of Economics</span> 127, pp. 1339-1392
-                    <span class="year">2012</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://cepr.org/voxeu/columns/geography-hate-how-anti-semitism-interwar-germany-was-influenced-medieval-mass-murder">VoxEU</a>
-                    <a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Persecution_Perpetuated_QJE_Replicate.zip">Data</a>
-                    <button class="abstract-toggle" data-target="pub15">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1093/qje/qjs019">Persecution Perpetuated</a></span>
+                <span class="pub-meta">[with Nico Voigtlander], <span class="journal">QJE</span> 127 <span class="year">2012</span></span>
+                <span class="pub-links"><a href="https://cepr.org/voxeu/columns/geography-hate-how-anti-semitism-interwar-germany-was-influenced-medieval-mass-murder">VoxEU</a><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Persecution_Perpetuated_QJE_Replicate.zip">Data</a><button class="abstract-toggle" data-target="pub15">Abstract</button></span>
                 <div class="abstract-content" id="pub15">
                     <p>How persistent are cultural traits? Using data on anti-Semitism in Germany, we find local continuity over 600 years. Jews were often blamed when the Black Death killed at least a third of Europe's population during 1348-50.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1111/j.1468-0297.2011.02442.x">Lending to the Borrower from Hell: Debt and Default in the Age of Philip II, 1556-1598</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Mauricio Drelichman</span> ·
-                    <span class="journal">Economic Journal</span> 121, pp. 1205-1227
-                    <span class="year">2011</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub16">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1111/j.1468-0297.2011.02442.x">Lending to the Borrower from Hell</a></span>
+                <span class="pub-meta">[with Mauricio Drelichman], <span class="journal">EJ</span> 121 <span class="year">2011</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub16">Abstract</button></span>
                 <div class="abstract-content" id="pub16">
                     <p>What sustained borrowing without third-party enforcement in the early days of sovereign lending? Philip II of Spain accumulated towering debts while stopping all payments to his lenders four times. How could the sovereign borrow much and default often?</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1016/j.eeh.2010.08.002">Serial Defaults, Serial Profits: Returns to Sovereign Lending in Habsburg Spain, 1566-1600</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Mauricio Drelichman</span> ·
-                    <span class="journal">Explorations in Economic History</span> 48, pp. 1-19
-                    <span class="year">2011</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub17">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1016/j.eeh.2010.08.002">Serial Defaults, Serial Profits</a></span>
+                <span class="pub-meta">[with Mauricio Drelichman], <span class="journal">Explor. Econ. Hist.</span> 48 <span class="year">2011</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub17">Abstract</button></span>
                 <div class="abstract-content" id="pub17">
                     <p>Philip II of Spain accumulated debts equivalent to 60% of GDP. He also defaulted four times on his short-term loans. Contrary to a common view, we show that lending to the king was profitable even under worst-case scenario assumptions.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.101">Betting on Hitler: The Value of Political Connections in Nazi Germany</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Thomas Ferguson</span> ·
-                    <span class="journal">Quarterly Journal of Economics</span> 123, pp. 101-137
-                    <span class="year">2008</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub18">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1162/qjec.2008.123.1.101">Betting on Hitler</a></span>
+                <span class="pub-meta">[with Thomas Ferguson], <span class="journal">QJE</span> 123 <span class="year">2008</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub18">Abstract</button></span>
                 <div class="abstract-content" id="pub18">
                     <p>This paper examines the value of connections between German industry and the Nazi movement in early 1933. Firms supporting the Nazi movement experienced unusually high returns, outperforming unconnected ones by 5% to 8%.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1111/j.1468-0297.2008.02140.x">Interest Rate Restrictions in a Natural Experiment: Loan Allocation and the Change in the Usury Laws in 1714</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Peter Temin</span> ·
-                    <span class="journal">Economic Journal</span> 118, pp. 743-758
-                    <span class="year">2008</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub19">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1111/j.1468-0297.2008.02140.x">Interest Rate Restrictions in a Natural Experiment</a></span>
+                <span class="pub-meta">[with Peter Temin], <span class="journal">EJ</span> 118 <span class="year">2008</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub19">Abstract</button></span>
                 <div class="abstract-content" id="pub19">
                     <p>This article studies the effects of interest rate restrictions on loan allocation. The British government tightened the usury laws in 1714, reducing the maximum permissible interest rate from 6% to 5%.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1007/s10887-006-9007-6">Why England? Demographic Factors, Structural Change and Physical Capital Accumulation during the Industrial Revolution</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Nico Voigtlander</span> ·
-                    <span class="journal">Journal of Economic Growth</span> 11, pp. 319-361
-                    <span class="year">2006</span>
-                </p>
-                <div class="pub-links">
-                    <a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/WhyEngland_Simulation.zip">Code</a>
-                    <button class="abstract-toggle" data-target="pub20">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1007/s10887-006-9007-6">Why England?</a></span>
+                <span class="pub-meta">[with Nico Voigtlander], <span class="journal">J. Econ. Growth</span> 11 <span class="year">2006</span></span>
+                <span class="pub-links"><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/WhyEngland_Simulation.zip">Code</a><button class="abstract-toggle" data-target="pub20">Abstract</button></span>
                 <div class="abstract-content" id="pub20">
                     <p>Why did England industrialize first? And why was Europe ahead of the rest of the world? We present a probabilistic two-sector model where the initial escape from Malthusian constraints depends on the demographic regime.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://www.jstor.org/stable/3592838">Riding the South Sea Bubble</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Peter Temin</span> ·
-                    <span class="journal">American Economic Review</span> 94, pp. 1654-1668
-                    <span class="year">2004</span>
-                </p>
-                <div class="pub-links">
-                    <a href="https://www.openicpsr.org/openicpsr/project/116029/version/V1/view">Data</a>
-                    <button class="abstract-toggle" data-target="pub21">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://www.jstor.org/stable/3592838">Riding the South Sea Bubble</a></span>
+                <span class="pub-meta">[with Peter Temin], <span class="journal">AER</span> 94 <span class="year">2004</span></span>
+                <span class="pub-links"><a href="https://www.openicpsr.org/openicpsr/project/116029/version/V1/view">Data</a><button class="abstract-toggle" data-target="pub21">Abstract</button></span>
                 <div class="abstract-content" id="pub21">
                     <p>This paper presents a case study of a well-informed investor in the South Sea bubble. We argue that Hoare's Bank knew that a bubble was in progress and nonetheless invested in the stock: it was profitable to "ride the bubble."</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://www.jstor.org/stable/3132495">With a Bang, Not a Whimper: Pricking Germany's "Stockmarket Bubble" in 1927</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="journal">Journal of Economic History</span> 63, pp. 65-99
-                    <span class="year">2003</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub22">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://www.jstor.org/stable/3132495">With a Bang, Not a Whimper</a></span>
+                <span class="pub-meta"><span class="journal">JEH</span> 63 <span class="year">2003</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub22">Abstract</button></span>
                 <div class="abstract-content" id="pub22">
                     <p>In May 1927, the German central bank intervened indirectly to reduce lending to equity investors. The crash that followed ended the only stock market boom during Germany's relative stabilization 1924-28.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1016/S0014-4983(02)00024-4">Factor Prices and Productivity Growth during the British Industrial Revolution</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Pol Antras</span> ·
-                    <span class="journal">Explorations in Economic History</span> 40, pp. 52-77
-                    <span class="year">2003</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub23">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1016/S0014-4983(02)00024-4">Factor Prices and Productivity Growth</a></span>
+                <span class="pub-meta">[with Pol Antras], <span class="journal">Explor. Econ. Hist.</span> 40 <span class="year">2003</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub23">Abstract</button></span>
                 <div class="abstract-content" id="pub23">
                     <p>This paper presents new estimates of total factor productivity growth in Britain for the period 1770-1860. We use the dual technique and argue that the estimates we derive from factor prices are of similar quality to quantity-based calculations.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1016/S0014-2921(97)00082-2">Human Capital, Equipment Investment, and Industrialization</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="authors">with Jon Temple</span> ·
-                    <span class="journal">European Economic Review</span> 42, pp. 1343-1362
-                    <span class="year">1998</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub24">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1016/S0014-2921(97)00082-2">Human Capital, Equipment Investment, and Industrialization</a></span>
+                <span class="pub-meta">[with Jon Temple], <span class="journal">Eur. Econ. Rev.</span> 42 <span class="year">1998</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub24">Abstract</button></span>
                 <div class="abstract-content" id="pub24">
                     <p>This paper constructs simple models in which industrialization is driven by human capital accumulation. Industrialization can explain the robust correlation between equipment investment and growth in developing countries.</p>
                 </div>
             </li>
 
             <li>
-                <p class="pub-title">
-                    <a href="http://dx.doi.org/10.1017/S0022050700019872">Time and Work in Eighteenth Century London</a>
-                </p>
-                <p class="pub-meta">
-                    <span class="journal">Journal of Economic History</span> 58, pp. 29-58
-                    <span class="year">1998</span>
-                </p>
-                <div class="pub-links">
-                    <button class="abstract-toggle" data-target="pub25">Abstract</button>
-                </div>
+                <span class="pub-title"><a href="http://dx.doi.org/10.1017/S0022050700019872">Time and Work in Eighteenth Century London</a></span>
+                <span class="pub-meta"><span class="journal">JEH</span> 58 <span class="year">1998</span></span>
+                <span class="pub-links"><button class="abstract-toggle" data-target="pub25">Abstract</button></span>
                 <div class="abstract-content" id="pub25">
                     <p>Witnesses' accounts are used to analyze changes in working hours between 1750 and 1800. The number of annual working hours changed rapidly between the middle and the end of the eighteenth century.</p>
                 </div>
