@@ -127,7 +127,7 @@
         }
 
         main {
-            padding-top: 4rem;
+            padding-top: 3rem;
             padding-bottom: 4rem;
         }
 
@@ -142,13 +142,16 @@
             border-bottom: 1px solid var(--burgundy);
         }
 
-        .year-section {
-            margin-bottom: 2.2rem;
+        /* Two-column layout */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
         }
 
-        .year-header {
+        .news-column h2 {
             font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 400;
             color: var(--burgundy);
             margin-bottom: 1.5rem;
@@ -156,64 +159,127 @@
             border-bottom: 1px solid var(--parchment-dark);
         }
 
-        .news-list {
-            list-style: none;
+        /* Left column: Recent Updates */
+        .year-section {
+            margin-bottom: 1.8rem;
         }
 
-        .news-list li {
-            display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 1.5rem;
-            margin-bottom: 0.9rem;
-            padding-bottom: 0.9rem;
-            border-bottom: 1px solid var(--parchment-dark);
-        }
-
-        .news-list li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .news-date {
+        .year-label {
             font-family: 'Source Sans 3', sans-serif;
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--burgundy);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
         }
 
-        .news-content {
-            font-size: 1rem;
-            line-height: 1.7;
+        .updates-list {
+            list-style: none;
         }
 
-        .news-content a {
+        .updates-list li {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--parchment-dark);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .updates-list li:last-child {
+            border-bottom: none;
+        }
+
+        .update-date {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .update-content a {
             color: var(--burgundy);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease;
         }
 
-        .news-content a:hover {
-            border-bottom-color: var(--burgundy);
+        .update-content a:hover {
+            text-decoration: underline;
         }
 
-        .news-content strong {
-            color: var(--navy);
+        /* Right column: In the News */
+        .media-list {
+            list-style: none;
+        }
+
+        .media-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--parchment-dark);
+        }
+
+        .media-item:last-child {
+            border-bottom: none;
+        }
+
+        .media-logo {
+            flex-shrink: 0;
+            width: 80px;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 0.2rem;
+        }
+
+        .media-logo img {
+            width: 100%;
+            height: auto;
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .media-item:hover .media-logo img {
+            opacity: 1;
+        }
+
+        .media-logo.text-logo {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.75rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--navy);
+            opacity: 0.7;
         }
 
-        .section-heading {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.3rem;
-            font-weight: 400;
+        .media-item:hover .media-logo.text-logo {
+            opacity: 1;
+        }
+
+        .media-content {
+            flex: 1;
+        }
+
+        .media-title {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 0.25rem;
+        }
+
+        .media-title a {
             color: var(--navy);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--burgundy);
+            text-decoration: none;
+        }
+
+        .media-title a:hover {
+            color: var(--burgundy);
+        }
+
+        .media-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
         }
 
         footer {
@@ -236,17 +302,18 @@
                 align-items: center;
             }
 
-            nav li::after {
-                display: none;
-            }
-
-            .news-list li {
+            .news-grid {
                 grid-template-columns: 1fr;
-                gap: 0.25rem;
+                gap: 3rem;
             }
 
-            .news-date {
-                font-size: 0.8rem;
+            .updates-list li {
+                grid-template-columns: 1fr;
+                gap: 0.15rem;
+            }
+
+            .media-logo {
+                width: 60px;
             }
         }
     </style>
@@ -275,215 +342,329 @@
     <main class="container">
         <h1 class="page-title">News & Updates</h1>
 
-        <div class="year-section">
-            <h2 class="year-header">2026</h2>
-            <ul class="news-list">
-                <li>
-                    <span class="news-date">April</span>
-                    <span class="news-content"><a href="https://www.economist.com">The Economist</a> features <a href="https://tinyurl.com/P1lots">"Never Enough"</a> (with Leonardo Bursztyn, Ewan Rawcliffe).</span>
-                </li>
-                <li>
-                    <span class="news-date">April</span>
-                    <span class="news-content">Delivering the Griffin Lecture at U Melbourne.</span>
-                </li>
-                <li>
-                    <span class="news-date">March</span>
-                    <span class="news-content">Coverage in <a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a> and <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">The Spectator</a> on our paper <a href="https://tinyurl.com/P1lots">"Never Enough"</a> about status incentives and German fighter pilots.</span>
-                </li>
-                <li>
-                    <span class="news-date">March</span>
-                    <span class="news-content">AER Excellence in Reviewing Award.</span>
-                </li>
-                <li>
-                    <span class="news-date">March</span>
-                    <span class="news-content">Talk at UBC Vancouver.</span>
-                </li>
-                <li>
-                    <span class="news-date">February</span>
-                    <span class="news-content">Tim Harford in <a href="https://timharford.com/2026/02/the-paradox-of-work/">FT</a> on <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> (with David Lagakos, Stelios Michalopoulos).</span>
-                </li>
-                <li>
-                    <span class="news-date">February</span>
-                    <span class="news-content">Swiss AI research grant for 50,000 GPU hours.</span>
-                </li>
-            </ul>
-        </div>
+        <div class="news-grid">
+            <!-- Left Column: Recent Updates -->
+            <div class="news-column">
+                <h2>Recent Updates</h2>
 
-        <div class="year-section">
-            <h2 class="year-header">2025</h2>
-            <ul class="news-list">
-                <li>
-                    <span class="news-date">November</span>
-                    <span class="news-content">Presenting <a href="https://tinyurl.com/P1lots">"Never Enough"</a> (joint work with Ewan Rawcliffe and Leo Bursztyn) at U Chicago Behavioral Economics Conference.</span>
-                </li>
-                <li>
-                    <span class="news-date">September</span>
-                    <span class="news-content">Presenting <a href="https://www.jvoth.com/Legacy.pdf">"Legacy on Deck"</a> (with Guo Xu) at the U Chicago AI in Social Science Conference.</span>
-                </li>
-                <li>
-                    <span class="news-date">August</span>
-                    <span class="news-content">Talks at the Econometric World Congress: <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> and panel session on publishing in economics.</span>
-                </li>
-                <li>
-                    <span class="news-date">May</span>
-                    <span class="news-content">Talk at the Brown Long-Run Growth Conference.</span>
-                </li>
-                <li>
-                    <span class="news-date">April</span>
-                    <span class="news-content">Podcasts with <a href="http://t.co/ZLjMLfs8KL">Steve Davis</a> and <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">Tim Phillips</a> on <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a>.</span>
-                </li>
-                <li>
-                    <span class="news-date">April</span>
-                    <span class="news-content">Talks at Harvard and BU.</span>
-                </li>
-                <li>
-                    <span class="news-date">March</span>
-                    <span class="news-content">Talks in Utrecht, Stockholm, and Brown.</span>
-                </li>
-                <li>
-                    <span class="news-date">February</span>
-                    <span class="news-content">Talk at the Econ Hist Group in Oxford.</span>
-                </li>
-                <li>
-                    <span class="news-date">February</span>
-                    <span class="news-content">Talk at EIEF, Rome.</span>
-                </li>
-            </ul>
-        </div>
+                <div class="year-section">
+                    <div class="year-label">2026</div>
+                    <ul class="updates-list">
+                        <li>
+                            <span class="update-date">April</span>
+                            <span class="update-content"><a href="https://www.economist.com">The Economist</a> features <a href="https://tinyurl.com/P1lots">"Never Enough"</a>.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Delivering the Griffin Lecture at U Melbourne.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">March</span>
+                            <span class="update-content">Coverage in <a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a> and <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">The Spectator</a> on <a href="https://tinyurl.com/P1lots">"Never Enough"</a> about status incentives and German fighter pilots.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">AER Excellence in Reviewing Award.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Talk at UBC Vancouver.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">February</span>
+                            <span class="update-content">Swiss AI research grant for 50,000 GPU hours.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">January</span>
+                            <span class="update-content">Out in <em>AEJ: Applied</em>: <a href="https://www.aeaweb.org/articles?id=10.1257/app.20180816">"Highway to Hitler"</a> (with Nico Voigtländer).</span>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="year-section">
-            <h2 class="year-header">2024</h2>
-            <ul class="news-list">
-                <li>
-                    <span class="news-date">November</span>
-                    <span class="news-content">Talk at the PE Group in Oxford.</span>
-                </li>
-                <li>
-                    <span class="news-date">November</span>
-                    <span class="news-content">Talk at U Bocconi.</span>
-                </li>
-                <li>
-                    <span class="news-date">September</span>
-                    <span class="news-content">Presenting <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> at the Becker-Friedman Conference on AI in the Social Sciences.</span>
-                </li>
-                <li>
-                    <span class="news-date">July</span>
-                    <span class="news-content">NBER-SI talk on <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a>.</span>
-                </li>
-                <li>
-                    <span class="news-date">June</span>
-                    <span class="news-content">Talk at LUISS, Rome.</span>
-                </li>
-            </ul>
-        </div>
+                <div class="year-section">
+                    <div class="year-label">2025</div>
+                    <ul class="updates-list">
+                        <li>
+                            <span class="update-date">November</span>
+                            <span class="update-content">Presenting <a href="https://tinyurl.com/P1lots">"Never Enough"</a> (with Ewan Rawcliffe and Leo Bursztyn) at U Chicago Behavioral Economics Conference.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">September</span>
+                            <span class="update-content">Presenting <a href="https://www.jvoth.com/Legacy.pdf">"Legacy on Deck"</a> (with Guo Xu) at U Chicago AI in Social Science Conference.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">August</span>
+                            <span class="update-content">Talks at the Econometric World Congress: <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> and panel on publishing in economics.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">May</span>
+                            <span class="update-content">Talk at the Brown Long-Run Growth Conference.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">April</span>
+                            <span class="update-content">Podcasts with <a href="http://t.co/ZLjMLfs8KL">Steve Davis</a> and <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">Tim Phillips</a> on <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a>.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Talks at Harvard and BU.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">March</span>
+                            <span class="update-content">Talks in Utrecht, Stockholm, and Brown.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">February</span>
+                            <span class="update-content">Talk at the Econ Hist Group in Oxford.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Talk at EIEF, Rome.</span>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="year-section">
-            <h2 class="year-header">2023</h2>
-            <ul class="news-list">
-                <li>
-                    <span class="news-date">May</span>
-                    <span class="news-content">Talks at U Chicago and NWU-Kellogg.</span>
-                </li>
-                <li>
-                    <span class="news-date">April</span>
-                    <span class="news-content">Presentation on <a href="https://www.jvoth.com/images_july_24.pdf">"Image(s)"</a> at the NBER Cultural Economics Spring Meeting.</span>
-                </li>
-                <li>
-                    <span class="news-date">March</span>
-                    <span class="news-content">Seminar at UNSW, Sydney.</span>
-                </li>
-                <li>
-                    <span class="news-date">March</span>
-                    <span class="news-content">Visiting Monash Business School in Melbourne.</span>
-                </li>
-                <li>
-                    <span class="news-date">January</span>
-                    <span class="news-content"><a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a> features two papers: <a href="https://www.dropbox.com/s/lwh99jmylx62p8y/integrated_v1.pdf?dl=0">"Fighting for Growth"</a> and <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
-                </li>
-                <li>
-                    <span class="news-date">January</span>
-                    <span class="news-content">Keynote at the First Bolzano Workshop on Historical Economics.</span>
-                </li>
-                <li>
-                    <span class="news-date">January</span>
-                    <span class="news-content">With Stephan Heblich on <a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">VoxEU Talk</a> about <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
-                </li>
-            </ul>
-        </div>
+                <div class="year-section">
+                    <div class="year-label">2024</div>
+                    <ul class="updates-list">
+                        <li>
+                            <span class="update-date">November</span>
+                            <span class="update-content">Talk at the PE Group in Oxford.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Talk at U Bocconi.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">September</span>
+                            <span class="update-content">Presenting <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> at the Becker-Friedman Conference on AI in the Social Sciences.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">July</span>
+                            <span class="update-content">NBER-SI talk on "American Life Histories".</span>
+                        </li>
+                        <li>
+                            <span class="update-date">June</span>
+                            <span class="update-content">Talk at LUISS, Rome.</span>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="year-section">
-            <h2 class="year-header">2022</h2>
-            <ul class="news-list">
-                <li>
-                    <span class="news-date">December</span>
-                    <span class="news-content">Steve Redding on <a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">TradeTalks</a> about <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
-                </li>
-                <li>
-                    <span class="news-date">September</span>
-                    <span class="news-content">Elected as a Fellow of the Econometric Society.</span>
-                </li>
-                <li>
-                    <span class="news-date">July</span>
-                    <span class="news-content">Keynote at ACES Summer School in London on "The End of the End of History".</span>
-                </li>
-                <li>
-                    <span class="news-date">May</span>
-                    <span class="news-content">Paper with Bruno Caprettini on <a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">"New Deal, New Patriots"</a> accepted at the <em>Quarterly Journal of Economics</em>.</span>
-                </li>
-            </ul>
-        </div>
+                <div class="year-section">
+                    <div class="year-label">2023</div>
+                    <ul class="updates-list">
+                        <li>
+                            <span class="update-date">May</span>
+                            <span class="update-content">Talks at U Chicago and NWU-Kellogg.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">April</span>
+                            <span class="update-content">Presentation on <a href="https://www.jvoth.com/images_july_24.pdf">"Image(s)"</a> at the NBER Cultural Economics Spring Meeting.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">March</span>
+                            <span class="update-content">Seminar at UNSW, Sydney.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Visiting Monash Business School in Melbourne.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">January</span>
+                            <span class="update-content"><a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a> features <a href="https://www.dropbox.com/s/lwh99jmylx62p8y/integrated_v1.pdf?dl=0">"Fighting for Growth"</a> and <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Keynote at the First Bolzano Workshop on Historical Economics.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Out in <em>American Political Science Review</em>: <a href="https://www.jvoth.com/fv-reprisals.pdf">"Collective Remembrance and Private Choice"</a> (with Vicky Fouka).</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Out in <em>Quarterly Journal of Economics</em>: <a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">"New Deal, New Patriots"</a> (with Bruno Caprettini).</span>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="year-section">
-            <h2 class="year-header">2021</h2>
-            <ul class="news-list">
-                <li>
-                    <span class="news-date">September</span>
-                    <span class="news-content"><a href="https://voxeu.org/vox-talks/propaganda-persuasion-and-nazis">Podcast interview</a> with Tim Phillips on <a href="http://www.jvoth.com/GoingViral_May2025.pdf">"Going Viral"</a>.</span>
-                </li>
-                <li>
-                    <span class="news-date">August</span>
-                    <span class="news-content"><a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">"Financial Crises and Political Radicalization"</a> forthcoming in the <em>Journal of Finance</em>.</span>
-                </li>
-                <li>
-                    <span class="news-date">July</span>
-                    <span class="news-content">Delivering the 2nd Annual Crafts Lecture at the Warwick Summer School.</span>
-                </li>
-                <li>
-                    <span class="news-date">June</span>
-                    <span class="news-content"><a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">"Killer Incentives"</a> forthcoming in the <em>Review of Economic Studies</em>.</span>
-                </li>
-            </ul>
-        </div>
+                <div class="year-section">
+                    <div class="year-label">2022</div>
+                    <ul class="updates-list">
+                        <li>
+                            <span class="update-date">December</span>
+                            <span class="update-content">Out in <em>Journal of Finance</em>: <a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">"Financial Crises and Political Radicalization"</a> (with Doerr, Gissler, Peydro).</span>
+                        </li>
+                        <li>
+                            <span class="update-date">October</span>
+                            <span class="update-content">Out in <em>Review of Economic Studies</em>: <a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">"Killer Incentives"</a> (with Ager, Bursztyn, Leucht).</span>
+                        </li>
+                        <li>
+                            <span class="update-date">September</span>
+                            <span class="update-content">Elected Fellow of the <a href="https://www.econometricsociety.org/">Econometric Society</a>.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">July</span>
+                            <span class="update-content">Keynote at ACES Summer School in London on "The End of the End of History".</span>
+                        </li>
+                        <li>
+                            <span class="update-date">May</span>
+                            <span class="update-content">Out in <em>Explorations in Economic History</em>: <a href="https://www.dropbox.com/s/5tbz2k1elylenmi/manuscript%20-%20integrated%20-%20revision%202b.pdf?dl=0">"Sweet Diversity"</a> (with Jonathan Hersh).</span>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="year-section">
-            <h2 class="year-header">2020</h2>
-            <ul class="news-list">
-                <li>
-                    <span class="news-date">October</span>
-                    <span class="news-content"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">"Rage Against the Machines"</a> conditionally accepted at <em>American Economic Review: Insights</em>.</span>
-                </li>
-                <li>
-                    <span class="news-date">March</span>
-                    <span class="news-content"><a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">The Economist</a> profiles my work on pandemics and economic growth.</span>
-                </li>
-            </ul>
-        </div>
+                <div class="year-section">
+                    <div class="year-label">2021</div>
+                    <ul class="updates-list">
+                        <li>
+                            <span class="update-date">September</span>
+                            <span class="update-content"><a href="https://voxeu.org/vox-talks/propaganda-persuasion-and-nazis">Podcast interview</a> with Tim Phillips on <a href="http://www.jvoth.com/GoingViral_May2025.pdf">"Going Viral"</a>.</span>
+                        </li>
+                        <li>
+                            <span class="update-date">July</span>
+                            <span class="update-content">Delivering the 2nd Annual Crafts Lecture at the Warwick Summer School.</span>
+                        </li>
+                        <li>
+                            <span class="update-date"></span>
+                            <span class="update-content">Out in <em>PNAS</em>: <a href="https://www.dropbox.com/s/x6w2qcltm26lisp/latest.pdf?dl=0">"The Long Run Effects of Religious Persecution"</a> (with Drelichman, Vidal-Robert).</span>
+                        </li>
+                    </ul>
+                </div>
 
-        <h2 class="section-heading">Media & Commentary</h2>
-        <ul class="news-list">
-            <li>
-                <span class="news-date">CNN</span>
-                <span class="news-content"><a href="http://edition.cnn.com/2012/11/21/business/catalonia-dutch-revolt-lessons/index.html">Op-ed</a> on parallels between the Dutch revolt and Catalan independence.</span>
-            </li>
-            <li>
-                <span class="news-date">Economist</span>
-                <span class="news-content"><a href="http://www.economist.com/node/21538699">Economic Focus</a> on process innovation paper with Tim Leunig.</span>
-            </li>
-            <li>
-                <span class="news-date">Der Spiegel</span>
-                <span class="news-content"><a href="http://www.spiegel.de/international/europe/0,1518,783281,00.html">Interview</a> on the future of the Euro.</span>
-            </li>
-        </ul>
+                <div class="year-section">
+                    <div class="year-label">2020</div>
+                    <ul class="updates-list">
+                        <li>
+                            <span class="update-date">October</span>
+                            <span class="update-content">Out in <em>American Economic Review: Insights</em>: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">"Rage Against the Machines"</a> (with Bruno Caprettini).</span>
+                        </li>
+                        <li>
+                            <span class="update-date">March</span>
+                            <span class="update-content"><a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">The Economist</a> profiles my work on pandemics and economic growth.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: In the News -->
+            <div class="news-column">
+                <h2>In the News</h2>
+                <ul class="media-list">
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.economist.com">"Never Enough" — status incentives and German fighter pilots</a>
+                            </div>
+                            <div class="media-date">April 2026</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">How the Nazis used vanity to lure pilots to their deaths</a>
+                            </div>
+                            <div class="media-date">March 2026</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://timharford.com/2026/02/the-paradox-of-work/">The Paradox of Work</a>
+                            </div>
+                            <div class="media-date">Tim Harford, February 2026</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.nzz.ch/promoted-content/warum-wirtschaftswachstum-kein-automatismus-ist-und-zerstoerung-braucht-ld.1912158">Warum Wirtschaftswachstum kein Automatismus ist</a>
+                            </div>
+                            <div class="media-date">2025</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.nzz.ch/wirtschaft/arbeit-gilt-bei-uns-als-etwas-feindseliges-kritisiert-ein-oekonom-seine-forschung-zeigt-es-gibt-nichts-besseres-fuer-ein-zufriedenes-leben-als-die-arbeit-ld.1876716">Arbeit gilt bei uns als etwas Feindseliges</a>
+                            </div>
+                            <div class="media-date">2025</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.youtube.com/watch?v=YuOpBfTSYhc">Thought Supply: Interview with Daron Acemoglu</a>
+                            </div>
+                            <div class="media-date">2024</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.faz.net/aktuell/wirtschaft/wie-sklaverei-die-industrielle-revolution-beschleunigte-18770716.html">Wie Sklaverei die industrielle Revolution beschleunigte</a>
+                            </div>
+                            <div class="media-date">2023</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.faz.net/aktuell/wirtschaft/der-sieg-der-dreschmaschine-18563760.html">Der Sieg der Dreschmaschine</a>
+                            </div>
+                            <div class="media-date">2023</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">A flurry of new studies identifies causes of the industrial revolution</a>
+                            </div>
+                            <div class="media-date">January 2023</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://spectator.com/article/did-shallow-christianity-help-the-nazis-rise-to-power/">Did shallow Christianity help the Nazis rise to power?</a>
+                            </div>
+                            <div class="media-date">January 2023</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">Slavery and the Industrial Revolution</a>
+                            </div>
+                            <div class="media-date">Podcast, January 2023</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">Did Britain's slave trade help drive its industrial revolution?</a>
+                            </div>
+                            <div class="media-date">Podcast, December 2022</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.nzz.ch/schweiz/der-feminismus-erobert-aussenpolitik-oekonomie-und-medizin-ld.1789536">Der Feminismus erobert Aussenpolitik, Okonomie und Medizin</a>
+                            </div>
+                            <div class="media-date">2021</div>
+                        </div>
+                    </li>
+                    <li class="media-item">
+                        <div class="media-content">
+                            <div class="media-title">
+                                <a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">Throughout history, pandemics have had profound economic effects</a>
+                            </div>
+                            <div class="media-date">March 2020</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
 
     <footer>
