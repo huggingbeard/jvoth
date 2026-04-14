@@ -3,10 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hans-Joachim Voth, UBS Foundation Professor of Economics, University of Zurich">
-    <title>Hans-Joachim Voth | University of Zurich</title>
-    <link rel="stylesheet" href="modern-style.css?v=3">
+    <meta name="description" content="Hans-Joachim Voth - UBS Foundation Professor of Economics, University of Zurich">
+    <title>Hans-Joachim Voth | Economist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --header-bg: #1d4e5f;
+            --navy: #1d4e5f;
+            --navy-light: #2a6175;
+            --burgundy: #b87333;
+            --burgundy-dark: #9a5f2a;
+            --parchment: #faf9f7;
+            --parchment-dark: #e8e4df;
+            --text: #2a2a2a;
+            --text-light: #5a5a5a;
+        }
+
+        body {
+            font-family: 'Source Sans 3', Georgia, serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--parchment);
+            font-size: 17px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 2.5rem 0 2rem;
+        }
+
+        header .container {
+            text-align: left;
+        }
+
+        header h1 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header h2 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            background-color: var(--header-bg);
+            padding-bottom: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 0;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-left: calc(40px - 1.25rem);
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav li:not(:last-child)::after {
+            display: none;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav li:first-child a {
+            padding-left: 0;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        main {
+            padding-top: 5.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .landing-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-section {
+            position: relative;
+            padding-top: 3.8rem;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%) contrast(1.05);
+            margin-bottom: 1.9rem;
+        }
+
+        .contact-info {
+            background-color: #fff;
+            padding: 1.1rem 1.5rem;
+            border-left: 3px solid var(--burgundy);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .contact-info strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .summary-section {
+            padding-top: 3.8rem;
+        }
+
+        .page-title {
+            display: none;
+        }
+
+        .summary-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .summary-section p:first-of-type {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--navy);
+        }
+
+        .summary-section p:first-of-type::first-letter {
+            font-size: 4.2rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.1em;
+            margin-top: 0.08em;
+            padding-right: 0.05em;
+            color: var(--burgundy);
+            font-weight: 700;
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--parchment-dark);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .landing-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-section {
+                max-width: 280px;
+                margin: 0 auto;
+                padding-top: 0;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li::after {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,29 +246,27 @@
     </header>
 
     <nav>
-        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="publications.html">Main Publications</a></li>
+            <li><a href="publications.html">Publications</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="datasets.html">Datasets</a></li>
             <li><a href="students.html">Students</a></li>
             <li><a href="bio.html">Bio & CV</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="https://scholar.google.com/citations?user=akHj7B0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
         </ul>
     </nav>
 
     <main class="container">
-        <div class="landing-content" style="margin-top: 4rem;">
+        <div class="landing-content">
             <div class="profile-section">
                 <img src="new_p.jpg" alt="Hans-Joachim Voth" class="profile-image">
                 <div class="contact-info">
                     <p>
                         Economics Department<br>
                         University of Zurich<br>
-                        Schönberggasse 1<br>
+                        Schonberggasse 1<br>
                         CH-8001 Zurich<br>
                         <br>
                         <strong>Email:</strong> joachimvoth [at] gmail.com
@@ -50,21 +277,14 @@
             <div class="summary-section">
                 <h1 class="page-title">About</h1>
                 <p>
-                    I am an economic historian with interests in long-run growth, cultural economics, and the origins of extremism.
-                    I hold a UBS Foundation Professorship at the Economics Department, University of Zurich, and serve as
-                    Scientific Director of the UBS Center for Economics in Society.
+                    I hold a UBS Foundation Professorship at the Economics Department, University of Zurich, I am a Fellow of the Econometric Society, and I serve as Scientific Director of the UBS Center for Economics in Society.
                 </p>
                 <p>
-                    In 2022, I was elected to a Fellowship of the Econometric Society. In 2025, I was President of the
-                    Association for Comparative Economic Studies (ACES). Until 2021, I served as one of the joint managing
-                    editors of the Economic Journal, and as an associate editor at the QJE.
-                </p>
-                <p>
-                    My research has been published in four of the top 5 journals in economics, as well as in books and field
+                    My research has been published in four of the top 5 journals in economics, general interest journals, as well as in books and field
                     journals. Principal areas of research include long-run economic growth, the history of sovereign debt,
                     causes and consequences of the Nazi Party's rise to power, and the economic history of the Industrial
                     Revolution. I have published three academic books with OUP and Princeton UP, five popular books, and
-                    over 50 articles in leading journals including the AER, QJE, JPE, RESTUD, the Journal of Finance, and others.
+                    and over 50 articles in leading journals including the AER, QJE, JPE, RESTUD, PNAS, APSR, JEH, Explorations, and the Journal of Finance.
                 </p>
                 <p>
                     My research has been profiled in The Economist, the Financial Times, the New York Times, Wall Street Journal,
@@ -74,11 +294,7 @@
         </div>
     </main>
 
-    <script>document.querySelector('.menu-toggle').addEventListener('click',function(){this.classList.toggle('active');document.querySelector('nav ul').classList.toggle('active')});</script>
     <footer>
-        <div class="container">
-            <p>&copy; Hans-Joachim Voth | All content</p>
-        </div>
     </footer>
 <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

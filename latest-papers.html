@@ -5,37 +5,354 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Latest Papers - Hans-Joachim Voth">
     <title>Latest Papers | Hans-Joachim Voth</title>
-    <link rel="stylesheet" href="modern-style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Abstract toggle functionality
             $(".abstract-toggle").click(function() {
                 var targetId = $(this).data("target");
-                $("#" + targetId).slideToggle("slow");
-
-                if ($(this).text().indexOf('▼') > -1) {
-                    $(this).html('Abstract &#x25B2;');
-                } else {
-                    $(this).html('Abstract &#x25BC;');
-                }
+                $("#" + targetId).slideToggle(300);
+                $(this).toggleClass("open");
             });
 
-            // Tab functionality
             $(".tab-button").click(function() {
                 var targetTab = $(this).data("tab");
-
-                // Remove active class from all buttons and content
                 $(".tab-button").removeClass("active");
                 $(".tab-content").removeClass("active");
-
-                // Add active class to clicked button and corresponding content
                 $(this).addClass("active");
                 $("#" + targetTab).addClass("active");
             });
         });
     </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --header-bg: #1d4e5f;
+            --navy: #1d4e5f;
+            --navy-light: #2a6175;
+            --burgundy: #b87333;
+            --burgundy-light: #c98a4d;
+            --parchment: #faf9f7;
+            --parchment-dark: #e8e4df;
+            --text: #2a2a2a;
+            --text-light: #5a5a5a;
+        }
+
+        body {
+            font-family: 'Source Sans 3', Georgia, serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--parchment);
+            font-size: 17px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-left: calc(40px - 1.25rem);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 2.5rem 0 2rem;
+        }
+
+        header .container {
+            text-align: left;
+            max-width: 1100px;
+        }
+
+        header h1 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header h2 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            background-color: var(--header-bg);
+            padding-bottom: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-left: calc(40px - 1.25rem);
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav li:first-child a {
+            padding-left: 0;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        main {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--burgundy);
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid var(--parchment-dark);
+        }
+
+        .tab-button {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .tab-button:hover {
+            color: var(--burgundy);
+        }
+
+        .tab-button.active {
+            color: var(--burgundy);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--burgundy);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .publications-list {
+            list-style: none;
+        }
+
+        .publications-list > li {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid var(--parchment-dark);
+        }
+
+        .publications-list > li:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-title a {
+            color: var(--navy);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .pub-title a:hover {
+            color: var(--burgundy);
+        }
+
+        .pub-meta {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-meta .authors {
+            color: var(--text);
+        }
+
+        .pub-meta .journal {
+            font-style: italic;
+            color: var(--burgundy);
+        }
+
+        .pub-meta .status {
+            font-weight: 600;
+            color: var(--burgundy);
+        }
+
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .pub-links a {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.3rem 0.7rem;
+            border: 1px solid var(--parchment-dark);
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .pub-links a:hover {
+            border-color: var(--burgundy);
+            color: var(--burgundy);
+            background-color: rgba(139, 38, 53, 0.05);
+        }
+
+        .abstract-toggle {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.8rem;
+            color: var(--burgundy);
+            background: none;
+            border: 1px solid var(--burgundy);
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .abstract-toggle:hover {
+            background-color: var(--burgundy);
+            color: white;
+        }
+
+        .abstract-toggle::after {
+            content: ' +';
+        }
+
+        .abstract-toggle.open::after {
+            content: ' −';
+        }
+
+        .abstract-content {
+            display: none;
+            margin-top: 1.25rem;
+            padding: 1.5rem;
+            background-color: #fff;
+            border-left: 3px solid var(--burgundy);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--parchment-dark);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li::after {
+                display: none;
+            }
+
+            .tab-buttons {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -46,179 +363,222 @@
     </header>
 
     <nav>
-        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="publications.html">Main Publications</a></li>
+            <li><a href="publications.html">Publications</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="datasets.html">Datasets</a></li>
             <li><a href="students.html">Students</a></li>
             <li><a href="bio.html">Bio & CV</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="https://scholar.google.com/citations?user=akHj7B0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
         </ul>
     </nav>
 
     <main class="container">
         <h1 class="page-title">Latest Papers</h1>
 
-        <div class="tabs-container">
-            <div class="tab-buttons">
-                <button class="tab-button active" data-tab="forthcoming">Forthcoming</button>
-                <button class="tab-button" data-tab="revisions">Revisions</button>
-                <button class="tab-button" data-tab="working">Working Papers</button>
-            </div>
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="forthcoming">Forthcoming</button>
+            <button class="tab-button" data-tab="revisions">Revisions</button>
+            <button class="tab-button" data-tab="working">Working Papers</button>
+        </div>
 
-            <!-- Forthcoming Tab -->
-            <div id="forthcoming" class="tab-content active">
-                <ul class="publications-list">
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2025/twerp_1541-_becker.pdf">Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package</a> [with David Boll, Sascha Becker],
-                            forthcoming, <em>Stata Journal</em>
-                            [<a href="https://github.com/pdavidboll/SPUR">Github</a>]
-                            <button class="abstract-toggle" data-target="abstract2">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract2">
-                            <p>Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques. Our commands exactly replicate results in Mueller and Watson (2024) using the same Chetty (2014) data. We present a brief practitioner's guide for applied researchers.</p>
-                        </div>
-                    </li>
+        <!-- Forthcoming Tab -->
+        <div id="forthcoming" class="tab-content active">
+            <ul class="publications-list">
+                <li>
+                    <p class="pub-title">
+                        <a href="https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2025/twerp_1541-_becker.pdf">Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with David Boll, Sascha Becker</span> ·
+                        <span class="journal">Stata Journal</span>,
+                        <span class="status">forthcoming</span>
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://github.com/pdavidboll/SPUR">Github</a>
+                        <button class="abstract-toggle" data-target="abstract2">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract2">
+                        <p>Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques.</p>
+                    </div>
+                </li>
 
-                    <li>
-                        <p class="pub-title">
-                            <a href="http://www.jvoth.com/GoingViral_May2025.pdf">Going Viral: Protests and Political Polarization in 1932 Hamburg</a> [with Marcel Caesmann, Bruno Caprettini, David Yanagizawa-Drott],
-                            May 2025. conditionally accepted, <em>Journal of the European Economic Association</em>
-                            <button class="abstract-toggle" data-target="abstract3a">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract3a">
-                            <p>Political polarization is a growing concern in many countries; are mass protests merely a sign of increasing cleavages, or do they polarize societies? In this paper, we estimate the impact of Nazi marches in 1932 Hamburg, using granular data from 622 voting precincts during six elections. We show that propaganda can persuade, but it does so by raising the share of areas with very high Nazi support. Importantly, marches can also backfire and repel voters. Thus, protest marches lead to polarization. These effects diffused through social networks, measured as contagion patterns across neighborhoods defined by overlap in exposure to the 1918 Spanish flu outbreak. The electoral effects of these social spillovers are of similar magnitude as direct exposure, and grow over time.</p>
-                        </div>
-                    </li>
+                <li>
+                    <p class="pub-title">
+                        <a href="http://www.jvoth.com/GoingViral_May2025.pdf">Going Viral: Protests and Political Polarization in 1932 Hamburg</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with Marcel Caesmann, Bruno Caprettini, David Yanagizawa-Drott</span> ·
+                        <span class="journal">Journal of the European Economic Association</span>,
+                        <span class="status">conditionally accepted</span>
+                    </p>
+                    <div class="pub-links">
+                        <button class="abstract-toggle" data-target="abstract3">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract3">
+                        <p>Political polarization is a growing concern in many countries; are mass protests merely a sign of increasing cleavages, or do they polarize societies? In this paper, we estimate the impact of Nazi marches in 1932 Hamburg, using granular data from 622 voting precincts during six elections. We show that propaganda can persuade, but it does so by raising the share of areas with very high Nazi support. Importantly, marches can also backfire and repel voters. Thus, protest marches lead to polarization.</p>
+                    </div>
+                </li>
 
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://www.dropbox.com/s/lwh99jmylx62p8y/integrated_v1.pdf?dl=0">Fighting for Growth: Labor Scarcity and Technological Progress During the British Industrial Revolution</a> [with Bruno Caprettini and Alex Trew],
-                            Dec 2022, conditionally accepted, <em>American Economic Review</em>
-                            [<a href="https://hub.cepr.org/published-discussion-paper/181527">CEPR wp</a>]
-                            [<a href="http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a>]
-                            [<a href="https://blogs.faz.net/fazit/2022/12/31/der-sieg-der-dreschmaschine-13003/">FAZ</a>]
-                            <button class="abstract-toggle" data-target="abstract5">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract5">
-                            <p>We collect new data and present new evidence on the effects of labor scarcity on the adoption of labor-saving technology in industrializing England. Where the British armed forces recruited heavily, more machines that economized on labor were adopted. For purposes of identification, we focus on naval recruitment. Using warships' ease of access to coastal locations as an instrument, we show that exogenous shocks to labor scarcity led to technology adoption. The same shocks are only weakly associated with the adoption of non-labor saving technologies. Importantly, there is also a synergy between skill abundance and labor scarcity boosting technology adoption. Where labor shortages led to the adoption of labor-saving machines, technology afterwards improved more rapidly.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <li>
+                    <p class="pub-title">
+                        <a href="https://www.dropbox.com/s/lwh99jmylx62p8y/integrated_v1.pdf?dl=0">Fighting for Growth: Labor Scarcity and Technological Progress During the British Industrial Revolution</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with Bruno Caprettini, Alex Trew</span> ·
+                        <span class="journal">American Economic Review</span>,
+                        <span class="status">conditionally accepted</span>
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://hub.cepr.org/published-discussion-paper/181527">CEPR wp</a>
+                        <a href="http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a>
+                        <button class="abstract-toggle" data-target="abstract5">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract5">
+                        <p>We collect new data and present new evidence on the effects of labor scarcity on the adoption of labor-saving technology in industrializing England. Where the British armed forces recruited heavily, more machines that economized on labor were adopted.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-            <!-- Revisions Tab -->
-            <div id="revisions" class="tab-content">
-                <ul class="publications-list">
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://www.jvoth.com/images_july_24.pdf">Image(s)</a> [with David Yanagizawa-Drott], February 2023; updated July 2024.
-                            revision requested, <em>Quarterly Journal of Economics</em>
-                            [<a href="https://www.jvoth.com/Images Podcast.wav">AI-generated podcast</a>]
-                            <button class="abstract-toggle" data-target="abstract4">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract4">
-                            <p>From clothes and hairstyles to fashion accessories, humans use a range of stylistic elements to express themselves, impress others, demonstrate their individualism, or show that they belong to a group. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. Despite its central importance as a form of social interaction and self-expression, and a rich body of theoretical work, empirical work on style choices is rare. We measure similarity over time and space, tracking the timing and location of influential style innovations. To illustrate our methods, we systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style. We document a striking convergence of male and female style characteristics. This is driven by rising male individualism and declining male persistence across generations from the late 1960s onwards. Also, style polarization increases sharply across commuting zones from the 1970s onwards. In addition, we develop a novel measure of style innovation and show that it predicts patenting by cohorts later in life, suggestive of broader societal trends facilitating innovation across a range of domains. Overall, our results highlight the usefulness of images as a source for cultural economics.</p>
-                        </div>
-                    </li>
+        <!-- Revisions Tab -->
+        <div id="revisions" class="tab-content">
+            <ul class="publications-list">
+                <li>
+                    <p class="pub-title">
+                        <a href="https://www.jvoth.com/images_july_24.pdf">Image(s)</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with David Yanagizawa-Drott</span> ·
+                        <span class="journal">Quarterly Journal of Economics</span>,
+                        <span class="status">revision requested</span>
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://www.jvoth.com/Images Podcast.wav">AI-generated podcast</a>
+                        <a href="https://huggingbeard.github.io/images/">Data</a>
+                        <button class="abstract-toggle" data-target="abstract4">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract4">
+                        <p>From clothes and hairstyles to fashion accessories, humans use a range of stylistic elements to express themselves. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. We systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style.</p>
+                    </div>
+                </li>
 
-                    <li>
-                        <p class="pub-title">
-                            <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">Slavery and the British Industrial Revolution</a> [with Stephan Heblich, Steve Redding],
-                            August 2022, revision requested, <em>Review of Economic Studies</em>
-                            [<a href="https://www.jvoth.com/Slavery.wav">AI-generated podcast</a>]
-                            [<a href="https://www.jvoth.com/w30451.pdf">NBER wp</a>]
-                            [<a href="https://cepr.org/publications/dp17783">CEPR wp</a>]
-                            [<a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">VoxEU podcast</a>]
-                            [<a href="http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a>]
-                            [<a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">TradeTalks</a>]
-                            <button class="abstract-toggle" data-target="abstract6">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract6">
-                            <p>Did overseas slave-holding by Britons accelerate the Industrial Revolution? We provide theory and evidence on the contribution of slave wealth to Britain's growth prior to 1835. We compare areas of Britain with high and low exposure to the colonial plantation economy, using granular data on wealth from compensation records. Before the major expansion of slave holding from the 1640s onwards, both types of area exhibited similar levels of economic activity. However, by the 1830s, slavery wealth is strongly correlated with economic development – slave-holding areas are less agricultural, closer to cotton mills, and have higher property wealth. We rationalize these findings using a dynamic spatial model, where slavery investment raises the return to capital accumulation, expanding production in capital-intensive sectors. To establish causality, we use arguably exogenous variation in slave mortality on the passage from Africa to the Indies, driven by weather shocks. We show that weather shocks influenced the continued involvement of ancestors in the slave trade; weather-induced slave mortality of slave-trading ancestors in each area is strongly predictive of slaveholding in 1833. Quantifying our model using the observed data, we find that Britain would have been substantially poorer and more agricultural in the absence of overseas slave wealth. Overall, our findings are consistent with the view that slavery wealth accelerated Britain's industrial revolution.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <li>
+                    <p class="pub-title">
+                        <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">Slavery and the British Industrial Revolution</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with Stephan Heblich, Steve Redding</span> ·
+                        <span class="journal">Review of Economic Studies</span>,
+                        <span class="status">revision requested</span>
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://www.jvoth.com/Slavery.wav">AI-generated podcast</a>
+                        <a href="https://www.jvoth.com/w30451.pdf">NBER wp</a>
+                        <a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">VoxEU podcast</a>
+                        <a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">TradeTalks</a>
+                        <button class="abstract-toggle" data-target="abstract6">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract6">
+                        <p>Did overseas slave-holding by Britons accelerate the Industrial Revolution? We provide theory and evidence on the contribution of slave wealth to Britain's growth prior to 1835. We compare areas of Britain with high and low exposure to the colonial plantation economy, using granular data on wealth from compensation records.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-            <!-- Working Papers Tab -->
-            <div id="working" class="tab-content">
-                <ul class="publications-list">
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://tinyurl.com/P1lots">Never Enough: Dynamic Status Incentives in Organizations</a> [with Leonardo Bursztyn, Ewan Rawcliffe],
-                            February 2026.
-                            [<a href="https://www.nber.org/papers/w34707">NBER wp</a>]
-                            [<a href="https://cepr.org/publications/dp21121">CEPR wp</a>]
-                            [<a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a>]
-                            [<a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">Spectator</a>]
-                            <button class="abstract-toggle" data-target="abstract10">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract10">
-                            <p>We study the ability of a firm to elicit repeated effort from workers by creating a "rat race" of hierarchical status-based incentives. We examine performance using data on over 5,000 German air force pilots during World War II. Pilots' effort is hard to monitor; motivation is key to success. Fighter pilot performance increases markedly as they approach eligibility for a medal before falling off upon receipt of the award. The same effort path repeats itself as the pilot nears the next higher-prestige medal. Status-conscious pilots also exert more effort when new medals are introduced. We show that medals serve as substitutes for other forms of status. Medal cachet declines over time as lower-ability pilots receive them, making the introduction of new medals desirable. These results suggest that a tiered, expanding system of status-based incentives can repeatedly leverage worker status concerns to extract effort.</p>
-                        </div>
-                    </li>
+        <!-- Working Papers Tab -->
+        <div id="working" class="tab-content">
+            <ul class="publications-list">
+                <li>
+                    <p class="pub-title">
+                        <a href="https://tinyurl.com/P1lots">Never Enough: Dynamic Status Incentives in Organizations</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with Leonardo Bursztyn, Ewan Rawcliffe</span> · February 2026
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://www.nber.org/papers/w34707">NBER wp</a>
+                        <a href="https://cepr.org/publications/dp21121">CEPR wp</a>
+                        <a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a>
+                        <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">Spectator</a>
+                        <button class="abstract-toggle" data-target="abstract7">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract7">
+                        <p>We study the ability of a firm to elicit repeated effort from workers by creating a "rat race" of hierarchical status-based incentives. We examine performance using data on over 5,000 German air force pilots during World War II. Pilots' effort is hard to monitor; motivation is key to success. Fighter pilot performance increases markedly as they approach eligibility for a medal before falling off upon receipt of the award.</p>
+                    </div>
+                </li>
 
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://tinyurl.com/mpde8h76">Transmitting Terror: Radio and Repression in Stalin's Soviet Union</a> [with Sultan Mehmood, Yaroslav Prokhorskoy],
-                            February 2026.
-                            <button class="abstract-toggle" data-target="abstract11">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract11">
-                            <p>Mass media often persuades; it can also expand the machinery of repression. We study radio network expansion and political persecution in Stalin's Soviet Union, in the decades leading up to the 'Great Terror' of 1937-38. Greater radio coverage systematically intensified political repression: a one-standard-deviation increase in signal strength is associated with roughly 40 percent more arrests and a 20 percent rise in the execution share among those arrested, with effects that grew over time. For identification, we exploit newly digitized county-level panel data for 1920–1940 and variation in longwave radio signal strength driven by ground-conductivity differences along propagation paths. Additional repression was disproportionately misdirected. Post-Stalin rehabilitation records show that high-signal areas produced substantially more sentences later reversed. Within the security apparatus itself, stronger radio reception reduced recruitment into the NKVD. It also increased the probability that incumbent officers were purged or demoted, consistent with tighter monitoring and escalating internal risk. Mass communication was not only persuasive; it operated as an input into coercive state capacity by lowering the coordination and monitoring costs of repression.</p>
-                        </div>
-                    </li>
+                <li>
+                    <p class="pub-title">
+                        <a href="https://tinyurl.com/mpde8h76">Transmitting Terror: Radio and Repression in Stalin's Soviet Union</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with Sultan Mehmood, Yaroslav Prokhorskoy</span> · February 2026
+                    </p>
+                    <div class="pub-links">
+                        <button class="abstract-toggle" data-target="abstract8">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract8">
+                        <p>Mass media often persuades; it can also expand the machinery of repression. We study radio network expansion and political persecution in Stalin's Soviet Union, in the decades leading up to the 'Great Terror' of 1937-38. Greater radio coverage systematically intensified political repression.</p>
+                    </div>
+                </li>
 
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://www.jvoth.com/Legacy.pdf">Legacy on Deck: Skill Transmission and Occupational Dynasties in the Royal Navy</a> [with Guo Xu]
-                            <button class="abstract-toggle" data-target="abstract7">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract7">
-                            <p>Do occupational dynasties reflect the intergenerational transmission of skills or nepotism? We use detailed data on the fighting record of the 18th century Royal Navy to show that sons of navy officers are markedly more successful than non-legacies, outperforming in terms of enemy captures by a third. This performance differential is not due to better equipment or more favorable assignments, and also holds for those whose patron has passed away. We provide evidence for positive selection as a channel through which the outperformance is sustained -- sons of successful officers are more likely to join and be promoted in the navy. Consistent with vertical transmission, we use computer vision to analyze facial landmarks from over 1,000 portraits. We find that sons of service inherited traits predictive of greater success in naval warfare.</p>
-                        </div>
-                    </li>
+                <li>
+                    <p class="pub-title">
+                        <a href="https://www.jvoth.com/Legacy.pdf">Legacy on Deck: Skill Transmission and Occupational Dynasties in the Royal Navy</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with Guo Xu</span>
+                    </p>
+                    <div class="pub-links">
+                        <button class="abstract-toggle" data-target="abstract9">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract9">
+                        <p>Do occupational dynasties reflect the intergenerational transmission of skills or nepotism? We use detailed data on the fighting record of the 18th century Royal Navy to show that sons of navy officers are markedly more successful than non-legacies, outperforming in terms of enemy captures by a third.</p>
+                    </div>
+                </li>
 
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://www.jvoth.com/alh.pdf">American Life Histories</a> [with David Lagakos, Stelios Michalopoulos], April 2025.
-                            [<a href="https://www.nber.org/papers/w33373">NBER version</a>]
-                            [<a href="https://www.jvoth.com/nzz.pdf">NZZ coverage - German</a>]
-                            [<a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">VoxTalk with Tim Phillips</a>]
-                            [<a href="https://t.co/ZLjMLfs8KL">Steven Davis - Interview with Stelios</a>]
-                            <button class="abstract-toggle" data-target="abstract8">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract8">
-                            <p>What does it take to live a meaningful life? We exploit a unique corpus of over 1,300 life narratives of older Americans collected by a team of writers during the 1930s. We combine detailed human readings with large language models (LLMs) to extract systematic information on critical junctures, sources of meaning, and overall life satisfaction. Under specific conditions, LLMs can provide responses to complex questions that are indistinguishable from those of human readers, effectively passing a version of the Turing Test. We find that sources of life meaning are more varied than previous research suggested, underlining the importance of work and community contributions in addition to family and close relationships. The narratives also highlight gendered disparities, with women disproportionately citing adverse family events, such as the loss of a parent, underscoring their role as keepers of the kin. Our research expands our understanding of human flourishing during a transformative period in American history and establishes a robust and scalable framework for quantifying subjective well-being and human experiences across diverse historical and cultural contexts.</p>
-                        </div>
-                    </li>
+                <li>
+                    <p class="pub-title">
+                        <a href="https://www.jvoth.com/alh.pdf">American Life Histories</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with David Lagakos, Stelios Michalopoulos</span> · April 2025
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://www.nber.org/papers/w33373">NBER version</a>
+                        <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">VoxTalk</a>
+                        <a href="https://t.co/ZLjMLfs8KL">Interview</a>
+                        <a href="https://timharford.com/2026/02/the-paradox-of-work/">FT</a>
+                        <button class="abstract-toggle" data-target="abstract10">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract10">
+                        <p>What does it take to live a meaningful life? We exploit a unique corpus of over 1,300 life narratives of older Americans collected by a team of writers during the 1930s. We combine detailed human readings with large language models (LLMs) to extract systematic information on critical junctures, sources of meaning, and overall life satisfaction.</p>
+                    </div>
+                </li>
 
-                    <li>
-                        <p class="pub-title">
-                            <a href="https://www.dropbox.com/s/jklmvcswixu3lhi/Shallow_Christianity%20%2820%29.pdf?dl=0">From the 'Death of God' to the Rise of Hitler</a> [with Sascha O. Becker], February 2023; updated October 2023.
-                            [<a href="https://cepr.org/publications/dp18543">CEPR dp</a>]
-                            <button class="abstract-toggle" data-target="abstract9">Abstract ▼</button>
-                        </p>
-                        <div class="abstract-content" id="abstract9">
-                            <p>Can weakened religiosity lead to the rise of totalitarianism? The Nazi Party set itself up as a political religion, emphasizing redemption, sacrifice, rituals, and communal spirit. This had a major impact on its success: Where the Christian Church only had shallow roots, the Nazis received higher electoral support and saw more party entry. "Shallow Christianity" reflects the geography of medieval Christianization and the strength of pagan practices, which we use as sources of exogenous variation. We also find predictive power at the individual level: Within each municipality, the likelihood of joining the Nazi Party was higher for those with less Christian first names.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <li>
+                    <p class="pub-title">
+                        <a href="https://www.dropbox.com/s/jklmvcswixu3lhi/Shallow_Christianity%20%2820%29.pdf?dl=0">From the 'Death of God' to the Rise of Hitler</a>
+                    </p>
+                    <p class="pub-meta">
+                        <span class="authors">with Sascha O. Becker</span> · October 2023
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://cepr.org/publications/dp18543">CEPR dp</a>
+                        <button class="abstract-toggle" data-target="abstract11">Abstract</button>
+                    </div>
+                    <div class="abstract-content" id="abstract11">
+                        <p>Can weakened religiosity lead to the rise of totalitarianism? The Nazi Party set itself up as a political religion, emphasizing redemption, sacrifice, rituals, and communal spirit. This had a major impact on its success: Where the Christian Church only had shallow roots, the Nazis received higher electoral support and saw more party entry.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </main>
 
-    <script>document.querySelector('.menu-toggle').addEventListener('click',function(){this.classList.toggle('active');document.querySelector('nav ul').classList.toggle('active')});</script>
     <footer>
-        <div class="container">
-            <p>&copy; Hans-Joachim Voth | All content</p>
-        </div>
     </footer>
 <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

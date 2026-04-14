@@ -5,8 +5,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Students - Hans-Joachim Voth">
     <title>Students | Hans-Joachim Voth</title>
-    <link rel="stylesheet" href="modern-style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --header-bg: #1d4e5f;
+            --navy: #1d4e5f;
+            --navy-light: #2a6175;
+            --burgundy: #b87333;
+            --burgundy-light: #c98a4d;
+            --parchment: #faf9f7;
+            --parchment-dark: #e8e4df;
+            --text: #2a2a2a;
+            --text-light: #5a5a5a;
+        }
+
+        body {
+            font-family: 'Source Sans 3', Georgia, serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--parchment);
+            font-size: 17px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-left: calc(40px - 1.25rem);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 2.5rem 0 2rem;
+        }
+
+        header .container {
+            text-align: left;
+            max-width: 1100px;
+        }
+
+        header h1 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header h2 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            background-color: var(--header-bg);
+            padding-bottom: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-left: calc(40px - 1.25rem);
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav li:first-child a {
+            padding-left: 0;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        main {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--burgundy);
+        }
+
+        .students-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .student-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-left: 3px solid var(--burgundy);
+        }
+
+        .student-name {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .student-name a {
+            color: var(--navy);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .student-name a:hover {
+            color: var(--burgundy);
+        }
+
+        .student-affiliation {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--parchment-dark);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li::after {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 1.6rem;
+            }
+
+            .students-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,97 +227,81 @@
     </header>
 
     <nav>
-        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="publications.html">Main Publications</a></li>
+            <li><a href="publications.html">Publications</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="datasets.html">Datasets</a></li>
             <li><a href="students.html">Students</a></li>
             <li><a href="bio.html">Bio & CV</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="https://scholar.google.com/citations?user=akHj7B0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
         </ul>
     </nav>
 
     <main class="container">
         <h1 class="page-title">Former PhD Students</h1>
+        <p class="page-subtitle">Current academic positions of former doctoral advisees</p>
 
         <ul class="students-list">
-            <li>
-                <p class="pub-title">
-                    <a href="https://www.anderson.ucla.edu/faculty_pages/nico.v/" target="_blank">Nico Voigtländer</a>, UCLA-Anderson
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://www.anderson.ucla.edu/faculty_pages/nico.v/" target="_blank">Nico Voigtlander</a></p>
+                <p class="student-affiliation">UCLA-Anderson</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://www.gsb.stanford.edu/faculty-research/faculty/peter-koudjis" target="_blank">Peter Koudijs</a>, NYU Stern
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://www.gsb.stanford.edu/faculty-research/faculty/peter-koudjis" target="_blank">Peter Koudijs</a></p>
+                <p class="student-affiliation">NYU Stern</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://www.kellogg.northwestern.edu/faculty/directory/ponticelli_jacopo.aspx" target="_blank">Jacopo Ponticelli</a>, Northwestern-Kellogg
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://www.kellogg.northwestern.edu/faculty/directory/ponticelli_jacopo.aspx" target="_blank">Jacopo Ponticelli</a></p>
+                <p class="student-affiliation">Northwestern-Kellogg</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://politicalscience.stanford.edu/people/vicky-fouka" target="_blank">Vasiliki Fouka</a>, Stanford Political Science
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://politicalscience.stanford.edu/people/vicky-fouka" target="_blank">Vasiliki Fouka</a></p>
+                <p class="student-affiliation">Stanford Political Science</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://sites.google.com/site/felipev84/Home" target="_blank">Felipe Valencia</a>, Brown
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://sites.google.com/site/felipev84/Home" target="_blank">Felipe Valencia</a></p>
+                <p class="student-affiliation">Brown</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="http://www.andreamatranga.net/" target="_blank">Andrea Matranga</a>, Turin
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="http://www.andreamatranga.net/" target="_blank">Andrea Matranga</a></p>
+                <p class="student-affiliation">Turin</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://sites.google.com/site/marcgonitrafach/" target="_blank">Marc Goni</a>, University of Bergen
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://sites.google.com/site/marcgonitrafach/" target="_blank">Marc Goni</a></p>
+                <p class="student-affiliation">University of Bergen</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://www.federalreserve.gov/econres/stefan-gissler.htm" target="_blank">Stefan Gissler</a>, Fed Board
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://www.federalreserve.gov/econres/stefan-gissler.htm" target="_blank">Stefan Gissler</a></p>
+                <p class="student-affiliation">Fed Board</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://sites.google.com/view/sdoerr/home" target="_blank">Sebastian Doerr</a>, BIS
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://sites.google.com/view/sdoerr/home" target="_blank">Sebastian Doerr</a></p>
+                <p class="student-affiliation">BIS</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://miriamventurini.github.io/" target="_blank">Miriam Venturini</a>, UC Riverside
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://miriamventurini.github.io/" target="_blank">Miriam Venturini</a></p>
+                <p class="student-affiliation">UC Riverside</p>
             </li>
 
-            <li>
-                <p class="pub-title">
-                    <a href="https://gjiang-economics.github.io/" target="_blank">Guohui Jiang</a>, U Cologne
-                </p>
+            <li class="student-card">
+                <p class="student-name"><a href="https://gjiang-economics.github.io/" target="_blank">Guohui Jiang</a></p>
+                <p class="student-affiliation">U Cologne</p>
             </li>
         </ul>
     </main>
 
-    <script>document.querySelector('.menu-toggle').addEventListener('click',function(){this.classList.toggle('active');document.querySelector('nav ul').classList.toggle('active')});</script>
     <footer>
-        <div class="container">
-            <p>&copy; Hans-Joachim Voth | All content</p>
-        </div>
     </footer>
 <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

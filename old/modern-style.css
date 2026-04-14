@@ -34,14 +34,14 @@ body {
 header {
     background-color: var(--primary-color);
     color: white;
-    padding: 2rem 0;
-    margin-bottom: 2rem;
+    padding: 1.5rem 0 0.75rem 0;
+    margin-bottom: 0;
 }
 
 header h1 {
     font-size: 2.5rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 header h1 a {
@@ -57,12 +57,12 @@ header h2 {
 
 /* Navigation */
 nav {
-    background-color: white;
-    border-bottom: 2px solid var(--border-color);
+    background-color: var(--primary-color);
+    border-bottom: none;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 nav ul {
@@ -73,6 +73,7 @@ nav ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    padding-left: calc(20px - 1.25rem);
 }
 
 nav li {
@@ -81,8 +82,8 @@ nav li {
 
 nav a {
     display: block;
-    padding: 1rem 1.5rem;
-    color: var(--text-color);
+    padding: 0.75rem 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -90,9 +91,9 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--accent-color);
+    color: #fff;
     border-bottom-color: var(--accent-color);
-    background-color: var(--light-gray);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Landing Page Specific */
@@ -143,13 +144,19 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
+/* Main content spacing */
+main {
+    padding-top: 2.75rem;
+}
+
 /* Content Pages */
 .page-title {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .page-header-only {
@@ -170,13 +177,7 @@ nav a:hover {
 }
 
 .publications-list li {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.publications-list li:last-child {
-    border-bottom: none;
+    margin-bottom: 0.75rem;
 }
 
 .pub-title {
@@ -367,6 +368,40 @@ nav a:hover {
     display: block;
 }
 
+/* Hamburger menu button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .landing-content {
@@ -380,21 +415,36 @@ nav a:hover {
         margin: 0 auto;
     }
 
+    nav {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
         gap: 0;
+        display: none;
+        padding-left: 20px;
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav a {
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 0.75rem 0;
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     header h2 {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .students-list {

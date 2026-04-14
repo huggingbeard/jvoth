@@ -5,8 +5,251 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="News - Hans-Joachim Voth">
     <title>News | Hans-Joachim Voth</title>
-    <link rel="stylesheet" href="modern-style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --header-bg: #1d4e5f;
+            --navy: #1d4e5f;
+            --navy-light: #2a6175;
+            --burgundy: #b87333;
+            --burgundy-light: #c98a4d;
+            --parchment: #faf9f7;
+            --parchment-dark: #e8e4df;
+            --text: #2a2a2a;
+            --text-light: #5a5a5a;
+        }
+
+        body {
+            font-family: 'Source Sans 3', Georgia, serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--parchment);
+            font-size: 17px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-left: calc(40px - 1.25rem);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 2.5rem 0 2rem;
+        }
+
+        header .container {
+            text-align: left;
+            max-width: 1100px;
+        }
+
+        header h1 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header h2 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            background-color: var(--header-bg);
+            padding-bottom: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-left: calc(40px - 1.25rem);
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav li:first-child a {
+            padding-left: 0;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        main {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--burgundy);
+        }
+
+        .year-section {
+            margin-bottom: 2.2rem;
+        }
+
+        .year-header {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--burgundy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--parchment-dark);
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-list li {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 1.5rem;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid var(--parchment-dark);
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .news-content {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .news-content a {
+            color: var(--burgundy);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .news-content a:hover {
+            border-bottom-color: var(--burgundy);
+        }
+
+        .news-content strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .section-heading {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--burgundy);
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--parchment-dark);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li::after {
+                display: none;
+            }
+
+            .news-list li {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+
+            .news-date {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,135 +260,233 @@
     </header>
 
     <nav>
-        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="publications.html">Main Publications</a></li>
+            <li><a href="publications.html">Publications</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="datasets.html">Datasets</a></li>
             <li><a href="students.html">Students</a></li>
             <li><a href="bio.html">Bio & CV</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="https://scholar.google.com/citations?user=akHj7B0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
         </ul>
     </nav>
 
     <main class="container">
-        <h1 class="page-title">Recent News</h1>
+        <h1 class="page-title">News & Updates</h1>
 
+        <div class="year-section">
+            <h2 class="year-header">2026</h2>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">April</span>
+                    <span class="news-content"><a href="https://www.economist.com">The Economist</a> features <a href="https://tinyurl.com/P1lots">"Never Enough"</a> (with Leonardo Bursztyn, Ewan Rawcliffe).</span>
+                </li>
+                <li>
+                    <span class="news-date">April</span>
+                    <span class="news-content">Delivering the Griffin Lecture at U Melbourne.</span>
+                </li>
+                <li>
+                    <span class="news-date">March</span>
+                    <span class="news-content">Coverage in <a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a> and <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">The Spectator</a> on our paper <a href="https://tinyurl.com/P1lots">"Never Enough"</a> about status incentives and German fighter pilots.</span>
+                </li>
+                <li>
+                    <span class="news-date">March</span>
+                    <span class="news-content">AER Excellence in Reviewing Award.</span>
+                </li>
+                <li>
+                    <span class="news-date">March</span>
+                    <span class="news-content">Talk at UBC Vancouver.</span>
+                </li>
+                <li>
+                    <span class="news-date">February</span>
+                    <span class="news-content">Tim Harford in <a href="https://timharford.com/2026/02/the-paradox-of-work/">FT</a> on <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> (with David Lagakos, Stelios Michalopoulos).</span>
+                </li>
+                <li>
+                    <span class="news-date">February</span>
+                    <span class="news-content">Swiss AI research grant for 50,000 GPU hours.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-header">2025</h2>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">November</span>
+                    <span class="news-content">Presenting <a href="https://tinyurl.com/P1lots">"Never Enough"</a> (joint work with Ewan Rawcliffe and Leo Bursztyn) at U Chicago Behavioral Economics Conference.</span>
+                </li>
+                <li>
+                    <span class="news-date">September</span>
+                    <span class="news-content">Presenting <a href="https://www.jvoth.com/Legacy.pdf">"Legacy on Deck"</a> (with Guo Xu) at the U Chicago AI in Social Science Conference.</span>
+                </li>
+                <li>
+                    <span class="news-date">August</span>
+                    <span class="news-content">Talks at the Econometric World Congress: <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> and panel session on publishing in economics.</span>
+                </li>
+                <li>
+                    <span class="news-date">May</span>
+                    <span class="news-content">Talk at the Brown Long-Run Growth Conference.</span>
+                </li>
+                <li>
+                    <span class="news-date">April</span>
+                    <span class="news-content">Podcasts with <a href="http://t.co/ZLjMLfs8KL">Steve Davis</a> and <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">Tim Phillips</a> on <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a>.</span>
+                </li>
+                <li>
+                    <span class="news-date">April</span>
+                    <span class="news-content">Talks at Harvard and BU.</span>
+                </li>
+                <li>
+                    <span class="news-date">March</span>
+                    <span class="news-content">Talks in Utrecht, Stockholm, and Brown.</span>
+                </li>
+                <li>
+                    <span class="news-date">February</span>
+                    <span class="news-content">Talk at the Econ Hist Group in Oxford.</span>
+                </li>
+                <li>
+                    <span class="news-date">February</span>
+                    <span class="news-content">Talk at EIEF, Rome.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-header">2024</h2>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">November</span>
+                    <span class="news-content">Talk at the PE Group in Oxford.</span>
+                </li>
+                <li>
+                    <span class="news-date">November</span>
+                    <span class="news-content">Talk at U Bocconi.</span>
+                </li>
+                <li>
+                    <span class="news-date">September</span>
+                    <span class="news-content">Presenting <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a> at the Becker-Friedman Conference on AI in the Social Sciences.</span>
+                </li>
+                <li>
+                    <span class="news-date">July</span>
+                    <span class="news-content">NBER-SI talk on <a href="https://www.jvoth.com/alh.pdf">"American Life Histories"</a>.</span>
+                </li>
+                <li>
+                    <span class="news-date">June</span>
+                    <span class="news-content">Talk at LUISS, Rome.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-header">2023</h2>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">May</span>
+                    <span class="news-content">Talks at U Chicago and NWU-Kellogg.</span>
+                </li>
+                <li>
+                    <span class="news-date">April</span>
+                    <span class="news-content">Presentation on <a href="https://www.jvoth.com/images_july_24.pdf">"Image(s)"</a> at the NBER Cultural Economics Spring Meeting.</span>
+                </li>
+                <li>
+                    <span class="news-date">March</span>
+                    <span class="news-content">Seminar at UNSW, Sydney.</span>
+                </li>
+                <li>
+                    <span class="news-date">March</span>
+                    <span class="news-content">Visiting Monash Business School in Melbourne.</span>
+                </li>
+                <li>
+                    <span class="news-date">January</span>
+                    <span class="news-content"><a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a> features two papers: <a href="https://www.dropbox.com/s/lwh99jmylx62p8y/integrated_v1.pdf?dl=0">"Fighting for Growth"</a> and <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
+                </li>
+                <li>
+                    <span class="news-date">January</span>
+                    <span class="news-content">Keynote at the First Bolzano Workshop on Historical Economics.</span>
+                </li>
+                <li>
+                    <span class="news-date">January</span>
+                    <span class="news-content">With Stephan Heblich on <a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">VoxEU Talk</a> about <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-header">2022</h2>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">December</span>
+                    <span class="news-content">Steve Redding on <a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">TradeTalks</a> about <a href="http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
+                </li>
+                <li>
+                    <span class="news-date">September</span>
+                    <span class="news-content">Elected as a Fellow of the Econometric Society.</span>
+                </li>
+                <li>
+                    <span class="news-date">July</span>
+                    <span class="news-content">Keynote at ACES Summer School in London on "The End of the End of History".</span>
+                </li>
+                <li>
+                    <span class="news-date">May</span>
+                    <span class="news-content">Paper with Bruno Caprettini on <a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">"New Deal, New Patriots"</a> accepted at the <em>Quarterly Journal of Economics</em>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-header">2021</h2>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">September</span>
+                    <span class="news-content"><a href="https://voxeu.org/vox-talks/propaganda-persuasion-and-nazis">Podcast interview</a> with Tim Phillips on <a href="http://www.jvoth.com/GoingViral_May2025.pdf">"Going Viral"</a>.</span>
+                </li>
+                <li>
+                    <span class="news-date">August</span>
+                    <span class="news-content"><a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">"Financial Crises and Political Radicalization"</a> forthcoming in the <em>Journal of Finance</em>.</span>
+                </li>
+                <li>
+                    <span class="news-date">July</span>
+                    <span class="news-content">Delivering the 2nd Annual Crafts Lecture at the Warwick Summer School.</span>
+                </li>
+                <li>
+                    <span class="news-date">June</span>
+                    <span class="news-content"><a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">"Killer Incentives"</a> forthcoming in the <em>Review of Economic Studies</em>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-header">2020</h2>
+            <ul class="news-list">
+                <li>
+                    <span class="news-date">October</span>
+                    <span class="news-content"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">"Rage Against the Machines"</a> conditionally accepted at <em>American Economic Review: Insights</em>.</span>
+                </li>
+                <li>
+                    <span class="news-date">March</span>
+                    <span class="news-content"><a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">The Economist</a> profiles my work on pandemics and economic growth.</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-heading">Media & Commentary</h2>
         <ul class="news-list">
-            <li>March 2026: Coverage in <a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a> and <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">The Spectator</a> on our paper about status incentives and German fighter pilots.</li>
-            <li>April 2026: Delivering the Griffin Lecture at U Melbourne.</li>
-            <li>March 2026: Talk at UBC Vancouver.</li>
-            <li>February 2026: Swiss AI research grant for 50,000 GPU hours.</li>
-            <li>March 2026: AER Excellence in Reviewing Award.</li>
-            <li>November 2025: presenting joint work with Ewan Racliffe and Leo Burzstyn at U Chicago Behavioral Economics Conference.</li>
-            <li>September 2025: presenting research with Guo Xu at the U Chicago AI in Social Science Conference.</li>
-            <li>August 2025: Talks at the Econometric World Congress: "American Life Histories" and panel session on publishing in economics.</li>
-            <li>May 2025: Talk at the Brown Long-Run Growth Conference.</li>
-            <li>April 2025: Podcasts with <a href="http://t.co/ZLjMLfs8KL">Steve Davis</a> and <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">Tim Philipps</a> on "American Life Histories"</li>
-            <li>April 2025: Talks at Harvard and BU.</li>
-            <li>March 2025: Talks in Utrecht, Stockholm, and Brown.</li>
-            <li>February 2025: Talk at the Econ Hist Group in Oxford.</li>
-            <li>February 2025: Talk at EIEF, Rome.</li>
-            <li>November 2024: Talk at the PE Group in Oxford.</li>
-            <li>November 2024: Talk at U Bocconi.</li>
-            <li>September 2024: Presenting "American Life Histories" at the Becker-Friedman Conference on AI in the Social Sciences.</li>
-            <li>July 2024: NBER-SI talk on "American Life Histories".</li>
-            <li>June 2024: Talk at LUISS, Rome.</li>
-            <li>May 2023: Upcoming talks at U Chicago and NWU-Kellogg.</li>
-            <li>April 2023: Upcoming presentation on "Image(s)" at the NBER Cultural Economics Spring Meeting.</li>
-            <li>March 2023: Giving a seminar at UNSW, Sydney.</li>
-            <li>March 2023: Visiting Monash Business School in Melbourne.</li>
-            <li>January 2023: <a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a> features two of my papers (Technology adoption during the Napoleonic wars & Slavery and the British Industrial Revolution).</li>
-            <li>January 2023: <a href="https://blogs.faz.net/fazit/2022/12/31/der-sieg-der-dreschmaschine-13003/">FAZ Wirtschaftsblog</a> features Bruno Caprettini's, Alex Trew's and my paper on labor shortages in wartime and technology adoption.</li>
-            <li>January 2023: Keynote at the First Bolzano Workshop on Historical Economics.</li>
-            <li>January 2023: Stephan Heblich and I are on <a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">VoxEUTalk</a> about our slavery paper.</li>
-            <li>December 2022: Steve Redding is on <a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">TradeTalks</a> about our slavery paper.</li>
-            <li>September 2022: Elected as a Fellow of the <a href="https://www.econometricsociety.org/">Econometric Society</a>.</li>
-            <li>July 2022: I am going to give a keynote at the Association of Comparative Economic Studies Summer School in London on "The End of the End of History", in July 2022.</li>
-            <li>May 2022: My paper (with Bruno Caprettini) on "New Deal, New Patriots" has been accepted at the <strong>Quarterly Journal of Economics</strong>, subject to final revisions.</li>
-            <li>April 2022: I am presenting new work on "Slavery and the British Industrial Revolution" at the Brown Conference on the Roots of Comparative Development, Brown, May 7-8, 2022.</li>
-            <li>March 2022: I am presenting work on technology and labor demand at a <a href="https://www.thebritishacademy.ac.uk/events/british-academy-conferences/technology-and-future-labour-historical-and-contemporary-perspectives/">British Academy conference on "Technology and the future of labor"</a> in London, March 25, 2022.</li>
-            <li>February 2022: Congratulations to <a href="https://brunocaprettini.com/">Bruno Caprettini</a>, who is going to join the Economics Department at University of St. Gallen as a tenure-track Assistant Professor.</li>
-            <li>February 2022: Congratulations to <a href="https://annabecker.net/">Anna Becker (UCL)</a>, who is going to join the Economics Department at the University of Stockholm as a tenure-Track Assistant Professor (I had the pleasure of being her external advisor).</li>
-            <li>September 2021: <a href="https://podcasts.apple.com/us/podcast/economic-experiments-in-extremism/id1513552663?i=1000533999620">Podcast interview with</a> Sean Kenny for Economic History Podcasts about "Experiments in Extremism".</li>
-            <li>September 2021: <a href="https://voxeu.org/vox-talks/propaganda-persuasion-and-nazis">Podcast interview with</a> Tim Philips for VoxTalksEconomics on "Going Viral: Propaganda, Persuasion and Polarization in 1932 Hamburg".</li>
-            <li>August 2021: Interview for German TV documentary on <a href="https://www.zdf.de/dokumentation/zdf-history/partys-boom-und-pandemien---leben-nach-den-grossen-seuchen-100.html">"parties, boom and pandemics"</a>.</li>
-            <li>August 2021: Our paper on failing banks and Hitler's rise to power is now forthcoming in the <strong>Journal of Finance</strong>.</li>
-            <li>July 2021: I am delivering the 2nd Annual Crafts Lecture at the Warwick Summer School, July 13th.</li>
-            <li>June 2021: Our paper on the rivalry and the performance of German fighter pilots (joint with Leo Bursztyn, Philip Ager, Lukas Leucht) is now forthcoming in the <strong>Review of Economic Studies</strong>. <a href="https://www.dropbox.com/s/5gcyhe41mosjpzw/Killer_Incentives_June2021.pdf?dl=0">[VOXEU]</a></li>
-            <li>March 2020: Interviews with <a href="https://www.spiegel.de/wirtschaft/corona-pandemie-oekonom-hans-joachim-voth-wir-koennten-eine-virtuelle-pestmauer-bauen-a-acd3a316-c77a-4654-9538-c30228a4462f"><em>Der Spiegel</em></a>, and <em><a href="https://www.cash.ch/news/top-news/cash-interview-mit-oekonom-joachim-voth-ist-es-oekonomisch-sinnvoll-junge-einzusperren-um-aeltere-zu-1511524">Cash</a></em> about the Corona crisis.</li>
-            <li>March 2020: <em><a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">The Economist</a></em> profiles my <a href="https://academic.oup.com/restud/article-abstract/80/2/774/1535445?redirectedFrom=fulltext">work on pandemics in the past and economic growth</a>.</li>
-            <li>February 2020: <a href="https://www.fuw.ch/article/reisen-und-handeln-in-zeiten-der-epidemie/"><em>Finanz und Wirtschaft</em></a> and <a href="https://voxeu.org/content/economics-time-covid-19"><em>VOXEU</em></a> carry an article by me on comparisons between the Corona crisis and plague outbreaks in the past.</li>
-            <li>October 2019: Bruno Caprettini's and my <a href="https://cepr.org/active/publications/discussion_papers/dp.php?dpno=11800">paper on the Captain Swing riots</a> is conditionally accepted at <strong>American Economic Review: Insights</strong>. <a href="https://voxeu.org/article/rage-against-machines-new-technology-and-violent-unrest">[VOXEU]</a></li>
-            <li>August 2019: Guo Xu and I have a new working paper on the Royal Navy <a href="https://cepr.org/active/publications/discussion_papers/dp.php?dpno=13963">"Patronage for Productivity: Insights from the Age of Sail"</a> <a href="https://voxeu.org/article/patronage-and-performance-age-sail">[VOXEU]</a></li>
-            <li>August 2019: Jacopo Ponticelli's and my paper on "<a href="https://cepr.org/active/publications/discussion_papers/dp.php?dpno=8513">Austerity and Anarchy: Budget Cuts and Social Unrest in Europe, 1919-2008</a>" is forthcoming in the <strong>Journal of Comparative Economics</strong>.</li>
-            <li>June 2019: I am the keynote speaker at the Australasian Public Choice Conference, Brisbane, December 2019.</li>
-            <li>March 2019: I am going to deliver a keynote at the 1st Economic History Conference in Bologna.</li>
-            <li>December 2018: Sebastian Doerr, Stefan Gissler, Jose-Luis Peydro and I have a new working paper "<a href="https://cepr.org/active/publications/discussion_papers/dp.php?dpno=12806">From Finance to Fascism: The Real Effect of Germany 1931 Banking Crisis"</a> <a href="https://voxeu.org/article/financial-crisis-and-right-wing-extremism-germany-1931-33">[VOXEU]</a></li>
-            <li>September 2018: I am delivering a keynote at the GEP Conference on Economic Integration, Nottingham.</li>
-            <li>March 2018: Congratulations to Bruno Caprettini, who just won a <a href="https://www.grc.uzh.ch/de/calls/mercator-awards/2018.html">Mercator Award</a> at the University of Zurich.</li>
-            <li>April 2017: The SNF just awarded Bruno Caprettini and me CHF 1,000,500 for our project "Wages and Veteran Status: The Greatest Lottery in History".</li>
-            <li>May 2017: I am going to be the <strong>Scientific Director at the UBS International Center for Economics in Society</strong>, University of Zurich, from August 2017.</li>
-            <li>January 2017: Philipp Ager, Leo Burzstyn, Lukas Leucht and I have a new working paper <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=11751" target="_blank">"Killer Incentives: Status Competition and Pilot Performance during World War II"</a>. <a href="https://voxeu.org/article/how-status-competition-killed-german-wwii-fighter-pilots">[VOXEU]</a></li>
-            <li>September 2016: I will be a keynote speaker at the <strong>Winter Meetings of the Econometric Society</strong> in Barcelona, December 2017.</li>
-            <li>May 2016: Peter Koudijs' and my paper on <a href="http://ssrn.com/abstract=2406493">"Leverage and Beliefs"</a> is forthcoming at the American Economic Review</li>
-            <li>March 2016: I will be visiting UC Berkeley's <strong>Haas School of Business</strong> as a Baxter Fellow for the academic year 2016-17.</li>
-            <li>February 2016: Congratulations to <strong>Nico Voigtländer for getting tenure</strong> at UCLA-Anderson!</li>
-            <li>November 2015: I have been appointed to the <a href="http://www.ubscenter.uzh.ch/index.php/en">UBS Professorship in Macroeconomics and Financial Markets</a>.</li>
-            <li>September 2015: Shanker Satyanath's, Nico Voigtländer's and my paper on the dark side of network capital and the rise of the Nazi party, called <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2284907">"Bowling for Fascism"</a>, is now forthcoming in the Journal of Political Economy.</li>
-            <li>July 2015: I will be delivering the Sir John Hicks Lecture in Oxford in the spring of 2016.</li>
-            <li>The <strong>Proceedings of the National Academy of Sciences (PNAS)</strong> is publishing "<a href="http://www.pnas.org/content/112/26/7931.abstract">Nazi indoctrination and anti-Semitic beliefs in Germany</a>" (with Nico Voigtländer) [news <a href="https://www.google.com/search?hl=en&gl=us&tbm=nws&authuser=0&q=joachim+voth#hl=en&gl=us&authuser=0&tbm=nws&q=voth+nazi+schooling">coverage</a> here].</li>
-            <li>March 2015: Congratulations to my PhD students Felipe Valencia, Andrea Matranga, and Jörg Stahl. They will take up tenure track positions at U Bonn, the New School in Moscow, and the Universidade Nova in Lisbon, respectively.</li>
-            <li>December 2014: Congratulations to my PhD student <strong>Vasiliki (Vicky) Fouka</strong>, who just received an offer to join the <a href="https://politicalscience.stanford.edu">Stanford Political Science Department</a> as an Assistant Professor next fall.</li>
-            <li>October 2014: Starting in June 2015, I will be an editor at the <a href="http://www.res.org.uk/view/economichome.html">Economic Journal</a>.</li>
-            <li>October 2014: The Review of Economic Studies is publishing <a href="http://restud.oxfordjournals.org/content/early/2015/05/28/restud.rdv019">"State Capacity and Military Conflict"</a> (with Nicola Gennaioli).</li>
-            <li>September 2014: The Swiss National Science Foundation (SNF) just awarded 500,000 CHF for my research project "Debt into Growth: How the Country that Borrowed the Most Industrialized First".</li>
-            <li>September 2014: Swiss Radio has an <a href="http://www.srf.ch/sendungen/srf-4-aktuell/katalonien-nimmt-sich-schottland-zum-vorbild">interview</a> with me and an <a href="http://www.srf.ch/news/international/waeren-die-katalanen-schwarz-waere-es-ein-riesenskandal">article</a> about my views on Catalan independence.</li>
-            <li>July 2014: I will be a columnist for <a href="http://www.fuw.ch/">Finanz und Wirtschaft</a>, the Swiss financial newspaper. <a href="http://www.fuw.ch/article/das-blasen-dilemma/">The first article</a> is about bubbles and monetary poliy.</li>
-            <li>July 2014: I am teaching at the <strong>Tsinghua University Summer School in Quantitative Economic History</strong> in Beijing.</li>
-            <li>June 2014: I am delivering a keynote address at the <strong>LACEA political economy conference</strong> in Bogota.</li>
-            <li>May 2014: The <a href="http://www.wsj.de/article/SB10001424052702303627504579560130183360604.html">Wall Street Journal Germany</a> and <a href="http://www.marketwatch.com/story/four-ways-to-spot-an-investing-bubble-2014-05-12">Marketwatch</a> cover my paper on "Recreating the South Sea Bubble" (with Giovanni Giusti and Charles Noussair).</li>
-            <li>May 2014: Nico Voigtländer and I have a new working paper called "<strong>Highway to Hitler"</strong> [<a href="http://www.cepr.org/active/publications/discussion_papers/dp.php?dpno=9983">CEPR</a>] [<a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2438680">SSRN</a>] [<a href="http://www.voxeu.org/article/nazi-pork-and-popularity-how-hitler-s-roads-won-german-hearts-and-minds">VOX</a>]</li>
-            <li>April 2014: <a href="http://www.economist.com/news/finance-and-economics/21600989-why-rich-now-have-less-leisure-poor-nice-work-if-you-can-get-out">The Economist</a> highlights my research on time use in the past. [also in the <a href="http://www.telegraph.co.uk/science/science-news/10775454/Rise-of-the-super-workers-who-never-take-time-off.html">Daily Telegraph</a>]</li>
-            <li>February 2014: <a href="http://www.economist.com/whichmba/once-nearly-bitten-twice-shy">The Economist</a> covers my research on risk aversion with Peter Koudijs [<a href="http://www.nber.org/papers/w19957">NBER</a>] [<a href="http://www.cepr.org/pubs/dps/DP9920.asp">CEPR</a>] [<a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2416429">SSRN</a>] [<a href="http://www.voxeu.org/article/personal-experience-and-risk-aversion-times-crisis">VOX</a>].</li>
-            <li>January 2014: I have taken up my new position as Chair of Economic Development at the <a href="http://www.econ.uzh.ch/">Economics Department, University of Zurich</a>.</li>
-            <li>January 2014: My book with Mauricio Drelichman <a href="http://press.princeton.edu/titles/10084.html">Lending to the Borrower from Hell</a> has been published by Princeton University Press.</li>
-            <li>August 2013: The Financial Times today has <a href="http://www.ft.com/intl/cms/s/0/ff37ffda-f9dd-11e2-b8ef-00144feabdc0.html">an article by Mauricio Drelichman and me</a> on lessons from Habsburg Spain for sovereign lending.</li>
-            <li>July 2013: I am teaching at the <a href="http://www2.warwick.ac.uk/fac/soc/economics/news_events/conferences/ecgrowth2013/">Warwick Summer School in Economic Growth, July 7-12</a>.</li>
-            <li>June 2013: Shanker Satyanath, Nico Voigtländer and I have a new working paper entitled <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2284907">"Bowling for Fascism: Social Capital and the Rise of the Nazi Party in Weimar Germany</a>. [coverage in <a href="http://www.slate.com/articles/business/the_dismal_science/2013/06/the_rise_of_nazi_germany_did_the_prevalence_of_hunting_and_singing_clubs.html">Slate</a>]</li>
-            <li>March 2013: The Review of Economics and Statistics is publishing <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1373743">Numeracy and the Impact of High Food Prices in Industrializing Britain, 1780‐1850</a> (joint with Joerg Baten and Dorothee Crayen).</li>
-            <li>January 2013: I have just become an editor (with Bill Collins) of <strong>Explorations in Economic History</strong>.</li>
-            <li>December 2012: Peter Temin's and my book <a href="http://www.scribd.com/fullscreen/61183002?access_key=key-sq7r45zoiuv6frd5nx0">Prometheus Shackled</a> is now out with OUP (Jan 2013).</li>
-            <li>November 2012: <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1318637">How the West 'Invented' Fertility Restriction</a> [with Nico Voigtländer] is forthcoming in the <strong>American Economic Review</strong>.</li>
-            <li>October 2012: The Review of Economic Studies is publishing <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1029347">Horsemen of Riches: War, Plague and Urbanization in Early Modern Europe</a> [with Nico Voigtländer].</li>
-            <li>August 2012: The Quarterly Journal of Economics has published <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1824744">Persecution Perpetuated: The Medieval Origins of Anti-Semitic Violence in Nazi Germany</a> [with Nico Voigtländer].</li>
-            <li>March 2012: Mauricio Drelichman's and my paper on <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1468-0297.2011.02442.x/full">Lending to the Borrower from Hell: Debt and Default in the Age of Philip II</a> is now out in the Economic Journal.</li>
-            <li>October 2011: The EHS has finally managed to put up the video of <a href="http://www.ehs.org.uk/ehs/podcasts/tawney2011.asp">my April 2011 Tawney lecture</a>.</li>
-            <li>September 2011: Mauricio Drelichman and I just won the <strong>Explorations Prize</strong> for our article <a href="http://www.sciencedirect.com/science/article/pii/S0014498310000355?_rdoc=2&_fmt=high&_origin=browse&_srch=hubEid%281-s2.0-S0014498310X00055%29&_docanchor=&_ct=12&_refLink=Y&_zone=rslt_list_item&md5=845846f6243f2d9edd344cc11ebd24bf">"Serial Defaults, Serial Profits: Returns to Sovereign Lending in Habsburg Spain, 1566-1600"</a>, Explorations in Economic History 48(1) 2011.</li>
-            <li>Summer 2011: I have been asked to become an Associate Editor at the <strong>Quarterly Journal of Economics</strong>.</li>
-            <li>Spring 2011: Congratulations to my doctoral student <strong>Peter Koudijs</strong>, who will take up a tenure-track position as <strong>Assistant Professor at the Finance Department, Stanford GSB</strong>, in July 2011, and who is also one of the first European PhDs to join the RES tour.</li>
-        </ul>
-
-        <h2 class="section-heading">Other News</h2>
-
-        <ul class="news-list">
-            <li>CNN has an <a href="http://edition.cnn.com/2012/11/21/business/catalonia-dutch-revolt-lessons/index.html">op ed piece</a> by me about parallels between the Dutch revolt and the independence movement in Catalonia.</li>
-            <li>The Wirtschaftswoche has an <a href="http://www.wiwo.de/politik/europa/denkfabrik-oekonom-voth-der-euro-wird-scheitern/5861030.html">article</a> by me about historical experiences with currency unions.</li>
-            <li>The <a href="http://www.economist.com/node/21538699">Economic Focus</a> in the Economist features my paper with Tim Leunig on process innovation.</li>
-            <li>The <a href="http://www.economist.com/blogs/freeexchange/2011/11/economics">Economist</a> just made my unrest paper with Jacopo Ponticelli the topic of the Economics Focus column.</li>
-            <li><a href="http://edition.cnn.com/2011/11/03/business/greek-tragedy-argentina/index.html?iref=allsearch">CNN</a> ran an op-ed piece of mine comparing Greece and Argentina in 2001.</li>
-            <li>Der Spiegel - August 29, 2011 edition - has an interview with me about the future of the Euro [print edition, (<a href="http://www.spiegel.de/international/europe/0,1518,783281,00.html">poor) English translation here</a>].</li>
+            <li>
+                <span class="news-date">CNN</span>
+                <span class="news-content"><a href="http://edition.cnn.com/2012/11/21/business/catalonia-dutch-revolt-lessons/index.html">Op-ed</a> on parallels between the Dutch revolt and Catalan independence.</span>
+            </li>
+            <li>
+                <span class="news-date">Economist</span>
+                <span class="news-content"><a href="http://www.economist.com/node/21538699">Economic Focus</a> on process innovation paper with Tim Leunig.</span>
+            </li>
+            <li>
+                <span class="news-date">Der Spiegel</span>
+                <span class="news-content"><a href="http://www.spiegel.de/international/europe/0,1518,783281,00.html">Interview</a> on the future of the Euro.</span>
+            </li>
         </ul>
     </main>
 
-    <script>document.querySelector('.menu-toggle').addEventListener('click',function(){this.classList.toggle('active');document.querySelector('nav ul').classList.toggle('active')});</script>
     <footer>
-        <div class="container">
-            <p>&copy; Hans-Joachim Voth | All content</p>
-        </div>
     </footer>
 <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

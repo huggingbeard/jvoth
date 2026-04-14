@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hans-Joachim Voth, UBS Foundation Professor of Economics, University of Zurich">
     <title>Hans-Joachim Voth | University of Zurich</title>
-    <link rel="stylesheet" href="modern-style.css">
+    <link rel="stylesheet" href="modern-style.css?v=3">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -16,11 +17,13 @@
     </header>
 
     <nav>
+        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="books.html">Books</a></li>
             <li><a href="publications.html">Main Publications</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="datasets.html">Datasets</a></li>
             <li><a href="students.html">Students</a></li>
             <li><a href="bio.html">Bio & CV</a></li>
             <li><a href="news.html">News</a></li>
@@ -29,8 +32,7 @@
     </nav>
 
     <main class="container">
-        <h2 class="section-heading" style="font-size: 2rem; border-bottom: none; margin-top: 2rem;">About</h2>
-        <div class="landing-content" style="margin-top: 1rem;">
+        <div class="landing-content" style="margin-top: 4rem;">
             <div class="profile-section">
                 <img src="new_p.jpg" alt="Hans-Joachim Voth" class="profile-image">
                 <div class="contact-info">
@@ -46,13 +48,14 @@
             </div>
 
             <div class="summary-section">
+                <h1 class="page-title">About</h1>
                 <p>
-                    My areas of specialization include long-run growth, cultural economics, and economic and financial history.
+                    I am an economic historian with interests in long-run growth, cultural economics, and the origins of extremism.
                     I hold a UBS Foundation Professorship at the Economics Department, University of Zurich, and serve as
                     Scientific Director of the UBS Center for Economics in Society.
                 </p>
                 <p>
-                    In 2022, I was elected to a Fellowship of the Econometric Society. In 2025, I served as President of the
+                    In 2022, I was elected to a Fellowship of the Econometric Society. In 2025, I was President of the
                     Association for Comparative Economic Studies (ACES). Until 2021, I served as one of the joint managing
                     editors of the Economic Journal, and as an associate editor at the QJE.
                 </p>
@@ -71,10 +74,12 @@
         </div>
     </main>
 
+    <script>document.querySelector('.menu-toggle').addEventListener('click',function(){this.classList.toggle('active');document.querySelector('nav ul').classList.toggle('active')});</script>
     <footer>
         <div class="container">
             <p>&copy; Hans-Joachim Voth | All content</p>
         </div>
     </footer>
+<script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
