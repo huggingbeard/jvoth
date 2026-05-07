@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Options | Hans-Joachim Voth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Libre Baskerville', serif;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .mockups-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mockup {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .mockup-label {
+            background: #333;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mockup-label h2 {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .swatch {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .mockup-content {
+            padding: 0;
+        }
+
+        /* Shared mockup styles */
+        .mini-header {
+            padding: 1.5rem 2rem 1rem;
+        }
+
+        .mini-header h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+        }
+
+        .mini-header p {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        .mini-nav {
+            padding: 0 2rem 0.75rem;
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .mini-nav span {
+            opacity: 0.8;
+        }
+
+        .mini-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .mini-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .mini-paper {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .mini-paper h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+        }
+
+        .mini-paper .meta {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .mini-paper .meta .journal {
+            font-style: italic;
+        }
+
+        .mini-btn {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.65rem;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            margin-right: 0.25rem;
+        }
+
+        @media (max-width: 900px) {
+            .mockups-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           OPTION 1: Navy & Gold (Classic Academic)
+           ============================================ */
+        .opt1 .mini-header {
+            background: #1e3a5f;
+            color: #fff;
+        }
+        .opt1 .mini-nav {
+            background: #1e3a5f;
+            color: #fff;
+        }
+        .opt1 .mini-body {
+            background: #faf8f5;
+            color: #2a2a2a;
+        }
+        .opt1 .mini-title {
+            color: #1e3a5f;
+            border-bottom: 1px solid #c9a227;
+        }
+        .opt1 .mini-paper h4 {
+            color: #1e3a5f;
+        }
+        .opt1 .mini-paper {
+            border-bottom: 1px solid #e5e0d5;
+        }
+        .opt1 .mini-paper .journal {
+            color: #c9a227;
+        }
+        .opt1 .mini-btn {
+            border: 1px solid #c9a227;
+            color: #c9a227;
+            background: transparent;
+        }
+
+        /* ============================================
+           OPTION 2: Slate & Sage (Calm Modern)
+           ============================================ */
+        .opt2 .mini-header {
+            background: #4a5568;
+            color: #fff;
+        }
+        .opt2 .mini-nav {
+            background: #4a5568;
+            color: #fff;
+        }
+        .opt2 .mini-body {
+            background: #f7f9f7;
+            color: #2d3748;
+        }
+        .opt2 .mini-title {
+            color: #2d3748;
+            border-bottom: 1px solid #68a67d;
+        }
+        .opt2 .mini-paper h4 {
+            color: #2d3748;
+        }
+        .opt2 .mini-paper {
+            border-bottom: 1px solid #e2e8e4;
+        }
+        .opt2 .mini-paper .journal {
+            color: #68a67d;
+        }
+        .opt2 .mini-btn {
+            border: 1px solid #68a67d;
+            color: #68a67d;
+            background: transparent;
+        }
+
+        /* ============================================
+           OPTION 3: Deep Teal & Copper (Sophisticated)
+           ============================================ */
+        .opt3 .mini-header {
+            background: #1d4e5f;
+            color: #fff;
+        }
+        .opt3 .mini-nav {
+            background: #1d4e5f;
+            color: #fff;
+        }
+        .opt3 .mini-body {
+            background: #faf9f7;
+            color: #2a2a2a;
+        }
+        .opt3 .mini-title {
+            color: #1d4e5f;
+            border-bottom: 1px solid #b87333;
+        }
+        .opt3 .mini-paper h4 {
+            color: #1d4e5f;
+        }
+        .opt3 .mini-paper {
+            border-bottom: 1px solid #e8e4df;
+        }
+        .opt3 .mini-paper .journal {
+            color: #b87333;
+        }
+        .opt3 .mini-btn {
+            border: 1px solid #b87333;
+            color: #b87333;
+            background: transparent;
+        }
+
+        /* ============================================
+           OPTION 4: Charcoal & Terracotta (Warm Modern)
+           ============================================ */
+        .opt4 .mini-header {
+            background: #363636;
+            color: #fff;
+        }
+        .opt4 .mini-nav {
+            background: #363636;
+            color: #fff;
+        }
+        .opt4 .mini-body {
+            background: #faf8f6;
+            color: #333;
+        }
+        .opt4 .mini-title {
+            color: #333;
+            border-bottom: 1px solid #c75b39;
+        }
+        .opt4 .mini-paper h4 {
+            color: #333;
+        }
+        .opt4 .mini-paper {
+            border-bottom: 1px solid #e8e2dd;
+        }
+        .opt4 .mini-paper .journal {
+            color: #c75b39;
+        }
+        .opt4 .mini-btn {
+            border: 1px solid #c75b39;
+            color: #c75b39;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Palette Options</h1>
+    <p class="intro">
+        Four alternative color schemes. Each maintains academic credibility while offering better visual harmony than the current burgundy/blue combination.
+    </p>
+
+    <div class="mockups-grid">
+        <!-- Option 1: Navy & Gold -->
+        <div class="mockup">
+            <div class="mockup-label">
+                <h2>Option 1: Navy & Gold (Classic Academic)</h2>
+                <div class="color-swatches">
+                    <div class="swatch" style="background:#1e3a5f" title="Header: #1e3a5f"></div>
+                    <div class="swatch" style="background:#c9a227" title="Accent: #c9a227"></div>
+                    <div class="swatch" style="background:#faf8f5" title="Background: #faf8f5"></div>
+                </div>
+            </div>
+            <div class="mockup-content opt1">
+                <div class="mini-header">
+                    <h3>Hans-Joachim Voth</h3>
+                    <p>UBS Foundation Professor of Economics</p>
+                </div>
+                <div class="mini-nav">
+                    <span>Home</span>
+                    <span>Latest Papers</span>
+                    <span>Publications</span>
+                    <span>Books</span>
+                </div>
+                <div class="mini-body">
+                    <h3 class="mini-title">Latest Papers</h3>
+                    <div class="mini-paper">
+                        <h4>Highway to Hitler</h4>
+                        <p class="meta">with Nico Voigtlander &middot; <span class="journal">AEJ: Applied</span>, forthcoming</p>
+                        <span class="mini-btn">NBER wp</span>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                    <div class="mini-paper">
+                        <h4>Going Viral: Protests and Political Polarization</h4>
+                        <p class="meta">with Caesmann, Caprettini &middot; <span class="journal">JEEA</span>, forthcoming</p>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 2: Slate & Sage -->
+        <div class="mockup">
+            <div class="mockup-label">
+                <h2>Option 2: Slate & Sage (Calm Modern)</h2>
+                <div class="color-swatches">
+                    <div class="swatch" style="background:#4a5568" title="Header: #4a5568"></div>
+                    <div class="swatch" style="background:#68a67d" title="Accent: #68a67d"></div>
+                    <div class="swatch" style="background:#f7f9f7" title="Background: #f7f9f7"></div>
+                </div>
+            </div>
+            <div class="mockup-content opt2">
+                <div class="mini-header">
+                    <h3>Hans-Joachim Voth</h3>
+                    <p>UBS Foundation Professor of Economics</p>
+                </div>
+                <div class="mini-nav">
+                    <span>Home</span>
+                    <span>Latest Papers</span>
+                    <span>Publications</span>
+                    <span>Books</span>
+                </div>
+                <div class="mini-body">
+                    <h3 class="mini-title">Latest Papers</h3>
+                    <div class="mini-paper">
+                        <h4>Highway to Hitler</h4>
+                        <p class="meta">with Nico Voigtlander &middot; <span class="journal">AEJ: Applied</span>, forthcoming</p>
+                        <span class="mini-btn">NBER wp</span>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                    <div class="mini-paper">
+                        <h4>Going Viral: Protests and Political Polarization</h4>
+                        <p class="meta">with Caesmann, Caprettini &middot; <span class="journal">JEEA</span>, forthcoming</p>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 3: Teal & Copper -->
+        <div class="mockup">
+            <div class="mockup-label">
+                <h2>Option 3: Deep Teal & Copper (Sophisticated)</h2>
+                <div class="color-swatches">
+                    <div class="swatch" style="background:#1d4e5f" title="Header: #1d4e5f"></div>
+                    <div class="swatch" style="background:#b87333" title="Accent: #b87333"></div>
+                    <div class="swatch" style="background:#faf9f7" title="Background: #faf9f7"></div>
+                </div>
+            </div>
+            <div class="mockup-content opt3">
+                <div class="mini-header">
+                    <h3>Hans-Joachim Voth</h3>
+                    <p>UBS Foundation Professor of Economics</p>
+                </div>
+                <div class="mini-nav">
+                    <span>Home</span>
+                    <span>Latest Papers</span>
+                    <span>Publications</span>
+                    <span>Books</span>
+                </div>
+                <div class="mini-body">
+                    <h3 class="mini-title">Latest Papers</h3>
+                    <div class="mini-paper">
+                        <h4>Highway to Hitler</h4>
+                        <p class="meta">with Nico Voigtlander &middot; <span class="journal">AEJ: Applied</span>, forthcoming</p>
+                        <span class="mini-btn">NBER wp</span>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                    <div class="mini-paper">
+                        <h4>Going Viral: Protests and Political Polarization</h4>
+                        <p class="meta">with Caesmann, Caprettini &middot; <span class="journal">JEEA</span>, forthcoming</p>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 4: Charcoal & Terracotta -->
+        <div class="mockup">
+            <div class="mockup-label">
+                <h2>Option 4: Charcoal & Terracotta (Warm Modern)</h2>
+                <div class="color-swatches">
+                    <div class="swatch" style="background:#363636" title="Header: #363636"></div>
+                    <div class="swatch" style="background:#c75b39" title="Accent: #c75b39"></div>
+                    <div class="swatch" style="background:#faf8f6" title="Background: #faf8f6"></div>
+                </div>
+            </div>
+            <div class="mockup-content opt4">
+                <div class="mini-header">
+                    <h3>Hans-Joachim Voth</h3>
+                    <p>UBS Foundation Professor of Economics</p>
+                </div>
+                <div class="mini-nav">
+                    <span>Home</span>
+                    <span>Latest Papers</span>
+                    <span>Publications</span>
+                    <span>Books</span>
+                </div>
+                <div class="mini-body">
+                    <h3 class="mini-title">Latest Papers</h3>
+                    <div class="mini-paper">
+                        <h4>Highway to Hitler</h4>
+                        <p class="meta">with Nico Voigtlander &middot; <span class="journal">AEJ: Applied</span>, forthcoming</p>
+                        <span class="mini-btn">NBER wp</span>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                    <div class="mini-paper">
+                        <h4>Going Viral: Protests and Political Polarization</h4>
+                        <p class="meta">with Caesmann, Caprettini &middot; <span class="journal">JEEA</span>, forthcoming</p>
+                        <span class="mini-btn">Abstract</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="max-width: 900px; margin: 3rem auto 0; padding: 2rem; background: #2a2a2a; border-radius: 8px;">
+        <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">Color Values Reference</h2>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+            <tr style="border-bottom: 1px solid #444;">
+                <th style="text-align: left; padding: 0.5rem 0;">Option</th>
+                <th style="text-align: left; padding: 0.5rem 0;">Header</th>
+                <th style="text-align: left; padding: 0.5rem 0;">Accent</th>
+                <th style="text-align: left; padding: 0.5rem 0;">Background</th>
+                <th style="text-align: left; padding: 0.5rem 0;">Text</th>
+            </tr>
+            <tr style="border-bottom: 1px solid #333;">
+                <td style="padding: 0.5rem 0;">1. Navy & Gold</td>
+                <td style="padding: 0.5rem 0;">#1e3a5f</td>
+                <td style="padding: 0.5rem 0;">#c9a227</td>
+                <td style="padding: 0.5rem 0;">#faf8f5</td>
+                <td style="padding: 0.5rem 0;">#2a2a2a</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #333;">
+                <td style="padding: 0.5rem 0;">2. Slate & Sage</td>
+                <td style="padding: 0.5rem 0;">#4a5568</td>
+                <td style="padding: 0.5rem 0;">#68a67d</td>
+                <td style="padding: 0.5rem 0;">#f7f9f7</td>
+                <td style="padding: 0.5rem 0;">#2d3748</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #333;">
+                <td style="padding: 0.5rem 0;">3. Teal & Copper</td>
+                <td style="padding: 0.5rem 0;">#1d4e5f</td>
+                <td style="padding: 0.5rem 0;">#b87333</td>
+                <td style="padding: 0.5rem 0;">#faf9f7</td>
+                <td style="padding: 0.5rem 0;">#2a2a2a</td>
+            </tr>
+            <tr>
+                <td style="padding: 0.5rem 0;">4. Charcoal & Terracotta</td>
+                <td style="padding: 0.5rem 0;">#363636</td>
+                <td style="padding: 0.5rem 0;">#c75b39</td>
+                <td style="padding: 0.5rem 0;">#faf8f6</td>
+                <td style="padding: 0.5rem 0;">#333333</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
