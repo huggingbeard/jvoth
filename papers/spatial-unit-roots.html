@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spatial Unit Roots in Regressions: A Practitioner&#x27;s Guide and Stata Package - David Boll, Sascha O. Becker, Hans-Joachim Voth. Forthcoming, Stata Journal.">
+    <title>Spatial Unit Roots in Regressions: A Practitioner&#x27;s Guide and Stata Package | Hans-Joachim Voth</title>
+    <link rel="canonical" href="https://www.jvoth.com/papers/spatial-unit-roots.html">
+    <meta name="robots" content="index, follow">
+
+    <meta name="citation_title" content="Spatial Unit Roots in Regressions: A Practitioner&#x27;s Guide and Stata Package">
+    <meta name="citation_author" content="David Boll">
+    <meta name="citation_author" content="Sascha O. Becker">
+    <meta name="citation_author" content="Hans-Joachim Voth">
+    <meta name="citation_publication_date" content="2025">
+    <meta name="citation_pdf_url" content="https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2025/twerp_1541-_becker.pdf">
+    <meta name="citation_abstract_html_url" content="https://www.jvoth.com/papers/spatial-unit-roots.html">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package",
+  "name": "Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "David Boll"
+    },
+    {
+      "@type": "Person",
+      "name": "Sascha O. Becker"
+    },
+    {
+      "@type": "Person",
+      "name": "Hans-Joachim Voth"
+    }
+  ],
+  "datePublished": "2025",
+  "abstract": "Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques.",
+  "keywords": [
+    "spatial unit roots",
+    "spatial econometrics",
+    "Stata",
+    "spurious regression"
+  ],
+  "url": "https://www.jvoth.com/papers/spatial-unit-roots.html",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2025/twerp_1541-_becker.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+:root { --ink:#1a1a1a; --muted:#5a5a5a; --accept:#7a1f1f; --rule:#e2ddd5; }
+        * { box-sizing: border-box; }
+        body { font-family:'Source Sans 3',system-ui,sans-serif; font-size:17px; line-height:1.65;
+               color:var(--ink); background:#fbfaf7; margin:0; padding:48px 20px; }
+        main { max-width:760px; margin:0 auto; }
+        .back { font-size:0.95rem; margin:0 0 28px; }
+        .back a { color:var(--muted); text-decoration:none; }
+        .back a:hover { color:var(--accept); }
+        h1 { font-family:'Libre Baskerville',Georgia,serif; font-weight:700; font-size:1.9rem;
+             line-height:1.25; margin:0 0 14px; }
+        .authors { font-size:1.12rem; margin:0 0 4px; }
+        .venue { color:var(--muted); margin:0 0 24px; }
+        .actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:0 0 32px;
+                   padding-bottom:28px; border-bottom:1px solid var(--rule); }
+        a.download { display:inline-block; background:var(--accept); color:#fff; text-decoration:none;
+                     font-weight:600; padding:11px 22px; border-radius:6px; }
+        a.download:hover { background:#5e1717; }
+        a.alt { color:var(--accept); text-decoration:none; font-weight:500; }
+        a.alt:hover { text-decoration:underline; }
+        h2 { font-family:'Libre Baskerville',Georgia,serif; font-size:1.15rem; margin:0 0 10px; }
+        .abstract p { margin:0 0 18px; }
+        .meta { display:grid; grid-template-columns:8rem 1fr; gap:6px 18px; color:var(--muted);
+                font-size:0.95rem; border-top:1px solid var(--rule); margin-top:28px; padding-top:20px; }
+        .meta dt { font-weight:600; color:var(--ink); }
+        .meta dd { margin:0; }
+        .cite { color:var(--muted); font-size:0.95rem; border-top:1px solid var(--rule);
+                margin-top:28px; padding-top:20px; }
+    </style>
+</head>
+<body>
+    <main>
+        <p class="back"><a href="../latest-papers.html">&larr; All papers</a></p>
+        <h1>Spatial Unit Roots in Regressions: A Practitioner&#x27;s Guide and Stata Package</h1>
+        <p class="authors">David Boll, Sascha O. Becker, Hans-Joachim Voth</p>
+        <p class="venue">Forthcoming, Stata Journal</p>
+        <p class="actions">
+            <a class="download" href="https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2025/twerp_1541-_becker.pdf">Download PDF</a> <a class="alt" href="https://github.com/pdavidboll/SPUR">Github</a>
+        </p>
+        <section class="abstract">
+            <h2>Abstract</h2>
+            <p>Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques.</p>
+        </section>
+        <dl class="meta">
+            <dt>Keywords</dt><dd>spatial unit roots, spatial econometrics, Stata, spurious regression</dd>
+            <dt>JEL</dt><dd>Not specified</dd>
+            <dt>Canonical</dt><dd><a class="alt" href="https://www.jvoth.com/papers/spatial-unit-roots.html">https://www.jvoth.com/papers/spatial-unit-roots.html</a></dd>
+        </dl>
+        <p class="cite">David Boll, Sascha O. Becker, Hans-Joachim Voth (2025). &ldquo;Spatial Unit Roots in Regressions: A Practitioner&#x27;s Guide and Stata Package.&rdquo; Forthcoming, Stata Journal.</p>
+    </main>
+    <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script src="../gc-downloads.js"></script>
+</body>
+</html>

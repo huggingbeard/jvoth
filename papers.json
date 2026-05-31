@@ -1,0 +1,387 @@
+{
+  "schema": "https://www.jvoth.com/papers.schema.json",
+  "generated": "2026-05-31",
+  "author_profile": {
+    "name": "Hans-Joachim Voth",
+    "website": "https://www.jvoth.com",
+    "ssrn": "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=143391"
+  },
+  "papers": [
+    {
+      "title": "Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package",
+      "authors": [
+        "David Boll",
+        "Sascha O. Becker",
+        "Hans-Joachim Voth"
+      ],
+      "date": "2025",
+      "status": "forthcoming",
+      "venue": "Forthcoming, Stata Journal",
+      "abstract": "Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques.",
+      "keywords": [
+        "spatial unit roots",
+        "spatial econometrics",
+        "Stata",
+        "spurious regression"
+      ],
+      "jel": [],
+      "canonical_url": "https://www.jvoth.com/papers/spatial-unit-roots.html",
+      "pdf_url": "https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2025/twerp_1541-_becker.pdf",
+      "ssrn_url": null,
+      "links": [
+        {
+          "label": "Github",
+          "url": "https://github.com/pdavidboll/SPUR"
+        }
+      ]
+    },
+    {
+      "title": "Going Viral: Protests and Political Polarization in 1932 Hamburg",
+      "authors": [
+        "Marcel Caesmann",
+        "Bruno Caprettini",
+        "Hans-Joachim Voth",
+        "David Yanagizawa-Drott"
+      ],
+      "date": "2025",
+      "status": "forthcoming",
+      "venue": "Forthcoming, Journal of the European Economic Association",
+      "abstract": "Political polarization is a growing concern in many countries; are mass protests merely a sign of increasing cleavages, or do they polarize societies? In this paper, we estimate the impact of Nazi marches in 1932 Hamburg, using granular data from 622 voting precincts during six elections. We show that propaganda can persuade, but it does so by raising the share of areas with very high Nazi support. Importantly, marches can also backfire and repel voters. Thus, protest marches lead to polarization.",
+      "keywords": [
+        "protests",
+        "political polarization",
+        "propaganda",
+        "Nazi marches",
+        "Hamburg"
+      ],
+      "jel": [],
+      "canonical_url": "https://www.jvoth.com/papers/going-viral.html",
+      "pdf_url": "https://www.jvoth.com/GoingViral_May2025.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3886846",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3886846"
+        }
+      ]
+    },
+    {
+      "title": "Fighting for Growth: Labor Scarcity and Technological Progress During the British Industrial Revolution",
+      "authors": [
+        "Bruno Caprettini",
+        "Alex Trew",
+        "Hans-Joachim Voth"
+      ],
+      "date": "2022-12-06",
+      "status": "forthcoming",
+      "venue": "Forthcoming, American Economic Review",
+      "abstract": "We collect new data and present new evidence on the effects of labor scarcity on the adoption of labor-saving technology in industrializing England. Where the British armed forces recruited heavily, more machines that economized on labor were adopted.",
+      "keywords": [
+        "Industrial Revolution",
+        "labor scarcity",
+        "technological progress",
+        "labor-saving technology",
+        "Britain"
+      ],
+      "jel": [
+        "N13",
+        "N43",
+        "O14",
+        "O31",
+        "O47"
+      ],
+      "canonical_url": "https://www.jvoth.com/papers/fighting-for-growth.html",
+      "pdf_url": "https://www.jvoth.com/Fighting_for_Growth.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852722",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852722"
+        },
+        {
+          "label": "CEPR wp",
+          "url": "https://hub.cepr.org/published-discussion-paper/181527"
+        },
+        {
+          "label": "The Economist",
+          "url": "http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution"
+        }
+      ]
+    },
+    {
+      "title": "Image(s)",
+      "authors": [
+        "Hans-Joachim Voth",
+        "David Yanagizawa-Drott"
+      ],
+      "date": "2024-07-02",
+      "status": "revision requested",
+      "venue": "Revision requested, Quarterly Journal of Economics",
+      "abstract": "From clothes and hairstyles to fashion accessories, humans use a range of stylistic elements to express themselves. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. We systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style.",
+      "keywords": [
+        "culture",
+        "images",
+        "persistence",
+        "cultural change",
+        "similarity",
+        "counter-culture",
+        "hippies"
+      ],
+      "jel": [
+        "A12",
+        "Z13",
+        "N34"
+      ],
+      "canonical_url": "https://www.jvoth.com/papers/images.html",
+      "pdf_url": "https://www.jvoth.com/images_july_24.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852661",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852661"
+        },
+        {
+          "label": "Data",
+          "url": "https://huggingbeard.github.io/images/"
+        },
+        {
+          "label": "AI-generated podcast",
+          "url": "https://www.jvoth.com/Images%20Podcast.wav"
+        }
+      ]
+    },
+    {
+      "title": "Slavery and the British Industrial Revolution",
+      "authors": [
+        "Stephan Heblich",
+        "Stephen J. Redding",
+        "Hans-Joachim Voth"
+      ],
+      "date": "2022",
+      "status": "revision requested",
+      "venue": "Revision requested, Review of Economic Studies",
+      "abstract": "We provide theory and evidence on the contribution of slavery wealth to Britain's economic development prior to the abolition of slavery in 1833. We combine data on individual slaveholders from compensation records, an exogenous source of variation in slavery wealth from weather-induced shocks to mortality of the enslaved during the middle passage, and a quantitative spatial model.",
+      "keywords": [
+        "slavery",
+        "Industrial Revolution",
+        "Britain",
+        "slave wealth",
+        "economic development"
+      ],
+      "jel": [],
+      "canonical_url": "https://www.jvoth.com/papers/slavery-british-industrial-revolution.html",
+      "pdf_url": "http://www.princeton.edu/~reddings/papers/SBIR_Paper.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4216236",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4216236"
+        },
+        {
+          "label": "NBER wp",
+          "url": "https://www.jvoth.com/w30451.pdf"
+        },
+        {
+          "label": "VoxEU podcast",
+          "url": "https://cepr.org/multimedia/slavery-and-industrial-revolution"
+        },
+        {
+          "label": "TradeTalks",
+          "url": "https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/"
+        }
+      ]
+    },
+    {
+      "title": "Never Enough: Dynamic Status Incentives in Organizations",
+      "authors": [
+        "Leonardo Bursztyn",
+        "Ewan Rawcliffe",
+        "Hans-Joachim Voth"
+      ],
+      "date": "2026-01",
+      "status": "working paper",
+      "venue": "NBER Working Paper No. w34707",
+      "abstract": "We study the ability of a firm to elicit repeated effort from workers by creating a \"rat race\" of hierarchical status-based incentives. We examine performance using data on over 5,000 German air force pilots during World War II. Pilots' effort is hard to monitor; motivation is key to success. Fighter pilot performance increases markedly as they approach eligibility for a medal before falling off upon receipt of the award.",
+      "keywords": [
+        "status incentives",
+        "organizations",
+        "rat race",
+        "German air force",
+        "World War II"
+      ],
+      "jel": [],
+      "canonical_url": "https://www.jvoth.com/papers/never-enough.html",
+      "pdf_url": "https://tinyurl.com/P1lots",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6093299",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6093299"
+        },
+        {
+          "label": "NBER wp",
+          "url": "https://www.nber.org/papers/w34707"
+        },
+        {
+          "label": "CEPR wp",
+          "url": "https://cepr.org/publications/dp21121"
+        },
+        {
+          "label": "VoxEU",
+          "url": "https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii"
+        },
+        {
+          "label": "Spectator",
+          "url": "https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/"
+        }
+      ]
+    },
+    {
+      "title": "Transmitting Terror: Radio and Repression in Stalin's Soviet Union",
+      "authors": [
+        "Sultan Mehmood",
+        "Yaroslav Prokhorskoy",
+        "Hans-Joachim Voth"
+      ],
+      "date": "2026-02-27",
+      "status": "working paper",
+      "venue": "Working paper",
+      "abstract": "Mass media often persuades; it can also expand the machinery of repression. We study radio network expansion and political persecution in Stalin's Soviet Union, in the decades leading up to the 'Great Terror' of 1937-38. Greater radio coverage systematically intensified political repression: a one-standard-deviation increase in signal strength is associated with roughly 40 percent more arrests and a 20 percent rise in the execution share among those arrested, with effects that grew over time. For identification, we exploit newly digitized county-level panel data for 1920-1940 and variation in longwave radio signal strength driven by ground-conductivity differences along propagation paths. Additional repression was disproportionately misdirected. Post-Stalin rehabilitation records show that high-signal areas produced substantially more sentences later reversed. Within the security apparatus itself, stronger radio reception reduced recruitment into the NKVD. It also increased the probability that incumbent officers were purged or demoted, consistent with tighter monitoring and escalating internal risk. Mass communication was not only persuasive; it operated as an input into coercive state capacity by lowering the coordination and monitoring costs of repression.",
+      "keywords": [
+        "propaganda",
+        "state capacity",
+        "repression",
+        "radio",
+        "Stalin",
+        "Soviet Union"
+      ],
+      "jel": [
+        "N44",
+        "D72",
+        "P30"
+      ],
+      "canonical_url": "https://www.jvoth.com/papers/transmitting-terror.html",
+      "pdf_url": "https://www.jvoth.com/Transmitting_Terror.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852779",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852779"
+        }
+      ]
+    },
+    {
+      "title": "Legacy on Deck: Skill Transmission and Occupational Dynasties in the Royal Navy",
+      "authors": [
+        "Hans-Joachim Voth",
+        "Guo Xu"
+      ],
+      "date": "2025-06-04",
+      "status": "working paper",
+      "venue": "Working paper",
+      "abstract": "Do occupational dynasties reflect the intergenerational transmission of skills or nepotism? We use detailed data on the fighting record of the 18th century Royal Navy to show that sons of navy officers are markedly more successful than non-legacies, outperforming in terms of enemy captures by a third. This performance differential is not due to better equipment or more favorable assignments, and also holds for those whose patron has passed away. We provide evidence for positive selection as a channel through which the outperformance is sustained - sons of successful officers are more likely to join and be promoted in the navy. Consistent with vertical transmission, we use computer vision to analyze facial landmarks from over 1,000 portraits. We find that sons of service inherited traits predictive of greater success in naval warfare.",
+      "keywords": [
+        "occupational dynasties",
+        "skill transmission",
+        "nepotism",
+        "Royal Navy",
+        "computer vision",
+        "intergenerational mobility"
+      ],
+      "jel": [],
+      "canonical_url": "https://www.jvoth.com/papers/legacy-on-deck.html",
+      "pdf_url": "https://www.jvoth.com/Legacy.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852782",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852782"
+        }
+      ]
+    },
+    {
+      "title": "American Life Histories",
+      "authors": [
+        "David Lagakos",
+        "Stelios Michalopoulos",
+        "Hans-Joachim Voth"
+      ],
+      "date": "2025-01",
+      "status": "working paper",
+      "venue": "NBER Working Paper No. w33373",
+      "abstract": "What does it take to live a meaningful life? We exploit a unique corpus of over 1,300 life narratives of older Americans collected by a team of writers during the 1930s. We combine detailed human readings with large language models (LLMs) to extract systematic information on critical junctures, sources of meaning, and overall life satisfaction.",
+      "keywords": [
+        "American Life Histories",
+        "life narratives",
+        "meaning",
+        "well-being",
+        "large language models"
+      ],
+      "jel": [],
+      "canonical_url": "https://www.jvoth.com/papers/american-life-histories.html",
+      "pdf_url": "https://www.jvoth.com/alh.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5103580",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5103580"
+        },
+        {
+          "label": "NBER version",
+          "url": "https://www.nber.org/papers/w33373"
+        },
+        {
+          "label": "VoxTalk",
+          "url": "https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn"
+        },
+        {
+          "label": "Interview",
+          "url": "https://t.co/ZLjMLfs8KL"
+        },
+        {
+          "label": "FT",
+          "url": "https://timharford.com/2026/02/the-paradox-of-work/"
+        }
+      ]
+    },
+    {
+      "title": "From the Death of God to the Rise of Hitler",
+      "authors": [
+        "Sascha O. Becker",
+        "Hans-Joachim Voth"
+      ],
+      "date": "2023-10",
+      "status": "working paper",
+      "venue": "IZA Discussion Paper No. 16538; CEPR Discussion Paper No. 18543",
+      "abstract": "Can weakened religiosity lead to the rise of totalitarianism? The Nazi Party set itself up as a political religion, emphasizing redemption, sacrifice, rituals, and communal spirit. This had a major impact on its success: Where the Christian Church only had shallow roots, the Nazis received higher electoral support and saw more party entry.",
+      "keywords": [
+        "political religion",
+        "Nazi Party",
+        "religiosity",
+        "voting",
+        "Shallow Christianity"
+      ],
+      "jel": [
+        "N13",
+        "N14",
+        "N44",
+        "P16",
+        "Z12",
+        "Z18"
+      ],
+      "canonical_url": "https://www.jvoth.com/papers/death-of-god-rise-hitler.html",
+      "pdf_url": "https://www.dropbox.com/s/jklmvcswixu3lhi/Shallow_Christianity%20%2820%29.pdf?dl=0",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4612224",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4612224"
+        },
+        {
+          "label": "CEPR dp",
+          "url": "https://cepr.org/publications/dp18543"
+        }
+      ]
+    }
+  ]
+}

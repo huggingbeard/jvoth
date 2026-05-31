@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.jvoth.com/papers.schema.json",
+  "title": "Hans-Joachim Voth papers feed",
+  "type": "object",
+  "required": ["generated", "author_profile", "papers"],
+  "properties": {
+    "schema": { "type": "string", "format": "uri" },
+    "generated": { "type": "string" },
+    "author_profile": {
+      "type": "object",
+      "required": ["name", "website"],
+      "properties": {
+        "name": { "type": "string" },
+        "website": { "type": "string", "format": "uri" },
+        "ssrn": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": true
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "authors", "date", "abstract", "canonical_url", "pdf_url"],
+        "properties": {
+          "title": { "type": "string" },
+          "authors": { "type": "array", "items": { "type": "string" } },
+          "date": { "type": "string" },
+          "status": { "type": "string" },
+          "venue": { "type": "string" },
+          "abstract": { "type": "string" },
+          "keywords": { "type": "array", "items": { "type": "string" } },
+          "jel": { "type": "array", "items": { "type": "string" } },
+          "canonical_url": { "type": "string", "format": "uri" },
+          "pdf_url": { "type": "string", "format": "uri" },
+          "ssrn_url": { "type": ["string", "null"], "format": "uri" },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label", "url"],
+              "properties": {
+                "label": { "type": "string" },
+                "url": { "type": "string", "format": "uri" }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

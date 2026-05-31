@@ -1,0 +1,17 @@
+# Hans-Joachim Voth research papers
+
+Canonical machine-readable feed: https://www.jvoth.com/papers.json
+Latest papers page: https://www.jvoth.com/latest-papers.html
+SSRN author profile: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=143391
+
+## Papers
+- Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package: https://www.jvoth.com/papers/spatial-unit-roots.html
+- Going Viral: Protests and Political Polarization in 1932 Hamburg: https://www.jvoth.com/papers/going-viral.html
+- Fighting for Growth: Labor Scarcity and Technological Progress During the British Industrial Revolution: https://www.jvoth.com/papers/fighting-for-growth.html
+- Image(s): https://www.jvoth.com/papers/images.html
+- Slavery and the British Industrial Revolution: https://www.jvoth.com/papers/slavery-british-industrial-revolution.html
+- Never Enough: Dynamic Status Incentives in Organizations: https://www.jvoth.com/papers/never-enough.html
+- Transmitting Terror: Radio and Repression in Stalin's Soviet Union: https://www.jvoth.com/papers/transmitting-terror.html
+- Legacy on Deck: Skill Transmission and Occupational Dynasties in the Royal Navy: https://www.jvoth.com/papers/legacy-on-deck.html
+- American Life Histories: https://www.jvoth.com/papers/american-life-histories.html
+- From the Death of God to the Rise of Hitler: https://www.jvoth.com/papers/death-of-god-rise-hitler.html
