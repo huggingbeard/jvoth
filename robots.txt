@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /mockup-*
+Disallow: /z_*
+Disallow: /old/
+Disallow: /color-mockups.html
 
 Sitemap: https://www.jvoth.com/sitemap.xml
