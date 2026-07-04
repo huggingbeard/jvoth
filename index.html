@@ -1,303 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hans-Joachim Voth - UBS Foundation Professor of Economics, University of Zurich">
-    <title>Hans-Joachim Voth | Economist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://www.jvoth.com/">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hans-Joachim Voth — UBS Foundation Professor of Economics, University of Zurich">
+<title>Hans-Joachim Voth | Economist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.jvoth.com/">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hans-Joachim Voth",
+  "givenName": "Hans-Joachim",
+  "familyName": "Voth",
+  "alternateName": ["Joachim Voth", "H.-J. Voth"],
+  "jobTitle": "UBS Foundation Professor of Economics",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "University of Zurich"
+  },
+  "url": "https://www.jvoth.com/",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "ORCID",
+    "value": "0000-0003-4518-3149"
+  },
+  "sameAs": [
+    "https://orcid.org/0000-0003-4518-3149",
+    "https://ideas.repec.org/e/pvo5.html",
+    "https://openalex.org/A5064565742",
+    "https://scholar.google.com/citations?user=akHj7B0AAAAJ&hl=en",
+    "https://en.wikipedia.org/wiki/Hans-Joachim_Voth",
+    "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=143391"
+  ]
+}
+</script>
+<style>
+  :root {
+    --paper: #fcfbf8;
+    --ink: #232019;
+    --faded: #75705f;
+    --accent: #8c2332;   /* burgundy-red */
+    --rule: #e3dfd4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: #f0dfdc; }
+  html { scroll-behavior: smooth; font-size: 18px; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 1.22rem;
+    line-height: 1.62;
+    font-feature-settings: "liga", "onum";
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 5rem;
+  }
 
-        :root {
-            --header-bg: #1d4e5f;
-            --navy: #1d4e5f;
-            --navy-light: #2a6175;
-            --burgundy: #b87333;
-            --burgundy-dark: #9a5f2a;
-            --parchment: #faf9f7;
-            --parchment-dark: #e8e4df;
-            --text: #2a2a2a;
-            --text-light: #5a5a5a;
-        }
+  /* ---- masthead ---- */
+  .name {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+  }
+  .name a { color: inherit; text-decoration: none; }
+  .role {
+    margin-top: 0.55rem;
+    font-size: 1.02rem;
+    font-style: italic;
+    color: var(--faded);
+  }
 
-        body {
-            font-family: 'Source Sans 3', Georgia, serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--parchment);
-            font-size: 17px;
-        }
+  nav { margin: 2.4rem 0 0; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    white-space: nowrap;
+  }
+  nav a {
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.12em;
+    font-size: 1rem;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease, color 0.25s ease;
+    padding-bottom: 1px;
+  }
+  nav a:hover, nav a[aria-current] { border-color: var(--accent); color: var(--accent); }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
+  hr.fleuron {
+    border: none;
+    text-align: left;
+    margin: 2.6rem 0 3rem;
+    height: 1px;
+    background: var(--rule);
+    position: relative;
+    overflow: visible;
+  }
+  hr.fleuron::after {
+    content: '❦';
+    position: absolute;
+    top: -0.78em;
+    left: 0;
+    padding-right: 0.7em;
+    background: var(--paper);
+    color: var(--accent);
+    font-size: 1.05rem;
+  }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px;
-            padding-left: calc(40px - 1.25rem);
-        }
+  /* ---- body ---- */
+  .portrait {
+    float: right;
+    width: 215px;
+    margin: 0.35rem 0 1.2rem 2.4rem;
+    filter: grayscale(28%) contrast(1.04);
+    border: 1px solid var(--rule);
+    padding: 5px;
+    background: #fff;
+  }
+  main p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .lede {
+    font-size: 1.32rem;
+    line-height: 1.58;
+  }
+  p + p { margin-top: 1.25rem; }
+  main a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3.5px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #d3b3ae;
+    transition: text-decoration-color 0.25s, color 0.25s;
+  }
+  main a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
-        header {
-            background-color: var(--header-bg);
-            padding: 2.5rem 0 2rem;
-        }
+  .contact {
+    clear: both;
+    margin-top: 3.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.98rem;
+    color: var(--faded);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .contact .addr { font-style: italic; text-align: left; }
 
-        header .container {
-            text-align: left;
-        }
+  footer {
+    margin-top: 4rem;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.16em;
+    font-size: 0.9rem;
+    color: var(--faded);
+  }
+  footer .mark { color: var(--accent); }
 
-        header h1 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2.8rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        header h1 a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        header h2 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        nav {
-            background-color: var(--header-bg);
-            padding-bottom: 0;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            gap: 0;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px;
-            padding-left: calc(40px - 1.25rem);
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav li:not(:last-child)::after {
-            display: none;
-        }
-
-        nav a {
-            display: block;
-            padding: 0.75rem 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav li:first-child a {
-            padding-left: 0;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        main {
-            padding-top: 5.5rem;
-            padding-bottom: 4rem;
-        }
-
-        .landing-content {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .profile-section {
-            position: relative;
-            padding-top: 3.8rem;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: grayscale(20%) contrast(1.05);
-            margin-bottom: 1.9rem;
-        }
-
-        .contact-info {
-            background-color: #fff;
-            padding: 1.1rem 1.5rem;
-            border-left: 3px solid var(--burgundy);
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .contact-info strong {
-            color: var(--navy);
-            font-weight: 600;
-        }
-
-        .summary-section {
-            padding-top: 3.8rem;
-        }
-
-        .page-title {
-            display: none;
-        }
-
-        .summary-section p {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-
-        .summary-section p:first-of-type {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--navy);
-        }
-
-        .summary-section p:first-of-type::first-letter {
-            font-size: 4.2rem;
-            float: left;
-            line-height: 0.8;
-            margin-right: 0.1em;
-            margin-top: 0.08em;
-            padding-right: 0.05em;
-            color: var(--burgundy);
-            font-weight: 700;
-        }
-
-        footer {
-            margin-top: 2rem;
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--parchment-dark);
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 768px) {
-            .landing-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .profile-section {
-                max-width: 280px;
-                margin: 0 auto;
-                padding-top: 0;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav li::after {
-                display: none;
-            }
-        }
-    </style>
+  @media (max-width: 700px) {
+    nav ul { flex-wrap: wrap; white-space: normal; column-gap: 1.4rem; row-gap: 0.4rem; justify-content: flex-start; }
+  }
+  @media (max-width: 560px) {
+    html { font-size: 16.5px; }
+    .page { padding-top: 3.5rem; }
+    .portrait { float: none; display: block; margin: 0 0 1.6rem; width: 160px; }
+    .name { font-size: 2rem; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1><a href="index.html">Hans-Joachim Voth</a></h1>
-            <h2>UBS Foundation Professor of Economics, University of Zurich</h2>
-        </div>
-    </header>
-
+<div class="page">
+  <header>
+    <h1 class="name"><a href="index.html">Hans-Joachim Voth</a></h1>
+    <p class="role">UBS Foundation Professor of Economics, University of Zurich</p>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="datasets.html">Datasets</a></li>
-            <li><a href="students.html">Students</a></li>
-            <li><a href="bio.html">Bio & CV</a></li>
-            <li><a href="news.html">News</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="#">Datasets</a></li>
+        <li><a href="#">Students</a></li>
+        <li><a href="#">Bio &amp; CV</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main class="container">
-        <div class="landing-content">
-            <div class="profile-section">
-                <img src="new_p.jpg" alt="Hans-Joachim Voth" class="profile-image">
-                <div class="contact-info">
-                    <p>
-                        Economics Department<br>
-                        University of Zurich<br>
-                        Schonberggasse 1<br>
-                        CH-8001 Zurich<br>
-                        <br>
-                        <strong>Email:</strong> joachimvoth [at] gmail.com
-                    </p>
-                </div>
-            </div>
+  <hr class="fleuron">
 
-            <div class="summary-section">
-                <h1 class="page-title">About</h1>
-                <p>
-                    I hold a UBS Foundation Professorship at the Economics Department, University of Zurich, I am a Fellow of the Econometric Society, and I serve as Scientific Director of the UBS Center for Economics in Society.
-                </p>
-                <p>
-                    My research has been published in four of the top 5 journals in economics, general interest journals, as well as in books and field
-                    journals. Principal areas of research include long-run economic growth, the history of sovereign debt,
-                    causes and consequences of the Nazi Party's rise to power, and the economic history of the Industrial
-                    Revolution. I have published three academic books with OUP and Princeton UP, five popular books, and
-                    and over 50 articles in leading journals including the AER, QJE, JPE, RESTUD, PNAS, APSR, JEH, Explorations, and the Journal of Finance.
-                </p>
-                <p>
-                    My research has been profiled in The Economist, the Financial Times, the New York Times, Wall Street Journal,
-                    and other major international media outlets.
-                </p>
-            </div>
-        </div>
-    </main>
+  <main>
+    <img src="new_p.jpg" alt="Hans-Joachim Voth" class="portrait">
+    <p class="lede">
+      I hold a UBS Foundation Professorship at the Economics Department, University of Zurich.
+      I am a Fellow of the Econometric Society and serve as Scientific Director of the
+      UBS Center for Economics in Society.
+    </p>
+    <p>
+      My research examines long-run economic growth, the history of sovereign debt, the causes
+      and consequences of the Nazi Party&rsquo;s rise to power, and the economic history of the
+      Industrial Revolution. It has appeared in four of the top five journals in economics —
+      over fifty articles in the <em>AER</em>, <em>QJE</em>, <em>JPE</em>, <em>RESTUD</em>,
+      <em>PNAS</em>, <em>APSR</em>, the <em>Journal of Finance</em>, and leading field journals —
+      alongside three academic books with Oxford and Princeton University Press and five popular books.
+    </p>
+    <p>
+      My work has been profiled in <em>The Economist</em>, the <em>Financial Times</em>,
+      the <em>New York Times</em>, the <em>Wall Street Journal</em>, and other major
+      international media.
+    </p>
 
-    <footer>
-    </footer>
+    <div class="contact">
+      <span class="addr">Economics Department · University of Zurich · Sch&ouml;nberggasse 1 · CH-8001 Z&uuml;rich</span>
+      <span>joachimvoth&thinsp;[at]&thinsp;gmail.com</span>
+    </div>
+  </main>
+
+  <footer>Z&uuml;rich <span class="mark">·</span> MMXXVI</footer>
+</div>
 <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="gc-downloads.js"></script>
 </body>

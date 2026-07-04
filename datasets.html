@@ -1,366 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Replication Data - Hans-Joachim Voth">
-    <title>Datasets | Hans-Joachim Voth</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://www.jvoth.com/datasets.html">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Replication data and code — Hans-Joachim Voth">
+<title>Datasets | Hans-Joachim Voth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.jvoth.com/datasets.html">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+  :root {
+    --paper: #fcfbf8;
+    --ink: #232019;
+    --faded: #75705f;
+    --accent: #8c2332;
+    --rule: #e3dfd4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: #f0dfdc; }
+  html { font-size: 18px; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 1.22rem;
+    line-height: 1.6;
+    font-feature-settings: "liga", "onum";
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem 5rem; }
 
-        :root {
-            --header-bg: #1d4e5f;
-            --navy: #1d4e5f;
-            --navy-light: #2a6175;
-            --burgundy: #b87333;
-            --burgundy-light: #c98a4d;
-            --parchment: #faf9f7;
-            --parchment-dark: #e8e4df;
-            --text: #2a2a2a;
-            --text-light: #5a5a5a;
-        }
+  .name { font-size: 2.5rem; font-weight: 500; line-height: 1.15; }
+  .name a { color: inherit; text-decoration: none; }
+  .role { margin-top: 0.55rem; font-size: 1.02rem; font-style: italic; color: var(--faded); }
 
-        body {
-            font-family: 'Source Sans 3', Georgia, serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--parchment);
-            font-size: 17px;
-        }
+  nav { margin: 2.4rem 0 0; }
+  nav ul { list-style: none; display: flex; flex-wrap: nowrap; justify-content: space-between; white-space: nowrap; }
+  nav a {
+    font-variant-caps: all-small-caps; letter-spacing: 0.12em; font-size: 1rem;
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid transparent; padding-bottom: 1px;
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+  nav a:hover, nav a[aria-current] { border-color: var(--accent); color: var(--accent); }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
+  hr.fleuron {
+    border: none; margin: 2.6rem 0 3rem; height: 1px; background: var(--rule);
+    position: relative; overflow: visible;
+  }
+  hr.fleuron::after {
+    content: '❦'; position: absolute; top: -0.78em; left: 0; padding-right: 0.7em;
+    background: var(--paper); color: var(--accent); font-size: 1.05rem;
+  }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px;
-            padding-left: calc(40px - 1.25rem);
-        }
+  h2.page-title {
+    font-variant-caps: all-small-caps; letter-spacing: 0.2em;
+    font-weight: 500; font-size: 1.25rem; margin-bottom: 0.4rem;
+  }
+  .page-subtitle { font-style: italic; color: var(--faded); font-size: 1.02rem; margin-bottom: 2.6rem; }
 
-        header {
-            background-color: var(--header-bg);
-            padding: 2.5rem 0 2rem;
-        }
+  .dataset { position: relative; margin-bottom: 2.1rem; }
+  .dataset .year {
+    position: absolute; left: -5.4rem; top: 0.28rem; width: 4rem; text-align: right;
+    font-size: 0.95rem; color: var(--faded);
+  }
+  .dataset h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.35; display: inline; }
+  .dataset h3 a {
+    color: inherit; text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat; background-size: 0% 1px; background-position: 0 100%;
+    transition: background-size 0.3s ease;
+  }
+  .dataset h3 a:hover { background-size: 100% 1px; color: var(--accent); }
+  .dataset .meta { font-size: 1rem; color: var(--faded); margin-top: 0.15rem; }
+  .dataset .meta .authors { font-style: italic; }
+  .dataset .meta .journal { font-variant-caps: all-small-caps; letter-spacing: 0.06em; font-style: normal; }
+  .dataset .links { display: inline; margin-left: 0.9rem; font-size: 0.98rem; white-space: nowrap; }
+  .dataset .links a {
+    color: var(--accent); text-decoration: none; margin-right: 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    font-variant-caps: all-small-caps; letter-spacing: 0.1em;
+    transition: border-color 0.2s;
+  }
+  .dataset .links a:hover { border-color: var(--accent); }
 
-        header .container {
-            text-align: left;
-            max-width: 1100px;
-        }
+  footer {
+    margin-top: 4.5rem; padding-top: 1.6rem; border-top: 1px solid var(--rule);
+    font-variant-caps: all-small-caps; letter-spacing: 0.16em; font-size: 0.9rem; color: var(--faded);
+  }
+  footer .mark { color: var(--accent); }
 
-        header h1 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2.8rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        header h1 a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        header h2 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        nav {
-            background-color: var(--header-bg);
-            padding-bottom: 0;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px;
-            padding-left: calc(40px - 1.25rem);
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            display: block;
-            padding: 0.75rem 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav li:first-child a {
-            padding-left: 0;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        main {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-
-        .page-title {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--navy);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .page-subtitle {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--burgundy);
-        }
-
-        .datasets-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .datasets-list > li {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-            background-color: #fff;
-            padding: 1.25rem;
-            border-left: 3px solid var(--burgundy);
-        }
-
-        @media (max-width: 900px) {
-            .datasets-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .dataset-title {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 0.3rem;
-        }
-
-        .dataset-title a {
-            color: var(--navy);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .dataset-title a:hover {
-            color: var(--burgundy);
-        }
-
-        .dataset-meta {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .dataset-meta .authors {
-            color: var(--text);
-        }
-
-        .dataset-meta .journal {
-            font-style: italic;
-            color: var(--burgundy);
-        }
-
-        .dataset-link {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.75rem;
-            color: var(--text-light);
-            text-decoration: none;
-            padding: 0.2rem 0.6rem;
-            border: 1px solid var(--parchment-dark);
-            border-radius: 3px;
-            transition: all 0.2s ease;
-            margin-left: auto;
-        }
-
-        .dataset-link:hover {
-            border-color: var(--burgundy);
-            color: var(--burgundy);
-            background-color: rgba(139, 38, 53, 0.05);
-        }
-
-        footer {
-            margin-top: 2rem;
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--parchment-dark);
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav li::after {
-                display: none;
-            }
-
-            .page-title {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+  @media (max-width: 1060px) {
+    .dataset .year { position: static; width: auto; text-align: left; display: block; margin-bottom: 0.05rem; }
+  }
+  @media (max-width: 700px) {
+    nav ul { flex-wrap: wrap; white-space: normal; column-gap: 1.4rem; row-gap: 0.4rem; justify-content: flex-start; }
+  }
+  @media (max-width: 560px) {
+    html { font-size: 16.5px; }
+    .page { padding-top: 3.5rem; }
+    .name { font-size: 2rem; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1><a href="index.html">Hans-Joachim Voth</a></h1>
-            <h2>UBS Foundation Professor of Economics, University of Zurich</h2>
-        </div>
-    </header>
-
+<div class="page">
+  <header>
+    <h1 class="name"><a href="index.html">Hans-Joachim Voth</a></h1>
+    <p class="role">UBS Foundation Professor of Economics, University of Zurich</p>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="datasets.html">Datasets</a></li>
-            <li><a href="students.html">Students</a></li>
-            <li><a href="bio.html">Bio & CV</a></li>
-            <li><a href="news.html">News</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="datasets.html" aria-current="page">Datasets</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="bio.html">Bio &amp; CV</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main class="container">
-        <h1 class="page-title">Replication Data</h1>
-        <p class="page-subtitle">Data and code for published papers</p>
+  <hr class="fleuron">
 
-        <ul class="datasets-list">
-            <li>
-                <p class="dataset-title"><a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">New Deal, New Patriots</a></p>
-                <p class="dataset-meta"><span class="authors">with Bruno Caprettini</span> · <span class="journal">QJE</span> 2023 <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3A8CBI" class="dataset-link">Data</a></p>
-            </li>
+  <main>
+    <h2 class="page-title">Replication Data</h2>
+    <p class="page-subtitle">Data and code for published papers</p>
 
-            <li>
-                <p class="dataset-title"><a href="fv-reprisals.pdf">Collective Remembrance and Private Choice</a></p>
-                <p class="dataset-meta"><span class="authors">with Vicky Fouka</span> · <span class="journal">APSR</span> 2023 <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZS9QEC" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2023</span>
+      <h3><a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">New Deal, New Patriots</a></h3>
+      <span class="links"><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3A8CBI">Data</a></span>
+      <p class="meta"><span class="authors">with Bruno Caprettini</span> · <span class="journal">Quarterly Journal of Economics</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">Financial Crises and Political Radicalization</a></p>
-                <p class="dataset-meta"><span class="authors">with Sebastian Doerr, Stefan Gissler, Jose-Luis Peydro</span> · <span class="journal">Journal of Finance</span> 2022 <a href="datasets/financial-crises/jofi13166-sup-0002-replicationcode.zip" class="dataset-link">Data</a> <a href="datasets/financial-crises/jofi13166-sup-0001-internetappendix.pdf" class="dataset-link">Appendix</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2023</span>
+      <h3><a href="fv-reprisals.pdf">Collective Remembrance and Private Choice</a></h3>
+      <span class="links"><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZS9QEC">Data</a></span>
+      <p class="meta"><span class="authors">with Vicky Fouka</span> · <span class="journal">American Political Science Review</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">Killer Incentives</a></p>
-                <p class="dataset-meta"><span class="authors">with Philipp Ager, Leo Bursztyn, Lukas Leucht</span> · <span class="journal">REStud</span> 2022 <a href="https://zenodo.org/records/5518208" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2022</span>
+      <h3><a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">Financial Crises and Political Radicalization</a></h3>
+      <span class="links"><a href="datasets/financial-crises/jofi13166-sup-0002-replicationcode.zip">Data</a><a href="datasets/financial-crises/jofi13166-sup-0001-internetappendix.pdf">Appendix</a></span>
+      <p class="meta"><span class="authors">with Sebastian Doerr, Stefan Gissler &amp; Jos&eacute;-Luis Peydr&oacute;</span> · <span class="journal">Journal of Finance</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="Sweet_Diversity.pdf">Sweet Diversity</a></p>
-                <p class="dataset-meta"><span class="authors">with Jonathan Hersh</span> · <span class="journal">Explorations in Economic History</span> 2022 <a href="https://www.openicpsr.org/openicpsr/project/172801/version/V1/view" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2022</span>
+      <h3><a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">Killer Incentives</a></h3>
+      <span class="links"><a href="https://zenodo.org/records/5518208">Data</a></span>
+      <p class="meta"><span class="authors">with Philipp Ager, Leo Bursztyn &amp; Lukas Leucht</span> · <span class="journal">Review of Economic Studies</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="latest.pdf">The Long Run Effects of Religious Persecution</a></p>
-                <p class="dataset-meta"><span class="authors">with Mauricio Drelichman, Jordi Vidal-Robert</span> · <span class="journal">PNAS</span> 2021 <a href="https://www.openicpsr.org/openicpsr/project/143781/version/V1/view" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2022</span>
+      <h3><a href="Sweet_Diversity.pdf">Sweet Diversity</a></h3>
+      <span class="links"><a href="https://www.openicpsr.org/openicpsr/project/172801/version/V1/view">Data</a></span>
+      <p class="meta"><span class="authors">with Jonathan Hersh</span> · <span class="journal">Explorations in Economic History</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">Rage Against the Machines</a></p>
-                <p class="dataset-meta"><span class="authors">with Bruno Caprettini</span> · <span class="journal">AER: Insights</span> 2020 <a href="https://www.openicpsr.org/openicpsr/project/117044/version/V1/view" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2021</span>
+      <h3><a href="latest.pdf">The Long Run Effects of Religious Persecution</a></h3>
+      <span class="links"><a href="https://www.openicpsr.org/openicpsr/project/143781/version/V1/view">Data</a></span>
+      <p class="meta"><span class="authors">with Mauricio Drelichman &amp; Jordi Vidal-Robert</span> · <span class="journal">PNAS</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://ssrn.com/abstract=2284907">Bowling for Fascism</a></p>
-                <p class="dataset-meta"><span class="authors">with Shanker Satyanath, Nico Voigtlander</span> · <span class="journal">JPE</span> 2017 <a href="datasets/bowling-for-fascism/2014294data.zip" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2020</span>
+      <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">Rage Against the Machines</a></h3>
+      <span class="links"><a href="https://www.openicpsr.org/openicpsr/project/117044/version/V1/view">Data</a></span>
+      <p class="meta"><span class="authors">with Bruno Caprettini</span> · <span class="journal">American Economic Review: Insights</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://ssrn.com/abstract=2406493">Leverage and Beliefs</a></p>
-                <p class="dataset-meta"><span class="authors">with Peter Koudijs</span> · <span class="journal">AER</span> 2016 <a href="https://www.openicpsr.org/openicpsr/project/112978/version/V1/view" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2017</span>
+      <h3><a href="http://ssrn.com/abstract=2284907">Bowling for Fascism</a></h3>
+      <span class="links"><a href="datasets/bowling-for-fascism/2014294data.zip">Data</a></span>
+      <p class="meta"><span class="authors">with Shanker Satyanath &amp; Nico Voigtl&auml;nder</span> · <span class="journal">Journal of Political Economy</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://dx.doi.org/10.1162/REST_a_00403">Numeracy and the Impact of High Food Prices</a></p>
-                <p class="dataset-meta"><span class="authors">with Jorg Baten, Dorothee Crayen</span> · <span class="journal">REStat</span> 2014 <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26906" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2016</span>
+      <h3><a href="http://ssrn.com/abstract=2406493">Leverage and Beliefs</a></h3>
+      <span class="links"><a href="https://www.openicpsr.org/openicpsr/project/112978/version/V1/view">Data</a></span>
+      <p class="meta"><span class="authors">with Peter Koudijs</span> · <span class="journal">American Economic Review</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://dx.doi.org/10.1257/aer.103.6.2227">How the West 'Invented' Fertility Restriction</a></p>
-                <p class="dataset-meta"><span class="authors">with Nico Voigtlander</span> · <span class="journal">AER</span> 2013 <a href="https://www.openicpsr.org/openicpsr/project/112673/version/V1/view" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2014</span>
+      <h3><a href="http://dx.doi.org/10.1162/REST_a_00403">Numeracy and the Impact of High Food Prices</a></h3>
+      <span class="links"><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26906">Data</a></span>
+      <p class="meta"><span class="authors">with J&ouml;rg Baten &amp; Dorothee Crayen</span> · <span class="journal">Review of Economics and Statistics</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://dx.doi.org/10.1093/restud/rds034">The Three Horsemen of Riches</a></p>
-                <p class="dataset-meta"><span class="authors">with Nico Voigtlander</span> · <span class="journal">REStud</span> 2013 <a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Horsemen_Bairoch_Data.xlsx" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2013</span>
+      <h3><a href="http://dx.doi.org/10.1257/aer.103.6.2227">How the West &ldquo;Invented&rdquo; Fertility Restriction</a></h3>
+      <span class="links"><a href="https://www.openicpsr.org/openicpsr/project/112673/version/V1/view">Data</a></span>
+      <p class="meta"><span class="authors">with Nico Voigtl&auml;nder</span> · <span class="journal">American Economic Review</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://dx.doi.org/10.1093/qje/qjs019">Persecution Perpetuated</a></p>
-                <p class="dataset-meta"><span class="authors">with Nico Voigtlander</span> · <span class="journal">QJE</span> 2012 <a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Persecution_Perpetuated_QJE_Replicate.zip" class="dataset-link">Data</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2013</span>
+      <h3><a href="http://dx.doi.org/10.1093/restud/rds034">The Three Horsemen of Riches</a></h3>
+      <span class="links"><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Horsemen_Bairoch_Data.xlsx">Data</a></span>
+      <p class="meta"><span class="authors">with Nico Voigtl&auml;nder</span> · <span class="journal">Review of Economic Studies</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://dx.doi.org/10.1007/s10887-006-9007-6">Why England?</a></p>
-                <p class="dataset-meta"><span class="authors">with Nico Voigtlander</span> · <span class="journal">JEG</span> 2006 <a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/WhyEngland_Simulation.zip" class="dataset-link">Code</a></p>
-            </li>
+    <article class="dataset">
+      <span class="year">2012</span>
+      <h3><a href="http://dx.doi.org/10.1093/qje/qjs019">Persecution Perpetuated</a></h3>
+      <span class="links"><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Persecution_Perpetuated_QJE_Replicate.zip">Data</a></span>
+      <p class="meta"><span class="authors">with Nico Voigtl&auml;nder</span> · <span class="journal">Quarterly Journal of Economics</span></p>
+    </article>
 
-            <li>
-                <p class="dataset-title"><a href="http://www.jstor.org/stable/3592838">Riding the South Sea Bubble</a></p>
-                <p class="dataset-meta"><span class="authors">with Peter Temin</span> · <span class="journal">AER</span> 2004 <a href="https://www.openicpsr.org/openicpsr/project/116029/version/V1/view" class="dataset-link">Data</a></p>
-            </li>
-        </ul>
-    </main>
+    <article class="dataset">
+      <span class="year">2006</span>
+      <h3><a href="http://dx.doi.org/10.1007/s10887-006-9007-6">Why England?</a></h3>
+      <span class="links"><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/WhyEngland_Simulation.zip">Code</a></span>
+      <p class="meta"><span class="authors">with Nico Voigtl&auml;nder</span> · <span class="journal">Journal of Economic Growth</span></p>
+    </article>
 
-    <footer>
-    </footer>
+    <article class="dataset">
+      <span class="year">2004</span>
+      <h3><a href="http://www.jstor.org/stable/3592838">Riding the South Sea Bubble</a></h3>
+      <span class="links"><a href="https://www.openicpsr.org/openicpsr/project/116029/version/V1/view">Data</a></span>
+      <p class="meta"><span class="authors">with Peter Temin</span> · <span class="journal">American Economic Review</span></p>
+    </article>
+  </main>
+
+  <footer>Z&uuml;rich <span class="mark">·</span> MMXXVI</footer>
+</div>
 <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="gc-downloads.js"></script>
 </body>

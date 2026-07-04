@@ -1,753 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="News - Hans-Joachim Voth">
-    <title>News | Hans-Joachim Voth</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://www.jvoth.com/news.html">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="News, updates, and media coverage — Hans-Joachim Voth">
+<title>News | Hans-Joachim Voth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.jvoth.com/news.html">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+  :root {
+    --paper: #fcfbf8;
+    --ink: #232019;
+    --faded: #75705f;
+    --accent: #8c2332;
+    --rule: #e3dfd4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: #f0dfdc; }
+  html { font-size: 18px; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 1.22rem;
+    line-height: 1.6;
+    font-feature-settings: "liga", "onum";
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem 5rem; }
 
-        :root {
-            --header-bg: #1d4e5f;
-            --navy: #1d4e5f;
-            --navy-light: #2a6175;
-            --burgundy: #b87333;
-            --burgundy-light: #c98a4d;
-            --parchment: #faf9f7;
-            --parchment-dark: #e8e4df;
-            --text: #2a2a2a;
-            --text-light: #5a5a5a;
-        }
+  .name { font-size: 2.5rem; font-weight: 500; line-height: 1.15; }
+  .name a { color: inherit; text-decoration: none; }
+  .role { margin-top: 0.55rem; font-size: 1.02rem; font-style: italic; color: var(--faded); }
 
-        body {
-            font-family: 'Source Sans 3', Georgia, serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--parchment);
-            font-size: 17px;
-        }
+  nav { margin: 2.4rem 0 0; }
+  nav ul { list-style: none; display: flex; flex-wrap: nowrap; justify-content: space-between; white-space: nowrap; }
+  nav a {
+    font-variant-caps: all-small-caps; letter-spacing: 0.12em; font-size: 1rem;
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid transparent; padding-bottom: 1px;
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+  nav a:hover, nav a[aria-current] { border-color: var(--accent); color: var(--accent); }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
+  hr.fleuron {
+    border: none; margin: 2.6rem 0 3rem; height: 1px; background: var(--rule);
+    position: relative; overflow: visible;
+  }
+  hr.fleuron::after {
+    content: '❦'; position: absolute; top: -0.78em; left: 0; padding-right: 0.7em;
+    background: var(--paper); color: var(--accent); font-size: 1.05rem;
+  }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px;
-            padding-left: calc(40px - 1.25rem);
-        }
+  h2.page-title {
+    font-variant-caps: all-small-caps; letter-spacing: 0.2em;
+    font-weight: 500; font-size: 1.25rem; margin-bottom: 1.8rem;
+  }
 
-        header {
-            background-color: var(--header-bg);
-            padding: 2.5rem 0 2rem;
-        }
+  /* ---- tabs (same as publications) ---- */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2.6rem;
+  }
+  .tab {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.11em;
+    font-size: 0.95rem;
+    color: var(--faded);
+    padding: 0 0 0.55rem;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
-        header .container {
-            text-align: left;
-            max-width: 1100px;
-        }
+  /* year in the margin, like the papers list */
+  .year-section { position: relative; margin-bottom: 2.4rem; }
+  .year-section .year {
+    position: absolute; left: -5.4rem; top: 0.3rem; width: 4rem; text-align: right;
+    font-size: 0.95rem; color: var(--accent);
+  }
+  .updates { list-style: none; }
+  .updates li {
+    display: grid;
+    grid-template-columns: 6.2rem 1fr;
+    gap: 1.2rem;
+    padding: 0.4rem 0;
+  }
+  .updates .month {
+    font-variant-caps: all-small-caps; letter-spacing: 0.1em;
+    font-size: 1rem; color: var(--faded); text-align: right;
+  }
+  .updates .what { font-size: 1.08rem; line-height: 1.55; }
+  main a {
+    color: inherit; text-decoration: underline;
+    text-underline-offset: 3.5px; text-decoration-thickness: 1px;
+    text-decoration-color: #d3b3ae;
+    transition: text-decoration-color 0.25s, color 0.25s;
+  }
+  main a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
-        header h1 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2.8rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
+  /* in the news */
+  .media { list-style: none; }
+  .media li {
+    padding: 0.85rem 0; display: grid; grid-template-columns: 6.2rem 1fr;
+    gap: 1.4rem; align-items: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .media li:last-child { border-bottom: none; }
+  .media .logo { display: flex; justify-content: flex-end; }
+  .media .logo img {
+    max-width: 5.6rem; max-height: 2.2rem; object-fit: contain;
+    filter: grayscale(100%) contrast(0.95); opacity: 0.75;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+  .media li:hover .logo img { filter: none; opacity: 1; }
+  .media .text-logo {
+    font-variant-caps: all-small-caps; letter-spacing: 0.1em;
+    font-size: 0.95rem; color: var(--faded); text-align: right;
+  }
+  .media li:hover .text-logo { color: var(--accent); }
+  .media .headline { font-size: 1.08rem; line-height: 1.5; }
+  .media .when { font-size: 0.95rem; color: var(--faded); font-style: italic; margin-left: 0.6rem; white-space: nowrap; }
 
-        header h1 a {
-            color: #fff;
-            text-decoration: none;
-        }
+  footer {
+    margin-top: 4.5rem; padding-top: 1.6rem; border-top: 1px solid var(--rule);
+    font-variant-caps: all-small-caps; letter-spacing: 0.16em; font-size: 0.9rem; color: var(--faded);
+  }
+  footer .mark { color: var(--accent); }
 
-        header h2 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        nav {
-            background-color: var(--header-bg);
-            padding-bottom: 0;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px;
-            padding-left: calc(40px - 1.25rem);
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            display: block;
-            padding: 0.75rem 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav li:first-child a {
-            padding-left: 0;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        main {
-            padding-top: 3rem;
-            padding-bottom: 4rem;
-        }
-
-        .page-title {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--navy);
-            margin-top: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--burgundy);
-        }
-
-        /* Two-column layout */
-        .news-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .news-column h2 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--burgundy);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--parchment-dark);
-        }
-
-        /* Left column: Recent Updates */
-        .year-section {
-            margin-bottom: 1.8rem;
-        }
-
-        .year-label {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--burgundy);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.75rem;
-        }
-
-        .updates-list {
-            list-style: none;
-        }
-
-        .updates-list li {
-            display: grid;
-            grid-template-columns: 70px 1fr;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--parchment-dark);
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .updates-list li:last-child {
-            border-bottom: none;
-        }
-
-        .update-date {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .update-content a {
-            color: var(--burgundy);
-            text-decoration: none;
-        }
-
-        .update-content a:hover {
-            text-decoration: underline;
-        }
-
-        /* Right column: In the News */
-        .media-list {
-            list-style: none;
-        }
-
-        .media-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 1px solid var(--parchment-dark);
-        }
-
-        .media-item:last-child {
-            border-bottom: none;
-        }
-
-        .media-logo {
-            flex-shrink: 0;
-            width: 80px;
-            display: flex;
-            align-items: flex-start;
-            padding-top: 0.2rem;
-        }
-
-        .media-logo img {
-            width: 100%;
-            height: auto;
-            opacity: 0.85;
-            transition: opacity 0.2s ease;
-        }
-
-        .media-item:hover .media-logo img {
-            opacity: 1;
-        }
-
-        .media-logo.text-logo {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--navy);
-            opacity: 0.7;
-        }
-
-        .media-item:hover .media-logo.text-logo {
-            opacity: 1;
-        }
-
-        .media-content {
-            flex: 1;
-        }
-
-        .media-title {
-            font-size: 1.05rem;
-            line-height: 1.5;
-            margin-bottom: 0.25rem;
-        }
-
-        .media-title a {
-            color: var(--navy);
-            text-decoration: none;
-        }
-
-        .media-title a:hover {
-            color: var(--burgundy);
-        }
-
-        .media-date {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        footer {
-            margin-top: 2rem;
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--parchment-dark);
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .news-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .updates-list li {
-                grid-template-columns: 1fr;
-                gap: 0.15rem;
-            }
-
-            .media-logo {
-                width: 60px;
-            }
-        }
-    </style>
+  @media (max-width: 1060px) {
+    .year-section .year { position: static; width: auto; text-align: left; display: block; margin-bottom: 0.4rem; font-size: 1.05rem; }
+  }
+  @media (max-width: 700px) {
+    nav ul { flex-wrap: wrap; white-space: normal; column-gap: 1.4rem; row-gap: 0.4rem; justify-content: flex-start; }
+    .updates li { grid-template-columns: 1fr; gap: 0; }
+    .updates .month { text-align: left; }
+    .media li { grid-template-columns: 1fr; gap: 0.3rem; }
+    .media .logo { justify-content: flex-start; }
+    .media .text-logo { text-align: left; }
+  }
+  @media (max-width: 560px) {
+    html { font-size: 16.5px; }
+    .page { padding-top: 3.5rem; }
+    .name { font-size: 2rem; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1><a href="index.html">Hans-Joachim Voth</a></h1>
-            <h2>UBS Foundation Professor of Economics, University of Zurich</h2>
-        </div>
-    </header>
-
+<div class="page">
+  <header>
+    <h1 class="name"><a href="index.html">Hans-Joachim Voth</a></h1>
+    <p class="role">UBS Foundation Professor of Economics, University of Zurich</p>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="latest-papers.html">Latest Papers</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="datasets.html">Datasets</a></li>
-            <li><a href="students.html">Students</a></li>
-            <li><a href="bio.html">Bio & CV</a></li>
-            <li><a href="news.html">News</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="datasets.html">Datasets</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="bio.html">Bio &amp; CV</a></li>
+        <li><a href="news.html" aria-current="page">News</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main class="container">
-        <h1 class="page-title">News & Updates</h1>
+  <hr class="fleuron">
 
-        <div class="news-grid">
-            <!-- Left Column: Recent Updates -->
-            <div class="news-column">
-                <h2>Recent Updates</h2>
+  <main>
+    <h2 class="page-title">News</h2>
 
-                <div class="year-section">
-                    <div class="year-label">2026</div>
-                    <ul class="updates-list">
-                        <li>
-                            <span class="update-date">June</span>
-                            <span class="update-content">New book chapter: <a href="Culture_and_the_Great_Escape.pdf">"Culture and the Great Escape"</a> &mdash; for the <em>Handbook of Culture and Economic Behavior</em> (Enke, Giuliano, Nunn &amp; Wantchekon, eds.; Elsevier).</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Upcoming keynote at the Computational Economic History Workshop in Vienna.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">May</span>
-                            <span class="update-content">Keynote lecture at the NICEP conference in Nottingham.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Talk at NWU.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content"><a href="GoingViral_May2025.pdf">"Going Viral"</a> now forthcoming in <em>JEEA</em> (with Caesmann, Caprettini, Yanagizawa-Drott).</span>
-                        </li>
-                        <li>
-                            <span class="update-date">April</span>
-                            <span class="update-content"><a href="https://www.economist.com">The Economist</a> features <a href="Never_Enough.pdf">"Never Enough"</a>.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Delivering the Griffin Lecture at U Melbourne.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">March</span>
-                            <span class="update-content">Coverage in <a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a> and <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">The Spectator</a> on <a href="Never_Enough.pdf">"Never Enough"</a> about status incentives and German fighter pilots.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">AER Excellence in Reviewing Award.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Talk at UBC Vancouver.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">February</span>
-                            <span class="update-content">Swiss AI research grant for 50,000 GPU hours.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">January</span>
-                            <span class="update-content">Out in <em>AEJ: Applied</em>: <a href="https://www.aeaweb.org/articles?id=10.1257/app.20180816">"Highway to Hitler"</a> (with Nico Voigtländer).</span>
-                        </li>
-                    </ul>
-                </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" data-tab="updates">Recent Updates</button>
+      <button class="tab" role="tab" data-tab="media">In the News</button>
+    </div>
 
-                <div class="year-section">
-                    <div class="year-label">2025</div>
-                    <ul class="updates-list">
-                        <li>
-                            <span class="update-date">November</span>
-                            <span class="update-content">Presenting <a href="Never_Enough.pdf">"Never Enough"</a> (with Ewan Rawcliffe and Leo Bursztyn) at U Chicago Behavioral Economics Conference.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">September</span>
-                            <span class="update-content">Presenting <a href="Legacy.pdf">"Legacy on Deck"</a> (with Guo Xu) at U Chicago AI in Social Science Conference.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">August</span>
-                            <span class="update-content">Talks at the Econometric World Congress: <a href="alh.pdf">"American Life Histories"</a> and panel on publishing in economics.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">May</span>
-                            <span class="update-content">Talk at the Brown Long-Run Growth Conference.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">April</span>
-                            <span class="update-content">Podcasts with <a href="http://t.co/ZLjMLfs8KL">Steve Davis</a> and <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">Tim Phillips</a> on <a href="alh.pdf">"American Life Histories"</a>.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Talks at Harvard and BU.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">March</span>
-                            <span class="update-content">Talks in Utrecht, Stockholm, and Brown.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">February</span>
-                            <span class="update-content">Talk at the Econ Hist Group in Oxford.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Talk at EIEF, Rome.</span>
-                        </li>
-                    </ul>
-                </div>
+    <div id="updates" class="tab-panel active">
+      <div class="year-section">
+        <span class="year">2026</span>
+        <ul class="updates">
+          <li><span class="month">June</span><span class="what">New book chapter: <a href="Culture_and_the_Great_Escape.pdf">&ldquo;Culture and the Great Escape&rdquo;</a> &mdash; for the <em>Handbook of Culture and Economic Behavior</em> (Enke, Giuliano, Nunn &amp; Wantchekon, eds.; Elsevier).</span></li>
+          <li><span class="month"></span><span class="what">Upcoming keynote at the Computational Economic History Workshop in Vienna.</span></li>
+          <li><span class="month">May</span><span class="what">Keynote lecture at the NICEP conference in Nottingham.</span></li>
+          <li><span class="month"></span><span class="what">Talk at NWU.</span></li>
+          <li><span class="month"></span><span class="what"><a href="GoingViral_May2025.pdf">&ldquo;Going Viral&rdquo;</a> now forthcoming in <em>JEEA</em> (with Caesmann, Caprettini, Yanagizawa-Drott).</span></li>
+          <li><span class="month">April</span><span class="what"><a href="https://www.economist.com">The Economist</a> features <a href="Never_Enough.pdf">&ldquo;Never Enough&rdquo;</a>.</span></li>
+          <li><span class="month"></span><span class="what">Delivering the Griffin Lecture at U Melbourne.</span></li>
+          <li><span class="month">March</span><span class="what">Coverage in <a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a> and <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">The Spectator</a> on <a href="Never_Enough.pdf">&ldquo;Never Enough&rdquo;</a> about status incentives and German fighter pilots.</span></li>
+          <li><span class="month"></span><span class="what">AER Excellence in Reviewing Award.</span></li>
+          <li><span class="month"></span><span class="what">Talk at UBC Vancouver.</span></li>
+          <li><span class="month">February</span><span class="what">Swiss AI research grant for 50,000 GPU hours.</span></li>
+          <li><span class="month">January</span><span class="what">Out in <em>AEJ: Applied</em>: <a href="https://www.aeaweb.org/articles?id=10.1257/app.20180816">&ldquo;Highway to Hitler&rdquo;</a> (with Nico Voigtl&auml;nder).</span></li>
+        </ul>
+      </div>
 
-                <div class="year-section">
-                    <div class="year-label">2024</div>
-                    <ul class="updates-list">
-                        <li>
-                            <span class="update-date">November</span>
-                            <span class="update-content">Talk at the PE Group in Oxford.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Talk at U Bocconi.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">September</span>
-                            <span class="update-content">Presenting <a href="alh.pdf">"American Life Histories"</a> at the Becker-Friedman Conference on AI in the Social Sciences.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">July</span>
-                            <span class="update-content">NBER-SI talk on "American Life Histories".</span>
-                        </li>
-                        <li>
-                            <span class="update-date">June</span>
-                            <span class="update-content">Talk at LUISS, Rome.</span>
-                        </li>
-                    </ul>
-                </div>
+      <div class="year-section">
+        <span class="year">2025</span>
+        <ul class="updates">
+          <li><span class="month">November</span><span class="what">Presenting <a href="Never_Enough.pdf">&ldquo;Never Enough&rdquo;</a> (with Ewan Rawcliffe and Leo Bursztyn) at U Chicago Behavioral Economics Conference.</span></li>
+          <li><span class="month">September</span><span class="what">Presenting <a href="Legacy.pdf">&ldquo;Legacy on Deck&rdquo;</a> (with Guo Xu) at U Chicago AI in Social Science Conference.</span></li>
+          <li><span class="month">August</span><span class="what">Talks at the Econometric World Congress: <a href="alh.pdf">&ldquo;American Life Histories&rdquo;</a> and panel on publishing in economics.</span></li>
+          <li><span class="month">May</span><span class="what">Talk at the Brown Long-Run Growth Conference.</span></li>
+          <li><span class="month">April</span><span class="what">Podcasts with <a href="http://t.co/ZLjMLfs8KL">Steve Davis</a> and <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">Tim Phillips</a> on <a href="alh.pdf">&ldquo;American Life Histories&rdquo;</a>.</span></li>
+          <li><span class="month"></span><span class="what">Talks at Harvard and BU.</span></li>
+          <li><span class="month">March</span><span class="what">Talks in Utrecht, Stockholm, and Brown.</span></li>
+          <li><span class="month">February</span><span class="what">Talk at the Econ Hist Group in Oxford.</span></li>
+          <li><span class="month"></span><span class="what">Talk at EIEF, Rome.</span></li>
+        </ul>
+      </div>
 
-                <div class="year-section">
-                    <div class="year-label">2023</div>
-                    <ul class="updates-list">
-                        <li>
-                            <span class="update-date">May</span>
-                            <span class="update-content">Talks at U Chicago and NWU-Kellogg.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">April</span>
-                            <span class="update-content">Presentation on <a href="images_july_24.pdf">"Image(s)"</a> at the NBER Cultural Economics Spring Meeting.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">March</span>
-                            <span class="update-content">Seminar at UNSW, Sydney.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Visiting Monash Business School in Melbourne.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">January</span>
-                            <span class="update-content"><a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a> features <a href="Fighting_for_Growth.pdf">"Fighting for Growth"</a> and <a href="SBIR_Paper.pdf">"Slavery and the British Industrial Revolution"</a>.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Keynote at the First Bolzano Workshop on Historical Economics.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Out in <em>American Political Science Review</em>: <a href="fv-reprisals.pdf">"Collective Remembrance and Private Choice"</a> (with Vicky Fouka).</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Out in <em>Quarterly Journal of Economics</em>: <a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">"New Deal, New Patriots"</a> (with Bruno Caprettini).</span>
-                        </li>
-                    </ul>
-                </div>
+      <div class="year-section">
+        <span class="year">2024</span>
+        <ul class="updates">
+          <li><span class="month">November</span><span class="what">Talk at the PE Group in Oxford.</span></li>
+          <li><span class="month"></span><span class="what">Talk at U Bocconi.</span></li>
+          <li><span class="month">September</span><span class="what">Presenting <a href="alh.pdf">&ldquo;American Life Histories&rdquo;</a> at the Becker-Friedman Conference on AI in the Social Sciences.</span></li>
+          <li><span class="month">July</span><span class="what">NBER-SI talk on &ldquo;American Life Histories&rdquo;.</span></li>
+          <li><span class="month">June</span><span class="what">Talk at LUISS, Rome.</span></li>
+        </ul>
+      </div>
 
-                <div class="year-section">
-                    <div class="year-label">2022</div>
-                    <ul class="updates-list">
-                        <li>
-                            <span class="update-date">December</span>
-                            <span class="update-content">Out in <em>Journal of Finance</em>: <a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">"Financial Crises and Political Radicalization"</a> (with Doerr, Gissler, Peydro).</span>
-                        </li>
-                        <li>
-                            <span class="update-date">October</span>
-                            <span class="update-content">Out in <em>Review of Economic Studies</em>: <a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">"Killer Incentives"</a> (with Ager, Bursztyn, Leucht).</span>
-                        </li>
-                        <li>
-                            <span class="update-date">September</span>
-                            <span class="update-content">Elected Fellow of the <a href="https://www.econometricsociety.org/">Econometric Society</a>.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">July</span>
-                            <span class="update-content">Keynote at ACES Summer School in London on "The End of the End of History".</span>
-                        </li>
-                        <li>
-                            <span class="update-date">May</span>
-                            <span class="update-content">Out in <em>Explorations in Economic History</em>: <a href="Sweet_Diversity.pdf">"Sweet Diversity"</a> (with Jonathan Hersh).</span>
-                        </li>
-                    </ul>
-                </div>
+      <div class="year-section">
+        <span class="year">2023</span>
+        <ul class="updates">
+          <li><span class="month">May</span><span class="what">Talks at U Chicago and NWU-Kellogg.</span></li>
+          <li><span class="month">April</span><span class="what">Presentation on <a href="images_july_24.pdf">&ldquo;Image(s)&rdquo;</a> at the NBER Cultural Economics Spring Meeting.</span></li>
+          <li><span class="month">March</span><span class="what">Seminar at UNSW, Sydney.</span></li>
+          <li><span class="month"></span><span class="what">Visiting Monash Business School in Melbourne.</span></li>
+          <li><span class="month">January</span><span class="what"><a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a> features <a href="Fighting_for_Growth.pdf">&ldquo;Fighting for Growth&rdquo;</a> and <a href="SBIR_Paper.pdf">&ldquo;Slavery and the British Industrial Revolution&rdquo;</a>.</span></li>
+          <li><span class="month"></span><span class="what">Keynote at the First Bolzano Workshop on Historical Economics.</span></li>
+          <li><span class="month"></span><span class="what">Out in <em>American Political Science Review</em>: <a href="fv-reprisals.pdf">&ldquo;Collective Remembrance and Private Choice&rdquo;</a> (with Vicky Fouka).</span></li>
+          <li><span class="month"></span><span class="what">Out in <em>Quarterly Journal of Economics</em>: <a href="https://academic.oup.com/qje/advance-article/doi/10.1093/qje/qjac028/6623686">&ldquo;New Deal, New Patriots&rdquo;</a> (with Bruno Caprettini).</span></li>
+        </ul>
+      </div>
 
-                <div class="year-section">
-                    <div class="year-label">2021</div>
-                    <ul class="updates-list">
-                        <li>
-                            <span class="update-date">September</span>
-                            <span class="update-content"><a href="https://voxeu.org/vox-talks/propaganda-persuasion-and-nazis">Podcast interview</a> with Tim Phillips on <a href="GoingViral_May2025.pdf">"Going Viral"</a>.</span>
-                        </li>
-                        <li>
-                            <span class="update-date">July</span>
-                            <span class="update-content">Delivering the 2nd Annual Crafts Lecture at the Warwick Summer School.</span>
-                        </li>
-                        <li>
-                            <span class="update-date"></span>
-                            <span class="update-content">Out in <em>PNAS</em>: <a href="latest.pdf">"The Long Run Effects of Religious Persecution"</a> (with Drelichman, Vidal-Robert).</span>
-                        </li>
-                    </ul>
-                </div>
+      <div class="year-section">
+        <span class="year">2022</span>
+        <ul class="updates">
+          <li><span class="month">December</span><span class="what">Out in <em>Journal of Finance</em>: <a href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13166">&ldquo;Financial Crises and Political Radicalization&rdquo;</a> (with Doerr, Gissler, Peydr&oacute;).</span></li>
+          <li><span class="month">October</span><span class="what">Out in <em>Review of Economic Studies</em>: <a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdab085/6463645">&ldquo;Killer Incentives&rdquo;</a> (with Ager, Bursztyn, Leucht).</span></li>
+          <li><span class="month">September</span><span class="what">Elected Fellow of the <a href="https://www.econometricsociety.org/">Econometric Society</a>.</span></li>
+          <li><span class="month">July</span><span class="what">Keynote at ACES Summer School in London on &ldquo;The End of the End of History&rdquo;.</span></li>
+          <li><span class="month">May</span><span class="what">Out in <em>Explorations in Economic History</em>: <a href="Sweet_Diversity.pdf">&ldquo;Sweet Diversity&rdquo;</a> (with Jonathan Hersh).</span></li>
+        </ul>
+      </div>
 
-                <div class="year-section">
-                    <div class="year-label">2020</div>
-                    <ul class="updates-list">
-                        <li>
-                            <span class="update-date">October</span>
-                            <span class="update-content">Out in <em>American Economic Review: Insights</em>: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">"Rage Against the Machines"</a> (with Bruno Caprettini).</span>
-                        </li>
-                        <li>
-                            <span class="update-date">March</span>
-                            <span class="update-content"><a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">The Economist</a> profiles my work on pandemics and economic growth.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+      <div class="year-section">
+        <span class="year">2021</span>
+        <ul class="updates">
+          <li><span class="month">September</span><span class="what"><a href="https://voxeu.org/vox-talks/propaganda-persuasion-and-nazis">Podcast interview</a> with Tim Phillips on <a href="GoingViral_May2025.pdf">&ldquo;Going Viral&rdquo;</a>.</span></li>
+          <li><span class="month">July</span><span class="what">Delivering the 2nd Annual Crafts Lecture at the Warwick Summer School.</span></li>
+          <li><span class="month"></span><span class="what">Out in <em>PNAS</em>: <a href="latest.pdf">&ldquo;The Long Run Effects of Religious Persecution&rdquo;</a> (with Drelichman, Vidal-Robert).</span></li>
+        </ul>
+      </div>
 
-            <!-- Right Column: In the News -->
-            <div class="news-column">
-                <h2>In the News</h2>
-                <ul class="media-list">
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/NZZ.jpg" alt="NZZ">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.nzz.ch/nzz-am-sonntag/report-und-debatte/das-zerschlagen-der-maschinen-fuehlt-sich-zunehmend-logisch-an-kuenstliche-intelligenz-bringt-die-maschinenstuermer-zurueck-ld.10007693">Das Zerschlagen der Maschinen fühlt sich zunehmend logisch an</a>
-                            </div>
-                            <div class="media-date">NZZ am Sonntag, 2026</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/economist.jpg" alt="The Economist">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.economist.com">"Never Enough" — status incentives and German fighter pilots</a>
-                            </div>
-                            <div class="media-date">April 2026</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/spectator.jpg" alt="The Spectator">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">How the Nazis used vanity to lure pilots to their deaths</a>
-                            </div>
-                            <div class="media-date">March 2026</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/FT.jpg" alt="Financial Times">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://timharford.com/2026/02/the-paradox-of-work/">The Paradox of Work</a>
-                            </div>
-                            <div class="media-date">Tim Harford, February 2026</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/NZZ.jpg" alt="NZZ">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.nzz.ch/promoted-content/warum-wirtschaftswachstum-kein-automatismus-ist-und-zerstoerung-braucht-ld.1912158">Warum Wirtschaftswachstum kein Automatismus ist</a>
-                            </div>
-                            <div class="media-date">2025</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/NZZ.jpg" alt="NZZ">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.nzz.ch/wirtschaft/arbeit-gilt-bei-uns-als-etwas-feindseliges-kritisiert-ein-oekonom-seine-forschung-zeigt-es-gibt-nichts-besseres-fuer-ein-zufriedenes-leben-als-die-arbeit-ld.1876716">Arbeit gilt bei uns als etwas Feindseliges</a>
-                            </div>
-                            <div class="media-date">2025</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo text-logo">VoxTalks</div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">American Life Histories</a>
-                            </div>
-                            <div class="media-date">Tim Phillips, April 2025</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/UBS-center.jpg" alt="UBS Center">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.youtube.com/watch?v=YuOpBfTSYhc">Thought Supply: Interview with Daron Acemoglu</a>
-                            </div>
-                            <div class="media-date">2024</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/FAZ.jpg" alt="FAZ">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.faz.net/aktuell/wirtschaft/wie-sklaverei-die-industrielle-revolution-beschleunigte-18770716.html">Wie Sklaverei die industrielle Revolution beschleunigte</a>
-                            </div>
-                            <div class="media-date">2023</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/FAZ.jpg" alt="FAZ">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.faz.net/aktuell/wirtschaft/der-sieg-der-dreschmaschine-18563760.html">Der Sieg der Dreschmaschine</a>
-                            </div>
-                            <div class="media-date">2023</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/economist.jpg" alt="The Economist">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">A flurry of new studies identifies causes of the industrial revolution</a>
-                            </div>
-                            <div class="media-date">January 2023</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/spectator.jpg" alt="The Spectator">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://spectator.com/article/did-shallow-christianity-help-the-nazis-rise-to-power/">Did shallow Christianity help the Nazis rise to power?</a>
-                            </div>
-                            <div class="media-date">January 2023</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo text-logo">VoxEU</div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">Slavery and the Industrial Revolution</a>
-                            </div>
-                            <div class="media-date">Podcast, January 2023</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo text-logo">TradeTalks</div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">Did Britain's slave trade help drive its industrial revolution?</a>
-                            </div>
-                            <div class="media-date">Podcast, December 2022</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/NZZ.jpg" alt="NZZ">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.nzz.ch/schweiz/der-feminismus-erobert-aussenpolitik-oekonomie-und-medizin-ld.1789536">Der Feminismus erobert Aussenpolitik, Ökonomie und Medizin</a>
-                            </div>
-                            <div class="media-date">2021</div>
-                        </div>
-                    </li>
-                    <li class="media-item">
-                        <div class="media-logo">
-                            <img src="images/economist.jpg" alt="The Economist">
-                        </div>
-                        <div class="media-content">
-                            <div class="media-title">
-                                <a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">Throughout history, pandemics have had profound economic effects</a>
-                            </div>
-                            <div class="media-date">March 2020</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </main>
+      <div class="year-section">
+        <span class="year">2020</span>
+        <ul class="updates">
+          <li><span class="month">October</span><span class="what">Out in <em>American Economic Review: Insights</em>: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">&ldquo;Rage Against the Machines&rdquo;</a> (with Bruno Caprettini).</span></li>
+          <li><span class="month">March</span><span class="what"><a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">The Economist</a> profiles my work on pandemics and economic growth.</span></li>
+        </ul>
+      </div>
+    </div>
 
-    <footer>
-    </footer>
+    <div id="media" class="tab-panel">
+      <ul class="media">
+        <li><span class="logo"><img src="images/NZZ.jpg" alt="NZZ am Sonntag"></span><span class="headline"><a href="https://www.nzz.ch/nzz-am-sonntag/report-und-debatte/das-zerschlagen-der-maschinen-fuehlt-sich-zunehmend-logisch-an-kuenstliche-intelligenz-bringt-die-maschinenstuermer-zurueck-ld.10007693">Das Zerschlagen der Maschinen f&uuml;hlt sich zunehmend logisch an</a><span class="when">2026</span></span></li>
+        <li><span class="logo"><img src="images/economist.jpg" alt="The Economist"></span><span class="headline"><a href="https://www.economist.com">&ldquo;Never Enough&rdquo; &mdash; status incentives and German fighter pilots</a><span class="when">April 2026</span></span></li>
+        <li><span class="logo"><img src="images/spectator.jpg" alt="The Spectator"></span><span class="headline"><a href="https://spectator.com/article/how-the-nazis-used-vanity-to-lure-pilots-to-their-deaths/">How the Nazis used vanity to lure pilots to their deaths</a><span class="when">March 2026</span></span></li>
+        <li><span class="logo"><img src="images/FT.jpg" alt="Financial Times"></span><span class="headline"><a href="https://timharford.com/2026/02/the-paradox-of-work/">The Paradox of Work</a><span class="when">Tim Harford, February 2026</span></span></li>
+        <li><span class="logo"><img src="images/NZZ.jpg" alt="NZZ"></span><span class="headline"><a href="https://www.nzz.ch/promoted-content/warum-wirtschaftswachstum-kein-automatismus-ist-und-zerstoerung-braucht-ld.1912158">Warum Wirtschaftswachstum kein Automatismus ist</a><span class="when">2025</span></span></li>
+        <li><span class="logo"><img src="images/NZZ.jpg" alt="NZZ"></span><span class="headline"><a href="https://www.nzz.ch/wirtschaft/arbeit-gilt-bei-uns-als-etwas-feindseliges-kritisiert-ein-oekonom-seine-forschung-zeigt-es-gibt-nichts-besseres-fuer-ein-zufriedenes-leben-als-die-arbeit-ld.1876716">Arbeit gilt bei uns als etwas Feindseliges</a><span class="when">2025</span></span></li>
+        <li><span class="text-logo">VoxTalks</span><span class="headline"><a href="https://open.spotify.com/episode/0GBVnGSQBp3rfNACMOoSnn">American Life Histories</a><span class="when">Tim Phillips, April 2025</span></span></li>
+        <li><span class="logo"><img src="images/UBS-center.jpg" alt="UBS Center"></span><span class="headline"><a href="https://www.youtube.com/watch?v=YuOpBfTSYhc">Thought Supply: Interview with Daron Acemoglu</a><span class="when">2024</span></span></li>
+        <li><span class="logo"><img src="images/FAZ.jpg" alt="FAZ"></span><span class="headline"><a href="https://www.faz.net/aktuell/wirtschaft/wie-sklaverei-die-industrielle-revolution-beschleunigte-18770716.html">Wie Sklaverei die industrielle Revolution beschleunigte</a><span class="when">2023</span></span></li>
+        <li><span class="logo"><img src="images/FAZ.jpg" alt="FAZ"></span><span class="headline"><a href="https://www.faz.net/aktuell/wirtschaft/der-sieg-der-dreschmaschine-18563760.html">Der Sieg der Dreschmaschine</a><span class="when">2023</span></span></li>
+        <li><span class="logo"><img src="images/economist.jpg" alt="The Economist"></span><span class="headline"><a href="https://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">A flurry of new studies identifies causes of the industrial revolution</a><span class="when">January 2023</span></span></li>
+        <li><span class="logo"><img src="images/spectator.jpg" alt="The Spectator"></span><span class="headline"><a href="https://spectator.com/article/did-shallow-christianity-help-the-nazis-rise-to-power/">Did shallow Christianity help the Nazis rise to power?</a><span class="when">January 2023</span></span></li>
+        <li><span class="text-logo">VoxEU</span><span class="headline"><a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">Slavery and the Industrial Revolution</a><span class="when">Podcast, January 2023</span></span></li>
+        <li><span class="text-logo">TradeTalks</span><span class="headline"><a href="https://tradetalkspodcast.com/podcast/173-did-britains-slave-trade-help-drive-its-industrial-revolution/">Did Britain&rsquo;s slave trade help drive its industrial revolution?</a><span class="when">Podcast, December 2022</span></span></li>
+        <li><span class="logo"><img src="images/NZZ.jpg" alt="NZZ"></span><span class="headline"><a href="https://www.nzz.ch/schweiz/der-feminismus-erobert-aussenpolitik-oekonomie-und-medizin-ld.1789536">Der Feminismus erobert Aussenpolitik, &Ouml;konomie und Medizin</a><span class="when">2021</span></span></li>
+        <li><span class="logo"><img src="images/economist.jpg" alt="The Economist"></span><span class="headline"><a href="https://www.economist.com/finance-and-economics/2020/03/12/throughout-history-pandemics-have-had-profound-economic-effects">Throughout history, pandemics have had profound economic effects</a><span class="when">March 2020</span></span></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>Z&uuml;rich <span class="mark">·</span> MMXXVI</footer>
+</div>
+
+<script>
+  function activate(tabId) {
+    var btn = document.querySelector('.tab[data-tab="' + tabId + '"]');
+    var panel = document.getElementById(tabId);
+    if (!btn || !panel) return;
+    document.querySelectorAll('.tab').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    panel.classList.add('active');
+  }
+  document.querySelectorAll('.tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activate(btn.dataset.tab);
+      history.replaceState(null, '', '#' + btn.dataset.tab);
+    });
+  });
+  if (location.hash) activate(location.hash.slice(1));
+</script>
 <script data-goatcounter="https://jvoth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="gc-downloads.js"></script>
 </body>
