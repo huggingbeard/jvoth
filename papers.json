@@ -16,7 +16,7 @@
       ],
       "date": "2026",
       "status": "forthcoming",
-      "venue": "Stata Journal 26(2), pp. 177-202 (2026)",
+      "venue": "Stata Journal 26(2), 2026, p. 177-202",
       "doi": "10.1177/1536867X261449932",
       "abstract": "Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques.",
       "keywords": [
