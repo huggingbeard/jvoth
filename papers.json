@@ -8,15 +8,16 @@
   },
   "papers": [
     {
-      "title": "Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package",
+      "title": "Testing and Correcting for Spatial Unit Roots in Regression Analysis",
       "authors": [
-        "David Boll",
         "Sascha O. Becker",
+        "P. David Boll",
         "Hans-Joachim Voth"
       ],
-      "date": "2025",
+      "date": "2026",
       "status": "forthcoming",
-      "venue": "Forthcoming, Stata Journal",
+      "venue": "Stata Journal 26(2), pp. 177-202 (2026)",
+      "doi": "10.1177/1536867X261449932",
       "abstract": "Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques.",
       "keywords": [
         "spatial unit roots",
