@@ -117,7 +117,7 @@
   .paper .authors { font-size: 1rem; color: var(--faded); margin-top: 0.25rem; font-style: italic; }
   .paper .venue {
     font-variant-caps: all-small-caps; letter-spacing: 0.08em;
-    font-size: 1rem; margin-top: 0.3rem; color: var(--faded);
+    font-size: 1rem; margin-top: 0.3rem; color: var(--accent);
   }
   .paper .venue.status { color: var(--accent); }
   .paper details { margin-top: 0.55rem; }
@@ -142,6 +142,15 @@
     border-bottom: 1px solid var(--rule); transition: color 0.2s, border-color 0.2s;
   }
   .paper .links a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* Published: "Abstract" toggle sits inline on the links row; the abstract
+     opens as a full-width block below without adding height when collapsed. */
+  .paper .links.abs-row { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1.2rem; }
+  .paper .links.abs-row a { margin-right: 0; }
+  .paper .links.abs-row details.abs-inline { display: contents; }
+  .paper .links.abs-row details.abs-inline > summary { margin: 0; }
+  .paper .links.abs-row details.abs-inline > p { flex-basis: 100%; margin: 0.6rem 0 0.1rem; }
+
 
   footer {
     margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--rule);
@@ -203,7 +212,7 @@
         <p class="venue status">American Economic Review 116(10), 2026</p>
         <details>
           <summary>Abstract</summary>
-          <p>We collect new data and present new evidence on the effects of labor scarcity on the adoption of labor-saving technology in industrializing England. Where the British armed forces recruited heavily, more machines that economized on labor were adopted.</p>
+          <p>We establish a link between labor scarcity and the adoption of labor-saving technology in industrializing England. During the Napoleonic Wars, more than 10% of the male population served in the armed forces. Where recruitment was heavy, more machines economizing on labor were adopted. Naval recruitment, instrumented by warships' coastal access, provides exogenous variation in labor scarcity and suggests that the link between labor shortages and adoption is causal. Where mechanical skills were abundant, the impact of labor scarcity on adoption appears to be larger.</p>
         </details>
         <p class="links"><a href="Fighting_for_Growth.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852722">SSRN</a><a href="https://hub.cepr.org/published-discussion-paper/181527">CEPR wp</a><a href="http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution">The Economist</a></p>
       </article>
@@ -215,7 +224,7 @@
         <p class="venue status">Forthcoming, Journal of the European Economic Association</p>
         <details>
           <summary>Abstract</summary>
-          <p>Political polarization is a growing concern in many countries; are mass protests merely a sign of increasing cleavages, or do they polarize societies? In this paper, we estimate the impact of Nazi marches in 1932 Hamburg, using granular data from 622 voting precincts during six elections. We show that propaganda can persuade, but it does so by raising the share of areas with very high Nazi support. Importantly, marches can also backfire and repel voters. Thus, protest marches lead to polarization.</p>
+          <p>Political polarization is a growing concern in many countries. Are mass protests merely a sign of increasing cleavages, or do they polarize societies? In this paper, we estimate the impact of Nazi marches in 1932 Hamburg, using granular data from 622 voting precincts during 6 elections. We show propaganda can persuade – but it does by raising the share of areas with high levels of Nazi support. Importantly, marches can also backfire, repelling voters. Thus, protest marches lead to polarization. These effects diffused through social networks, measured as contagion patterns across neighborhoods from the 1918 Spanish flu outbreak. The electoral effects of social spillovers are of similar importance as direct exposure, and grow over time.</p>
         </details>
         <p class="links"><a href="GoingViral_May2025.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3886846">SSRN</a><a href="https://voxeu.org/vox-talks/propaganda-persuasion-and-nazis">VoxTalks podcast</a><a href="https://www.ubscenter.uzh.ch/en/news_events/insights/2021-10-propaganda_persuasion_and_the_nazis.html">UBS Center</a></p>
       </article>
@@ -227,7 +236,7 @@
         <p class="venue status">Stata Journal 26(2), 2026, p. 177&ndash;202</p>
         <details>
           <summary>Abstract</summary>
-          <p>Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Mueller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands implementing these techniques.</p>
+          <p>Spatial unit roots can lead to spurious regression results. We present a brief overview of the methods developed in Müller and Watson (2024) to test for and correct for spatial unit roots. We also introduce a suite of Stata commands (-spur-) implementing these techniques. Our commands exactly replicate results in Müller and Watson (2024) using the same Chetty et al. (2014) data. We present a brief practitioner's guide for applied researchers.</p>
         </details>
         <p class="links"><a href="Spatial_Unit_Roots.pdf">PDF</a><a href="https://github.com/pdavidboll/SPUR">GitHub</a><a href="https://doi.org/10.1177/1536867X261449932">Article</a></p>
       </article>
@@ -244,7 +253,7 @@
         <p class="venue status">Revision requested, Quarterly Journal of Economics</p>
         <details>
           <summary>Abstract</summary>
-          <p>From clothes and hairstyles to fashion accessories, humans use a range of stylistic elements to express themselves. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. We systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style.</p>
+          <p>From clothes and hairstyles to fashion accessories, humans use a great range of stylistic elements to express themselves, impress others, demonstrate their individualism, or show that they belong to a group. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. Despite its central importance as a form of social interaction and self-expression, and a rich body of theoretical work, empirical work on style choices is rare. We measure similarity over time and space, tracking the timing and location of influential style innovations. To illustrate our methods, we systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style. We detect the collapse of high conformity as well as persistence across generations in the late 1960s. Style polarization increases sharply across commuting zones from the 1970s onwards. We also develop a novel measure of style innovation and show that it predicts patenting by cohorts later in life, suggestive of broader societal trends facilitating innovation across a range of domains. Overall, our results highlight the usefulness of images as a source for cultural economics.</p>
         </details>
         <p class="links"><a href="images_july_24.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852661">SSRN</a><a href="https://huggingbeard.github.io/images/">Data</a></p>
       </article>
@@ -256,7 +265,7 @@
         <p class="venue status">Revision requested, Review of Economic Studies</p>
         <details>
           <summary>Abstract</summary>
-          <p>We provide theory and evidence on the contribution of slavery wealth to Britain&rsquo;s economic development prior to the abolition of slavery in 1833. We combine data on individual slaveholders from compensation records, an exogenous source of variation in slavery wealth from weather-induced shocks to mortality of the enslaved during the middle passage, and a quantitative spatial model.</p>
+          <p>We provide theory and evidence on the contribution of slavery wealth to Britain's economic development prior to the abolition of slavery in 1833. We combine data on individual slaveholders from compensation records, an exogenous source of variation in slavery wealth from weather-induced shocks to mortality of the enslaved during the middle passage, and a quantitative spatial model. Exogenous increases in slavery wealth reduce the agricultural employment share, increase the manufacturing employment share, raise the number of cotton mills, and increase property values. Quantifying our model, we find that slavery wealth raises aggregate income by the equivalent of around a decade of economic growth, and increases local income in places with the greatest involvement in slavery by more than 40 percent.</p>
         </details>
         <p class="links"><a href="SBIR_Paper.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4216236">SSRN</a><a href="w30451.pdf">NBER wp</a><a href="https://cepr.org/multimedia/slavery-and-industrial-revolution">VoxEU podcast</a></p>
       </article>
@@ -273,7 +282,7 @@
         <p class="venue">NBER Working Paper w34707</p>
         <details>
           <summary>Abstract</summary>
-          <p>We study the ability of a firm to elicit repeated effort from workers by creating a &ldquo;rat race&rdquo; of hierarchical status-based incentives. We examine performance using data on over 5,000 German air force pilots during World War II. Pilots&rsquo; effort is hard to monitor; motivation is key to success. Fighter pilot performance increases markedly as they approach eligibility for a medal before falling off upon receipt of the award.</p>
+          <p>We study the ability of a firm to elicit repeated effort from workers by creating a "rat race" of hierarchical status-based incentives. We examine performance using data on over 5,000 German air force pilots during World War II. Pilots' effort is hard to monitor; motivation is key to success. Fighter pilot performance increases markedly as they approach eligibility for a medal before falling off upon receipt of the award. The same effort path repeats itself as the pilot nears the next higher-prestige medal. Status-conscious pilots also exert more effort when new medals are introduced. We show that medals serve as substitutes for other forms of status. Medal cachet declines over time as lower-ability pilots receive them, making the introduction of new medals desirable. These results suggest that a tiered, expanding system of status-based incentives can repeatedly leverage worker status concerns to extract effort.</p>
         </details>
         <p class="links"><a href="Never_Enough.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6093299">SSRN</a><a href="https://www.nber.org/papers/w34707">NBER wp</a><a href="https://cepr.org/voxeu/columns/prize-kill-management-lessons-german-air-force-wwii">VoxEU</a></p>
       </article>
@@ -285,7 +294,7 @@
         <p class="venue">Working Paper</p>
         <details>
           <summary>Abstract</summary>
-          <p>Mass media often persuades; it can also expand the machinery of repression. We study radio network expansion and political persecution in Stalin&rsquo;s Soviet Union, in the decades leading up to the &lsquo;Great Terror&rsquo; of 1937&ndash;38. Greater radio coverage systematically intensified political repression: a one-standard-deviation increase in signal strength is associated with roughly 40 percent more arrests and a 20 percent rise in the execution share among those arrested, with effects that grew over time.</p>
+          <p>Mass media often persuades; it can also expand the machinery of repression. We study radio network expansion and political persecution in Stalin's Soviet Union, in the decades leading up to the `Great Terror' of 1937-38. Greater radio coverage systematically intensified political repression: a one-standard-deviation increase in signal strength is associated with roughly 40 percent more arrests and a 20 percent rise in the execution share among those arrested, with effects that grew over time. For identification, we exploit newly digitized county-level panel data for 1920–1940 and variation in longwave radio signal strength driven by ground-conductivity differences along propagation paths. Additional repression was disproportionately misdirected. Post-Stalin rehabilitation records show that high-signal areas produced substantially more sentences later reversed. Within the security apparatus itself, stronger radio reception reduced recruitment into the NKVD. It also increased the probability that incumbent officers were purged or demoted, consistent with tighter monitoring and escalating internal risk. Mass communication was not only persuasive; it operated as an input into coercive state capacity by lowering the coordination and monitoring costs of repression.</p>
         </details>
         <p class="links"><a href="Transmitting_Terror.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852779">SSRN</a></p>
       </article>
@@ -297,7 +306,7 @@
         <p class="venue">Working Paper</p>
         <details>
           <summary>Abstract</summary>
-          <p>Do occupational dynasties reflect the intergenerational transmission of skills or nepotism? We use detailed data on the fighting record of the 18th century Royal Navy to show that sons of navy officers are markedly more successful than non-legacies, outperforming in terms of enemy captures by a third. This performance differential is not due to better equipment or more favorable assignments, and also holds for those whose patron has passed away.</p>
+          <p>Do occupational dynasties reflect the intergenerational transmission of skills or nepotism? We use detailed data on the fighting record of the 18th century Royal Navy to show that sons of navy officers are markedly more successful than non-legacies, outperforming in terms of enemy captures. This performance differential is not due to better equipment or more favorable assignments, and also holds for those whose patron has passed away. We provide evidence for positive selection as a channel through which the outperformance is sustained – sons of successful officers are more likely to join and be promoted in the navy. To examine the importance of vertical transmission, we use computer vision to analyze facial landmarks from over 1,000 portraits. We find that facial landmarks are predictive of success in naval warfare; officers with more masculine faces won more victories. Sons of service inherited these traits from their fathers and grandfathers, suggesting a possible channel for intergenerational transmission.</p>
         </details>
         <p class="links"><a href="Legacy.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852782">SSRN</a></p>
       </article>
@@ -309,7 +318,7 @@
         <p class="venue">NBER Working Paper w33373</p>
         <details>
           <summary>Abstract</summary>
-          <p>What does it take to live a meaningful life? We exploit a unique corpus of over 1,300 life narratives of older Americans collected by a team of writers during the 1930s. We combine detailed human readings with large language models (LLMs) to extract systematic information on critical junctures, sources of meaning, and overall life satisfaction.</p>
+          <p>What does it take to live a meaningful life? We exploit a unique corpus of over 1,300 life narratives of older Americans collected by a team of writers during the 1930s. We combine detailed human readings with large language models (LLMs) to extract systematic information on critical junctures, sources of meaning, and overall life satisfaction. Under specific conditions, LLMs can provide responses to complex questions that are indistinguishable from those of human readers, effectively passing a version of the Turing Test. We find that sources of life meaning are more varied than previous research suggested, underlining the importance of work and community contributions in addition to family and close relationships. The narratives also highlight gendered disparities, with women disproportionately citing adverse family events, such as the loss of a parent, underscoring their role as keepers of the kin. Our research expands our understanding of human flourishing during a transformative period in American history and establishes a robust and scalable framework for quantifying subjective well-being and human experiences across diverse historical and cultural contexts.</p>
         </details>
         <p class="links"><a href="alh.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5103580">SSRN</a><a href="https://www.nber.org/papers/w33373">NBER wp</a><a href="https://timharford.com/2026/02/the-paradox-of-work/">FT</a></p>
       </article>
@@ -321,7 +330,7 @@
         <p class="venue">IZA DP 16538 · CEPR DP 18543</p>
         <details>
           <summary>Abstract</summary>
-          <p>Can weakened religiosity lead to the rise of totalitarianism? The Nazi Party set itself up as a political religion, emphasizing redemption, sacrifice, rituals, and communal spirit. This had a major impact on its success: Where the Christian Church only had shallow roots, the Nazis received higher electoral support and saw more party entry.</p>
+          <p>Can weakened religiosity facilitate the rise of fascism? The Nazi Party set itself up as a political religion, emphasizing redemption, sacrifice, rituals, and communal spirit. This is highly correlated with its success: Where the Christian Church only had shallow roots, the Nazis received higher electoral support and saw more party entry. "Shallow Christianity" reflects the geography of medieval Christianization and the strength of pagan practices, which we use as sources of historical variation. We also find predictive power at the individual level: Within each municipality, the likelihood of joining the Nazi Party was higher for those with less Christian first names. Data from Italy suggests that the phenomenon is not limited to the German case: more religious Italian municipalities supported the fascist movement less.</p>
         </details>
         <p class="links"><a href="SC2.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4612224">SSRN</a><a href="https://cepr.org/publications/dp18543">CEPR dp</a></p>
       </article>
@@ -336,7 +345,7 @@
         <h3><a href="papers/highway-to-hitler.html">Highway to Hitler</a></h3>
         <p class="authors">with Nico Voigtl&auml;nder</p>
         <p class="venue">American Economic Journal: Applied Economics 18(1), 120&ndash;159</p>
-        <p class="links"><a href="https://www.nber.org/system/files/working_papers/w20150/w20150.pdf">NBER wp</a><a href="https://cepr.org/publications/dp9983">CEPR wp</a><a href="https://cepr.org/voxeu/columns/nazi-pork-and-popularity-how-hitlers-roads-won-german-hearts-and-minds">VoxEU</a><a href="https://doi.org/10.1257/app.20180816">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>We show that the building of the Autobahn network in Nazi Germany boosted popular support for Adolf Hitler, helping to entrench the Nazi dictatorship. Direct local economic benefits are unlikely to explain the effect. Instead, it reflects successful propaganda: The regime portrayed the Autobahn as a symbol of recovery and the end of austerity. Support rose particularly strongly where highway construction coincided with greater radio availability and in politically unstable regions. Our findings suggest that visible infrastructure projects can raise support for autocratic regimes when voters are led to associate them with economic progress and an end to political instability.</p></details><a href="https://www.nber.org/system/files/working_papers/w20150/w20150.pdf">NBER wp</a><a href="https://cepr.org/publications/dp9983">CEPR wp</a><a href="https://cepr.org/voxeu/columns/nazi-pork-and-popularity-how-hitlers-roads-won-german-hearts-and-minds">VoxEU</a><a href="https://doi.org/10.1257/app.20180816">Article</a></div>
       </article>
 
       <article class="paper">
@@ -344,7 +353,7 @@
         <h3><a href="papers/new-deal-new-patriots.html">New Deal, New Patriots: How 1930s Government Spending Boosted Patriotism during World War II</a></h3>
         <p class="authors">with Bruno Caprettini</p>
         <p class="venue">Quarterly Journal of Economics 138(1), 465&ndash;513</p>
-        <p class="links"><a href="new_deal.pdf">PDF</a><a href="https://cepr.org/voxeu/columns/new-deal-new-patriots-how-roosevelts-welfare-programmes-made-america-great-again">VoxEU</a><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3A8CBI">Data</a><a href="https://doi.org/10.1093/qje/qjac028">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>We demonstrate an important complementarity between patriotism and public good provision. After 1933, the New Deal led to an unprecedented expansion of the US federal government's role. Those who benefited from social spending were markedly more patriotic during WW II: they bought more war bonds, volunteered more and, as soldiers, won more medals. This pattern was new – WW I volunteering did not show the same geography of patriotism. We match military service records with the 1940 census to show that this pattern holds at the individual level. Using geographical variation, we exploit two instruments to suggest that the effect is causal: droughts and congressional committee representation predict more New Deal agricultural support, as well as bond buying, volunteering, and medals.</p></details><a href="new_deal.pdf">PDF</a><a href="https://cepr.org/voxeu/columns/new-deal-new-patriots-how-roosevelts-welfare-programmes-made-america-great-again">VoxEU</a><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3A8CBI">Data</a><a href="https://doi.org/10.1093/qje/qjac028">Article</a></div>
       </article>
 
       <article class="paper">
@@ -352,15 +361,7 @@
         <h3><a href="papers/collective-remembrance-german-greek.html">Collective Remembrance and Private Choice: German&ndash;Greek Conflict and Consumer Behavior in Times of Crisis</a></h3>
         <p class="authors">with Vasiliki Fouka</p>
         <p class="venue">American Political Science Review 117(3), 851&ndash;870</p>
-        <p class="links"><a href="fv-reprisals.pdf">PDF</a><a href="https://voxeu.org/article/massacre-memories-german-car-sales-and-ez-crisis-greece">VoxEU</a><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZS9QEC">Data</a><a href="https://doi.org/10.1017/S0003055422001095">Article</a></p>
-      </article>
-
-      <article class="paper">
-        <span class="year">2022</span>
-        <h3><a href="papers/financial-crises-political-radicalization.html">Financial Crises and Political Radicalization: How Failing Banks Paved Hitler&rsquo;s Path to Power</a></h3>
-        <p class="authors">with Sebastian Doerr, Stefan Gissler &amp; Jos&eacute;-Luis Peydr&oacute;</p>
-        <p class="venue">Journal of Finance 77(6), 3339&ndash;3372</p>
-        <p class="links"><a href="JOF_final.pdf">PDF</a><a href="https://voxeu.org/article/financial-crisis-and-right-wing-extremism-germany-1931-33">VoxEU</a><a href="datasets/financial-crises/jofi13166-sup-0002-replicationcode.zip">Data</a><a href="https://doi.org/10.1111/jofi.13166">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>When does collective memory impact behavior? We highlight two conditions under which the memory of past events comes to matter for the present: the associative nature of memory, and institutionalized acts of commemoration by the state. During World War II, German troops occupying Greece perpetrated numerous massacres. Memories of those events resurfaced during the 2009 Greek debt crisis, leading to a drop in German car sales in Greece, especially in areas affected by German reprisals. Differential economic performance did not drive this divergence. Multiple pieces of evidence suggest that current events reactivated past memories, creating a backlash against Germany. This backlash also manifested in political behavior, with vote shares of anti-German parties increasing in reprisal areas after the start of the debt crisis. Using quasi-random variation in public recognition of victim status, we show that institutionalized collective memory amplifies the effects of political conflict on economic and political behavior.</p></details><a href="fv-reprisals.pdf">PDF</a><a href="https://voxeu.org/article/massacre-memories-german-car-sales-and-ez-crisis-greece">VoxEU</a><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZS9QEC">Data</a><a href="https://doi.org/10.1017/S0003055422001095">Article</a></div>
       </article>
 
       <article class="paper">
@@ -368,7 +369,15 @@
         <h3><a href="papers/killer-incentives.html">Killer Incentives: Status Competition and Pilot Performance during World War II</a></h3>
         <p class="authors">with Philipp Ager, Leonardo Bursztyn &amp; Lukas Leucht</p>
         <p class="venue">Review of Economic Studies 89(5), 2257&ndash;2292</p>
-        <p class="links"><a href="Killer_Incentives.pdf">PDF (wp)</a><a href="https://voxeu.org/article/how-status-competition-killed-german-wwii-fighter-pilots">VoxEU</a><a href="https://www.nber.org/digest/mar17/w22992.shtml">NBER Digest</a><a href="https://zenodo.org/records/5518208">Data</a><a href="https://doi.org/10.1093/restud/rdab085">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Using newly collected data on death rates and aerial victories of more than 5,000 German fighter pilots during World War II, we examine the effects of public recognition on performance and risk-taking. When a particular pilot is honoured publicly, both the victory rate and the death rate of his former peers increase. Fellow pilots react more if they come from the same region of Germany, or if they worked closely with him. Our results suggest that personal rivalry can be a prime motivating force, and that non-financial rewards can lead to a crowd-in of both effort and risk-taking via social connections.</p></details><a href="Killer_Incentives.pdf">PDF (wp)</a><a href="https://voxeu.org/article/how-status-competition-killed-german-wwii-fighter-pilots">VoxEU</a><a href="https://www.nber.org/digest/mar17/w22992.shtml">NBER Digest</a><a href="https://zenodo.org/records/5518208">Data</a><a href="https://doi.org/10.1093/restud/rdab085">Article</a></div>
+      </article>
+
+      <article class="paper">
+        <span class="year">2022</span>
+        <h3><a href="papers/financial-crises-political-radicalization.html">Financial Crises and Political Radicalization: How Failing Banks Paved Hitler&rsquo;s Path to Power</a></h3>
+        <p class="authors">with Sebastian Doerr, Stefan Gissler &amp; Jos&eacute;-Luis Peydr&oacute;</p>
+        <p class="venue">Journal of Finance 77(6), 3339&ndash;3372</p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Do financial crises radicalize voters? We study Germany's 1931 banking crisis, collecting new data on bank branches and firm-bank connections. Exploiting cross-sectional variation in pre-crisis exposure to the bank at the center of the crisis, we show that Nazi votes surged in locations more affected by its failure. Radicalization in response to the shock was exacerbated in cities with a history of anti-Semitism. After the Nazis seized power, both pogroms and deportations were more frequent in places affected by the banking crisis. Our results suggest an important synergy between financial distress and cultural predispositions, with far-reaching consequences.</p></details><a href="JOF_final.pdf">PDF</a><a href="https://voxeu.org/article/financial-crisis-and-right-wing-extremism-germany-1931-33">VoxEU</a><a href="datasets/financial-crises/jofi13166-sup-0002-replicationcode.zip">Data</a><a href="https://doi.org/10.1111/jofi.13166">Article</a></div>
       </article>
 
       <article class="paper">
@@ -376,7 +385,7 @@
         <h3><a href="papers/sweet-diversity.html">Sweet Diversity: Colonial Goods and the Welfare Gains from Global Trade after 1492</a></h3>
         <p class="authors">with Jonathan Hersh</p>
         <p class="venue">Explorations in Economic History 86, 101468</p>
-        <p class="links"><a href="Sweet_Diversity.pdf">PDF</a><a href="https://voxeu.org/article/new-goods-malthusian-world-welfare-gains-coffee-tea-and-sugar">VoxEU</a><a href="https://www.openicpsr.org/openicpsr/project/172801/version/V1/view">Data</a><a href="https://doi.org/10.1016/j.eeh.2022.101468">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>When did overseas trade start to matter for living standards? Traditional real-wage indices suggest that living standards in Europe stagnated before 1800. In this paper, we argue that welfare may have actually risen substantially, but surreptitiously, because of an influx of new goods. Colonial "luxuries" such as tea, coffee, and sugar became highly coveted. Together with more simple household staples such as potatoes and tomatoes, overseas goods transformed European diets after the discovery of America and the rounding of the Cape of Good Hope. They became household items in many countries by the end of the 18th century. We apply two standard methods to calculate broad orders of magnitude of the resulting welfare gains. While they cannot be assessed precisely, gains from greater variety may well have been big enough to boost European real incomes by 10% or more (depending on the assumptions used).</p></details><a href="Sweet_Diversity.pdf">PDF</a><a href="https://voxeu.org/article/new-goods-malthusian-world-welfare-gains-coffee-tea-and-sugar">VoxEU</a><a href="https://www.openicpsr.org/openicpsr/project/172801/version/V1/view">Data</a><a href="https://doi.org/10.1016/j.eeh.2022.101468">Article</a></div>
       </article>
 
       <article class="paper">
@@ -384,7 +393,7 @@
         <h3><a href="papers/religious-persecution-spanish-inquisition.html">The Long-Run Effects of Religious Persecution: Evidence from the Spanish Inquisition</a></h3>
         <p class="authors">with Mauricio Drelichman &amp; Jordi Vidal-Robert</p>
         <p class="venue">Proceedings of the National Academy of Sciences 118(33)</p>
-        <p class="links"><a href="latest.pdf">PDF</a><a href="https://www.openicpsr.org/openicpsr/project/143781/version/V1/view">Data</a><a href="https://doi.org/10.1073/pnas.2022881118">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Religious persecution is common in many countries around the globe. There is little evidence on its long-term effects. We collect data from all across Spain, using information from more than 67,000 trials held by the Spanish Inquisition between 1480 and 1820. This comprehensive database allows us to demonstrate that municipalities of Spain with a history of a stronger inquisitorial presence show lower economic performance, educational attainment, and trust today. The effects persist after controlling for historical indicators of religiosity and wealth, ruling out potential selection bias.</p></details><a href="latest.pdf">PDF</a><a href="https://www.openicpsr.org/openicpsr/project/143781/version/V1/view">Data</a><a href="https://doi.org/10.1073/pnas.2022881118">Article</a></div>
       </article>
 
       <article class="paper">
@@ -392,7 +401,7 @@
         <h3><a href="papers/rage-against-the-machines.html">Rage Against the Machines: Labor-Saving Technology and Unrest in Industrializing England</a></h3>
         <p class="authors">with Bruno Caprettini</p>
         <p class="venue">American Economic Review: Insights 2(3), 305&ndash;320</p>
-        <p class="links"><a href="Rage_Against_the_Machines.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">SSRN</a><a href="https://voxeu.org/article/rage-against-machines-new-technology-and-violent-unrest">VoxEU</a><a href="https://www.aeaweb.org/research/thresher-machine-england-civil-revolt">AEA Highlight</a><a href="https://www.openicpsr.org/openicpsr/project/117044/version/V1/view">Data</a><a href="https://doi.org/10.1257/aeri.20190385">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Can new technology cause social instability and unrest? We examine the famous "Captain Swing" riots in 1830s England. Newly collected data on threshing machine diffusion shows that labor-saving technology was associated with more riots. We instrument technology adoption with the share of heavy soils in a parish: IV estimates demonstrate that threshing machines were an important cause of unrest. Where alternative employment opportunities softened the blow of new technology, there was less rioting. Conversely, where enclosures had impoverished workers, the effect of threshing machines on rioting was amplified.</p></details><a href="Rage_Against_the_Machines.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2905046">SSRN</a><a href="https://voxeu.org/article/rage-against-machines-new-technology-and-violent-unrest">VoxEU</a><a href="https://www.aeaweb.org/research/thresher-machine-england-civil-revolt">AEA Highlight</a><a href="https://www.openicpsr.org/openicpsr/project/117044/version/V1/view">Data</a><a href="https://doi.org/10.1257/aeri.20190385">Article</a></div>
       </article>
 
       <article class="paper">
@@ -400,7 +409,7 @@
         <h3><a href="papers/bowling-for-fascism.html">Bowling for Fascism: Social Capital and the Rise of the Nazi Party</a></h3>
         <p class="authors">with Shanker Satyanath &amp; Nico Voigtl&auml;nder</p>
         <p class="venue">Journal of Political Economy 125(2), 478&ndash;526</p>
-        <p class="links"><a href="Bowling_for_Fascism.pdf">PDF</a><a href="http://ssrn.com/abstract=2284907">SSRN</a><a href="https://voxeu.org/article/bowling-adolf-how-social-capital-helped-destroy-germany-s-first-democracy">VoxEU</a><a href="datasets/bowling-for-fascism/2014294data.zip">Data</a><a href="https://doi.org/10.1086/690949">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Using newly collected data on association density in 229 towns and cities in interwar Germany, we show that denser social networks were associated with faster entry into the Nazi Party. The effect is large: one standard deviation higher association density is associated with at least 15 percent faster Nazi Party entry. Party membership, in turn, predicts electoral success. Social networks thus aided the rise of the Nazis that destroyed Germany's first democracy. The effects of social capital depended on the political context: in federal states with more stable governments, higher association density was not correlated with faster Nazi Party entry.</p></details><a href="Bowling_for_Fascism.pdf">PDF</a><a href="http://ssrn.com/abstract=2284907">SSRN</a><a href="https://voxeu.org/article/bowling-adolf-how-social-capital-helped-destroy-germany-s-first-democracy">VoxEU</a><a href="datasets/bowling-for-fascism/2014294data.zip">Data</a><a href="https://doi.org/10.1086/690949">Article</a></div>
       </article>
 
       <article class="paper">
@@ -408,7 +417,7 @@
         <h3><a href="papers/leverage-and-beliefs.html">Leverage and Beliefs: Personal Experience and Risk-Taking in Margin Lending</a></h3>
         <p class="authors">with Peter Koudijs</p>
         <p class="venue">American Economic Review 106(11), 3367&ndash;3400</p>
-        <p class="links"><a href="Leverage_and_Beliefs.pdf">PDF</a><a href="http://ssrn.com/abstract=2406493">SSRN</a><a href="https://www.openicpsr.org/openicpsr/project/112978/version/V1/view">Data</a><a href="https://doi.org/10.1257/aer.20140259">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>What determines risk-bearing capacity and the amount of leverage in financial markets? Using unique archival data on collateralized lending, we show that personal experience can affect individual risk-taking and aggregate leverage. When an investor syndicate speculating in Amsterdam in 1772 went bankrupt, many lenders were exposed. In the end, none of them actually lost money. Nonetheless, only those at risk of losing money changed their behavior markedly; they lent with much higher haircuts. The rest continued largely as before. The differential change is remarkable since the distress was public knowledge. Overall leverage in the Amsterdam stock market declined as a result.</p></details><a href="Leverage_and_Beliefs.pdf">PDF</a><a href="http://ssrn.com/abstract=2406493">SSRN</a><a href="https://www.openicpsr.org/openicpsr/project/112978/version/V1/view">Data</a><a href="https://doi.org/10.1257/aer.20140259">Article</a></div>
       </article>
 
       <article class="paper">
@@ -416,7 +425,7 @@
         <h3><a href="papers/taught-to-hate.html">Nazi Indoctrination and Anti-Semitic Beliefs in Germany</a></h3>
         <p class="authors">with Nico Voigtl&auml;nder</p>
         <p class="venue">Proceedings of the National Academy of Sciences 112(26), 7931&ndash;7936</p>
-        <p class="links"><a href="https://doi.org/10.1073/pnas.1414822112">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Attempts at modifying public opinions, attitudes, and beliefs range from advertising and schooling to "brainwashing." Their effectiveness is highly controversial. In this paper, we use survey data on anti-Semitic beliefs and attitudes in a representative sample of Germans surveyed in 1996 and 2006 to show that Nazi indoctrination--with its singular focus on fostering racial hatred--was highly effective. Between 1933 and 1945, young Germans were exposed to anti-Semitic ideology in schools, in the (extracurricular) Hitler Youth, and through radio, print, and film. As a result, Germans who grew up under the Nazi regime are much more anti-Semitic than those born before or after that period: the share of committed anti-Semites, who answer a host of questions about attitudes toward Jews in an extreme fashion, is 2-3 times higher than in the population as a whole. Results also hold for average beliefs, and not just the share of extremists; average views of Jews are much more negative among those born in the 1920s and 1930s. Nazi indoctrination was most effective where it could tap into preexisting prejudices; those born in districts that supported anti-Semitic parties before 1914 show the greatest increases in anti-Jewish attitudes. These findings demonstrate the extent to which beliefs can be modified through policy intervention. We also identify parameters amplifying the effectiveness of such measures, such as preexisting prejudices.</p></details><a href="https://doi.org/10.1073/pnas.1414822112">Article</a></div>
       </article>
 
       <article class="paper">
@@ -424,7 +433,7 @@
         <h3><a href="papers/state-capacity-military-conflict.html">State Capacity and Military Conflict</a></h3>
         <p class="authors">with Nicola Gennaioli</p>
         <p class="venue">Review of Economic Studies 82(4), 1409&ndash;1448</p>
-        <p class="links"><a href="State_Capacity.pdf">PDF</a><a href="http://ssrn.com/abstract=1961619">SSRN</a><a href="https://doi.org/10.1093/restud/rdv019">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Powerful, centralized states controlling a large share of national income only begin to appear in Europe after 1500. We build a model that explains their emergence in response to the increasing importance of money for military success. When fiscal resources are not crucial for winning wars, the threat of external conflict stifles state-building. As finance becomes critical, internally cohesive states invest in state capacity while divided states rationally drop out of the competition, causing divergence. We emphasize the role of the "Military Revolution", a sequence of technological innovations that transformed armed conflict. Using data from 374 battles, we investigate empirically both the importance of money for military success and patterns of state-building in early modern Europe. The evidence is consistent with the predictions of our model.</p></details><a href="State_Capacity.pdf">PDF</a><a href="http://ssrn.com/abstract=1961619">SSRN</a><a href="https://doi.org/10.1093/restud/rdv019">Article</a></div>
       </article>
 
       <article class="paper">
@@ -432,7 +441,7 @@
         <h3><a href="papers/numeracy-food-prices.html">Numeracy and the Impact of High Food Prices in Industrializing Britain, 1780&ndash;1850</a></h3>
         <p class="authors">with J&ouml;rg Baten &amp; Dorothee Crayen</p>
         <p class="venue">Review of Economics and Statistics 96(3), 418&ndash;430</p>
-        <p class="links"><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26906">Data</a><a href="https://doi.org/10.1162/REST_a_00403">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Using census-based data on the ability to recall one's age, we show that low levels of nutrition impaired numeracy in industrializing England, 1780 to 1850: cognitive ability declined among those born during the Napoleonic wars. The effect was stronger in areas where grain was expensive and relief for the poor was limited. Nutritional shortages had a nonlinear effect on numeracy, with severe shortages impairing numeracy more. Nutrition during childhood also mattered for labor market outcomes: individuals born in periods or counties with low numeracy typically worked in occupations with lower earnings.</p></details><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26906">Data</a><a href="https://doi.org/10.1162/REST_a_00403">Article</a></div>
       </article>
 
       <article class="paper">
@@ -440,7 +449,7 @@
         <h3><a href="papers/how-the-west-invented-fertility-restriction.html">How the West &ldquo;Invented&rdquo; Fertility Restriction</a></h3>
         <p class="authors">with Nico Voigtl&auml;nder</p>
         <p class="venue">American Economic Review 103(6), 2227&ndash;2264</p>
-        <p class="links"><a href="How_the_West.pdf">PDF</a><a href="https://www.openicpsr.org/openicpsr/project/112673/version/V1/view">Data</a><a href="https://doi.org/10.1257/aer.103.6.2227">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>We analyze the emergence of the first socioeconomic institution in history limiting fertility: west of a line from St. Petersburg to Trieste, the European Marriage Pattern (EMP) reduced childbirths by approximately one-third between the fourteenth and eighteenth century. To explain the rise of EMP we build a two-sector model of agricultural production--grain and livestock. Women have a comparative advantage in animal husbandry. After the Black Death in 1348–1350, land abundance triggered a shift toward the pastoral sector. This improved female employment prospects, leading to later marriages. Using detailed data from England, we provide strong evidence for our mechanism.</p></details><a href="How_the_West.pdf">PDF</a><a href="https://www.openicpsr.org/openicpsr/project/112673/version/V1/view">Data</a><a href="https://doi.org/10.1257/aer.103.6.2227">Article</a></div>
       </article>
 
       <article class="paper">
@@ -448,7 +457,7 @@
         <h3><a href="papers/three-horsemen-of-riches.html">The Three Horsemen of Riches: Plague, War, and Urbanization in Early Modern Europe</a></h3>
         <p class="authors">with Nico Voigtl&auml;nder</p>
         <p class="venue">Review of Economic Studies 80(2), 774&ndash;811</p>
-        <p class="links"><a href="Three_Horsemen.pdf">PDF</a><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Horsemen_Bairoch_Data.xlsx">Data</a><a href="https://doi.org/10.1093/restud/rds034">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>How did Europe escape the "Iron Law of Wages?" We construct a simple Malthusian model with two sectors and multiple steady states, and use it to explain why European per capita incomes and urbanization rates increased during the period 1350–1700. Productivity growth can only explain a small fraction of the rise in output per capita. Population dynamics--changes of the birth and death schedules--were far more important determinants of steady states. We show how a major shock to population can trigger a transition to a new steady state with higher per-capita income. The Black Death was such a shock, raising wages substantially. Because of Engel's Law, demand for urban products increased, and urban centers grew in size. European cities were unhealthy, and rising urbanization pushed up aggregate death rates. This effect was reinforced by diseases spread through war, financed by higher tax revenues. In addition, rising trade also spread diseases. In this way higher wages themselves reduced population pressure. We show in a calibration exercise that our model can account for the sustained rise in European urbanization as well as permanently higher per capita incomes in 1700, without technological change. Wars contributed importantly to the "Rise of Europe", even if they had negative short-run effects. We thus trace Europe's precocious rise to economic riches to interactions of the plague shock with the belligerent political environment and the nature of cities.</p></details><a href="Three_Horsemen.pdf">PDF</a><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Horsemen_Bairoch_Data.xlsx">Data</a><a href="https://doi.org/10.1093/restud/rds034">Article</a></div>
       </article>
 
       <article class="paper">
@@ -456,7 +465,7 @@
         <h3><a href="papers/persecution-perpetuated.html">Persecution Perpetuated: The Medieval Origins of Anti-Semitic Violence in Nazi Germany</a></h3>
         <p class="authors">with Nico Voigtl&auml;nder</p>
         <p class="venue">Quarterly Journal of Economics 127(3), 1339&ndash;1392</p>
-        <p class="links"><a href="Persecution_Perpetuated.pdf">PDF</a><a href="https://cepr.org/voxeu/columns/geography-hate-how-anti-semitism-interwar-germany-was-influenced-medieval-mass-murder">VoxEU</a><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Persecution_Perpetuated_QJE_Replicate.zip">Data</a><a href="https://doi.org/10.1093/qje/qjs019">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>How persistent are cultural traits? Using data on anti-Semitism in Germany, we find local continuity over 600 years. Jews were often blamed when the Black Death killed at least a third of Europe's population during 1348–50. We use plague-era pogroms as an indicator for medieval anti-Semitism. They reliably predict violence against Jews in the 1920s, votes for the Nazi Party, deportations after 1933, attacks on synagogues, and letters to Der Stürmer. We also identify areas where persistence was lower: cities with high levels of trade or immigration. Finally, we show that our results are not driven by political extremism or by different attitudes toward violence.</p></details><a href="Persecution_Perpetuated.pdf">PDF</a><a href="https://cepr.org/voxeu/columns/geography-hate-how-anti-semitism-interwar-germany-was-influenced-medieval-mass-murder">VoxEU</a><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/Persecution_Perpetuated_QJE_Replicate.zip">Data</a><a href="https://doi.org/10.1093/qje/qjs019">Article</a></div>
       </article>
 
       <article class="paper">
@@ -464,7 +473,7 @@
         <h3><a href="papers/lending-to-the-borrower-from-hell.html">Lending to the Borrower from Hell: Debt and Default in the Age of Philip II, 1556&ndash;1598</a></h3>
         <p class="authors">with Mauricio Drelichman</p>
         <p class="venue">Economic Journal 121, 1205&ndash;1227</p>
-        <p class="links"><a href="Borrower_from_Hell.pdf">PDF</a><a href="https://doi.org/10.1111/j.1468-0297.2011.02442.x">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>What sustained borrowing without third-party enforcement in the early days of sovereign lending? Philip II of Spain accumulated towering debts while stopping all payments to his lenders four times. How could the sovereign borrow much and default often? We argue that bankers’ ability to cut off Philip II’s access to smoothing services was key. A form of syndicated lending created cohesion among his Genoese bankers. As a result, lending moratoria were sustained through a ‘cheat-the-cheater’ mechanism. Our article thus lends empirical support to a recent literature that emphasises the role of bankers’ incentives for continued sovereign borrowing.</p></details><a href="Borrower_from_Hell.pdf">PDF</a><a href="https://doi.org/10.1111/j.1468-0297.2011.02442.x">Article</a></div>
       </article>
 
       <article class="paper">
@@ -472,7 +481,7 @@
         <h3><a href="papers/serial-defaults-serial-profits.html">Serial Defaults, Serial Profits: Returns to Sovereign Lending in Habsburg Spain, 1566&ndash;1600</a></h3>
         <p class="authors">with Mauricio Drelichman</p>
         <p class="venue">Explorations in Economic History 48(1), 1&ndash;19</p>
-        <p class="links"><a href="Serial_Defaults.pdf">PDF</a><a href="https://doi.org/10.1016/j.eeh.2010.08.002">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Philip II of Spain accumulated debts equivalent to 60% of GDP. He also defaulted four times on his short-term loans, thus becoming the first serial defaulter in history. Contrary to a common view in the literature, we show that lending to the king was profitable even under worst-case scenario assumptions. Lenders maintained long-term relationships with the crown. Losses sustained during defaults were more than compensated by profits in normal times. Defaults were not catastrophic events. In effect, short-term lending acted as an insurance mechanism, allowing the king to reduce his payments in harsh times in exchange for paying a premium in tranquil periods.</p></details><a href="Serial_Defaults.pdf">PDF</a><a href="https://doi.org/10.1016/j.eeh.2010.08.002">Article</a></div>
       </article>
 
       <article class="paper">
@@ -480,7 +489,7 @@
         <h3><a href="papers/betting-on-hitler.html">Betting on Hitler: The Value of Political Connections in Nazi Germany</a></h3>
         <p class="authors">with Thomas Ferguson</p>
         <p class="venue">Quarterly Journal of Economics 123(1), 101&ndash;137</p>
-        <p class="links"><a href="Betting_on_Hitler.pdf">PDF</a><a href="https://doi.org/10.1162/qjec.2008.123.1.101">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>This paper examines the value of connections between German industry and the Nazi movement in early 1933. Drawing on previously unused contemporary sources about management and supervisory board composition and stock returns, we find that one out of seven firms, and a large proportion of the biggest companies, had substantive links with the National Socialist German Workers' Party. Firms supporting the Nazi movement experienced unusually high returns, outperforming unconnected ones by 5% to 8% between January and March 1933. These results are not driven by sectoral composition and are robust to alternative estimators and definitions of affiliation.</p></details><a href="Betting_on_Hitler.pdf">PDF</a><a href="https://doi.org/10.1162/qjec.2008.123.1.101">Article</a></div>
       </article>
 
       <article class="paper">
@@ -488,7 +497,7 @@
         <h3><a href="papers/interest-rate-restrictions-usury-1714.html">Interest Rate Restrictions in a Natural Experiment: Loan Allocation and the Change in the Usury Laws in 1714</a></h3>
         <p class="authors">with Peter Temin</p>
         <p class="venue">Economic Journal 118, 743&ndash;758</p>
-        <p class="links"><a href="Usury_1714.pdf">PDF</a><a href="https://doi.org/10.1111/j.1468-0297.2008.02140.x">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>This article studies the effects of interest rate restrictions on loan allocation. The British government tightened the usury laws in 1714, reducing the maximum permissible interest rate from 6% to 5%. A sample of individual loan transactions reveals that average loan size and minimum loan size increased strongly, while access to credit worsened for those with little ‘social capital’. Collateralised credits, which had accounted for a declining share of total lending, returned to their former role of prominence. Our results suggest that the usury laws distorted credit markets significantly; we find no evidence that they offered a form of Pareto-improving social insurance.</p></details><a href="Usury_1714.pdf">PDF</a><a href="https://doi.org/10.1111/j.1468-0297.2008.02140.x">Article</a></div>
       </article>
 
       <article class="paper">
@@ -496,7 +505,7 @@
         <h3><a href="papers/why-england.html">Why England? Demographic Factors, Structural Change and Physical Capital Accumulation during the Industrial Revolution</a></h3>
         <p class="authors">with Nico Voigtl&auml;nder</p>
         <p class="venue">Journal of Economic Growth 11, 319&ndash;361</p>
-        <p class="links"><a href="Why_England.pdf">PDF</a><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/WhyEngland_Simulation.zip">Code</a><a href="https://doi.org/10.1007/s10887-006-9007-6">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Why did England industrialize first? And why was Europe ahead of the rest of the world? Unified growth theory in the tradition of Galor and Weil (2000, American Economic Review, 89, 806–828) and Galor and Moav (2002, Quartely Journal of Economics, 177(4), 1133–1191) captures the key features of the transition from stagnation to growth over time. Yet we know remarkably little about why industrialization occurred much earlier in some parts of the world than in others. To answer this question, we present a probabilistic two-sector model where the initial escape from Malthusian constraints depends on the demographic regime, capital deepening and the use of more differentiated capital equipment. Weather-induced shocks to agricultural productivity cause changes in prices and quantities, and affect wages. In a standard model with capital externalities, these fluctuations interact with the demographic regime and affect the speed of growth. Our model is calibrated to match the main characteristics of the English economy in 1700 and the observed transition until 1850. We capture one of the key features of the British Industrial Revolution emphasized by economic historians -- slow growth of output and productivity. Fertility limitation is responsible for higher per capita incomes, and these in turn increase industrialization probabilities. The paper also explores the availability of nutrition for poorer segments of society. We examine the influence of redistributive institutions such as the Old Poor Law, and find they were not decisive in fostering industrialization. Simulations using parameter values for other countries show that Britain's early escape was only partly due to chance. France could have moved out of agriculture and into manufacturing faster than Britain, but the probability was less than 25%. Contrary to recent claims in the literature, 18th century China had only a minimal chance to escape from Malthusian constraints.</p></details><a href="Why_England.pdf">PDF</a><a href="http://www.anderson.ucla.edu/faculty_pages/nico.v/Research/WhyEngland_Simulation.zip">Code</a><a href="https://doi.org/10.1007/s10887-006-9007-6">Article</a></div>
       </article>
 
       <article class="paper">
@@ -504,14 +513,14 @@
         <h3><a href="papers/riding-the-south-sea-bubble.html">Riding the South Sea Bubble</a></h3>
         <p class="authors">with Peter Temin</p>
         <p class="venue">American Economic Review 94(5), 1654&ndash;1668</p>
-        <p class="links"><a href="South_Sea_Bubble.pdf">PDF</a><a href="https://www.openicpsr.org/openicpsr/project/116029/version/V1/view">Data</a><a href="https://doi.org/10.1257/0002828043052268">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>This paper presents a case study of a well-informed investor in the South Sea bubble. We argue that Hoare's Bank, a fledgling West End London bank, knew that a bubble was in progress and nonetheless invested in the stock: it was profitable to "ride the bubble." Using a unique dataset on daily trades, we show that this sophisticated investor was not constrained by such institutional factors as restrictions on short sales or agency problems. Instead, this study demonstrates that predictable investor sentiment can prevent attacks on a bubble; rational investors may attack only when some coordinating event promotes joint action.</p></details><a href="South_Sea_Bubble.pdf">PDF</a><a href="https://www.openicpsr.org/openicpsr/project/116029/version/V1/view">Data</a><a href="https://doi.org/10.1257/0002828043052268">Article</a></div>
       </article>
 
       <article class="paper">
         <span class="year">2003</span>
         <h3><a href="papers/with-a-bang-not-a-whimper.html">With a Bang, Not a Whimper: Pricking Germany&rsquo;s &ldquo;Stock Market Bubble&rdquo; in 1927 and the Slide into Depression</a></h3>
         <p class="venue">Journal of Economic History 63(1), 65&ndash;99</p>
-        <p class="links"><a href="With_a_Bang.pdf">PDF</a><a href="https://doi.org/10.1017/S0022050703001736">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>In May 1927, the German central bank intervened indirectly to reduce lending to equity investors. The crash that followed ended the only stock market boom during Germany's relative stabilization 1924–1928. The evidence strongly suggests that the German central bank under Hjalmar Schacht was wrong to be concerned about stock prices--there was no bubble. Also, the Reichsbank was mistaken in its belief that a fall in the market would reduce the importance of short-term foreign borrowing and improve conditions in the money market. The misguided intervention had important real effects. Investment suffered, helping to tip Germany into depression.</p></details><a href="With_a_Bang.pdf">PDF</a><a href="https://doi.org/10.1017/S0022050703001736">Article</a></div>
       </article>
 
       <article class="paper">
@@ -519,7 +528,7 @@
         <h3><a href="papers/factor-prices-productivity-growth.html">Factor Prices and Productivity Growth during the British Industrial Revolution</a></h3>
         <p class="authors">with Pol Antr&agrave;s</p>
         <p class="venue">Explorations in Economic History 40(1), 52&ndash;77</p>
-        <p class="links"><a href="Factor_Prices.pdf">PDF</a><a href="https://doi.org/10.1016/S0014-4983(02)00024-4">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>This paper presents new estimates of total factor productivity growth in Britain for the period 1770–1860. We use the dual technique and argue that the estimates we derive from factor prices are of similar quality to quantity-based calculations. Our results provide further evidence, calculated on the basis of an independent set of sources, that productivity growth during the British Industrial Revolution was relatively slow. The Crafts–Harley view of the Industrial Revolution is thus reinforced. Our preferred estimates suggest a modest acceleration after 1800.</p></details><a href="Factor_Prices.pdf">PDF</a><a href="https://doi.org/10.1016/S0014-4983(02)00024-4">Article</a></div>
       </article>
 
       <article class="paper">
@@ -527,14 +536,14 @@
         <h3><a href="papers/human-capital-equipment-investment.html">Human Capital, Equipment Investment, and Industrialization</a></h3>
         <p class="authors">with Jonathan Temple</p>
         <p class="venue">European Economic Review 42, 1343&ndash;1362</p>
-        <p class="links"><a href="https://doi.org/10.1016/S0014-2921(97)00082-2">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>This paper constructs simple models in which industrialization is driven by human capital accumulation. Industrialization can explain the robust correlation between equipment investment and growth in developing countries. We show that government intervention is justified within our stylized model, and indicate that a subsidy to equipment investment is likely to be dominated by other policies. In the final section of the paper, we examine the correlation between equipment investment and growth, and find that it is strongest in economies on the brink of industrialization. We also show that this result is not easily explained by diminishing returns.</p></details><a href="https://doi.org/10.1016/S0014-2921(97)00082-2">Article</a></div>
       </article>
 
       <article class="paper">
         <span class="year">1998</span>
         <h3><a href="papers/time-and-work-18th-century-london.html">Time and Work in Eighteenth-Century London</a></h3>
         <p class="venue">Journal of Economic History 58(1), 29&ndash;58</p>
-        <p class="links"><a href="Time_and_Work_JEH.pdf">PDF</a><a href="https://doi.org/10.1017/S0022050700019872">Article</a></p>
+        <div class="links abs-row"><details class="abs-inline"><summary>Abstract</summary><p>Witnesses' accounts are used to analyze changes in working hours between 1750 and 1800. Two findings stand out. The article demonstrates that the information contained in witnesses' accounts allows us to reconstruct historical time-budgets and provides extensive tests of the new method. Estimates of annual labor input in 1749/63 and 1799/1803 are presented. It emerges that the number of annual working hours changed rapidly between the middle and the end of the eighteenth century. These findings have important implications for the issue of total factor productivity during the Industrial Revolution.</p></details><a href="Time_and_Work_JEH.pdf">PDF</a><a href="https://doi.org/10.1017/S0022050700019872">Article</a></div>
       </article>
 
     </div>
