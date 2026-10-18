@@ -9,6 +9,7 @@ SSRN author profile: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=14
 - Spatial Unit Roots in Regressions: A Practitioner's Guide and Stata Package: https://www.jvoth.com/papers/spatial-unit-roots.html
 - Going Viral: Protests and Political Polarization in 1932 Hamburg: https://www.jvoth.com/papers/going-viral.html
 - Fighting for Growth: Labor Scarcity and Technological Progress During the British Industrial Revolution: https://www.jvoth.com/papers/fighting-for-growth.html
+- Discretion and Destruction: Promotions, Performance, and Patronage in the Royal Navy: https://www.jvoth.com/papers/discretion-and-destruction.html
 - Slavery and the British Industrial Revolution: https://www.jvoth.com/papers/slavery-british-industrial-revolution.html
 - Never Enough: Dynamic Status Incentives in Organizations: https://www.jvoth.com/papers/never-enough.html
 - Transmitting Terror: Radio and Repression in Stalin's Soviet Union: https://www.jvoth.com/papers/transmitting-terror.html
