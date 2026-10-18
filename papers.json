@@ -1,12 +1,54 @@
 {
   "schema": "https://www.jvoth.com/papers.schema.json",
-  "generated": "2026-06-22",
+  "generated": "2026-10-18",
   "author_profile": {
     "name": "Hans-Joachim Voth",
     "website": "https://www.jvoth.com",
     "ssrn": "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=143391"
   },
   "papers": [
+    {
+      "title": "Image(s)",
+      "authors": [
+        "Hans-Joachim Voth",
+        "David Yanagizawa-Drott"
+      ],
+      "date": "2027",
+      "status": "forthcoming",
+      "venue": "Forthcoming, Quarterly Journal of Economics",
+      "abstract": "From clothes and hairstyles to fashion accessories, humans use a range of stylistic elements to express themselves. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. We systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style.",
+      "keywords": [
+        "culture",
+        "images",
+        "persistence",
+        "cultural change",
+        "similarity",
+        "counter-culture",
+        "hippies"
+      ],
+      "jel": [
+        "A12",
+        "Z13",
+        "N34"
+      ],
+      "canonical_url": "https://www.jvoth.com/papers/images.html",
+      "pdf_url": "https://www.jvoth.com/images_july_24.pdf",
+      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852661",
+      "links": [
+        {
+          "label": "SSRN",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852661"
+        },
+        {
+          "label": "Data",
+          "url": "https://huggingbeard.github.io/images/"
+        },
+        {
+          "label": "AI-generated podcast",
+          "url": "https://www.jvoth.com/Images%20Podcast.wav"
+        }
+      ]
+    },
     {
       "title": "Testing and Correcting for Spatial Unit Roots in Regression Analysis",
       "authors": [
@@ -106,48 +148,6 @@
         {
           "label": "The Economist",
           "url": "http://www.economist.com/graphic-detail/2023/01/17/a-flurry-of-new-studies-identifies-causes-of-the-industrial-revolution"
-        }
-      ]
-    },
-    {
-      "title": "Image(s)",
-      "authors": [
-        "Hans-Joachim Voth",
-        "David Yanagizawa-Drott"
-      ],
-      "date": "2024-07-02",
-      "status": "conditionally accepted",
-      "venue": "Conditionally accepted, Quarterly Journal of Economics",
-      "abstract": "From clothes and hairstyles to fashion accessories, humans use a range of stylistic elements to express themselves. We present new methods to use images as a high-frequency, granular source for the analysis of cultural change. We systematically exploit data from more than 14 million high school yearbook pictures of graduating US seniors to analyze persistence and change in style.",
-      "keywords": [
-        "culture",
-        "images",
-        "persistence",
-        "cultural change",
-        "similarity",
-        "counter-culture",
-        "hippies"
-      ],
-      "jel": [
-        "A12",
-        "Z13",
-        "N34"
-      ],
-      "canonical_url": "https://www.jvoth.com/papers/images.html",
-      "pdf_url": "https://www.jvoth.com/images_july_24.pdf",
-      "ssrn_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852661",
-      "links": [
-        {
-          "label": "SSRN",
-          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6852661"
-        },
-        {
-          "label": "Data",
-          "url": "https://huggingbeard.github.io/images/"
-        },
-        {
-          "label": "AI-generated podcast",
-          "url": "https://www.jvoth.com/Images%20Podcast.wav"
         }
       ]
     },
